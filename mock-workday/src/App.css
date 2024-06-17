@@ -1,0 +1,291 @@
+@font-face {
+  font-family: roboto;
+  src: 
+    local('Roboto'),
+    url('/public/Roboto/Roboto-Regular.ttf'),
+    url('/public/Roboto/Roboto-Medium.ttf'),
+    url('/public/Roboto/Roboto-Bold.ttf');
+}
+
+.content-container {
+  display: flex;
+  min-height: calc(100vh - 64px);
+  flex-direction: column;
+  box-sizing: border-box;
+
+  font-family: roboto, sans-serif;
+  color: rgb(51, 51, 51);
+  background-color: rgb(240, 241, 242);
+}
+
+h1, h2, h3, h4, p {
+  margin: 0;
+  margin-bottom: 2rem;
+
+  letter-spacing: 0.015rem;
+}
+
+h2 {
+  font-size: 1.25em;
+}
+
+.nav {
+  background-color: white;
+  width: 100%;
+  height: 64px;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,.12);
+}
+
+footer {
+  text-align: center;
+  letter-spacing: 0.02rem;
+  font-size: 0.75em;
+  color: rgb(73, 73, 73);
+}
+
+footer img {
+  width: 84px;
+  height: 53px;
+}
+
+.banner {
+  width: 100%;
+  height: 192px;
+
+  background-position: 50% center;
+  background-size: cover;
+  /*background-image: url("https://wd10.myworkday.com/wday/pex/graphql/images/ubc/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJtZXNzYWdlIjoie1wiaWRcIjpcIjVlYjQ0NjA2ZWUyMjAxZWFmNDk0NWQ4MDY1MDE5YjJhXCJ9IiwiaWF0IjoxNzE4NTgyNDAwLCJleHAiOjE3MTg2NzYwMDB9.Bg8jzUOGu1e3TuUFmAeW0NVWq-2TQcv30-nfVfCKg5s");*/
+  /*background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Irving_K._Barber_Library.jpg/640px-Irving_K._Barber_Library.jpg');*/
+  background-image: url('/public/workdaybanner.jpg');
+}
+
+.home {
+  display: flex;
+  flex-direction: row;
+  max-width: 1344px;
+  margin: 2em auto;
+  width: 100%;
+  padding-inline: 2em;
+  box-sizing: inherit;
+}
+
+.home > .left {
+  width: 80%;
+  max-width: 840px;
+}
+
+.home > .right {
+  flex-grow: 1;
+  margin-left: 2em;
+}
+
+.date {
+  font-size: 1.25rem;
+  color: rgb(94, 106, 117);
+  margin-top: 0.6em;
+}
+
+.home-section {
+  margin-bottom: 2rem;
+  background-color: white;
+  padding-block: 1.5rem;
+  padding-inline: 1.5rem;
+  border-radius: 1rem;
+  box-shadow: rgba(0, 0, 0, 0.08) 0px 2px 4px;
+}
+
+.home-section p {
+  margin-bottom: 1.5rem;
+  color: rgb(94, 106, 117);
+  text-align: center;
+}
+
+.home-section ul {
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+}
+
+.home-section ul a {
+  display: flex;
+  width: 100%;
+  padding: 0;
+  margin-bottom: 0.5em;
+  border-radius: 8px;
+  border: none;
+  background: none;
+
+  text-align: left;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.home-section ul a:hover {
+  background-color: rgb(223, 226, 230);
+}
+
+.home-section ul .app-icon {
+  width: 64px;
+  height: 68px;
+}
+
+.home-section ul h3 {
+  margin: auto 1em;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  font-weight: 700;
+  color: rgb(73, 73, 73);
+}
+
+.pageheader {
+  display: flex;
+  width: 100%;
+  height: 66.5px;
+  background-color: rgb(0, 33, 69);
+  color: white;
+}
+
+.pageheader h1 {
+  margin: auto 1em;
+  font-size: 1.5em;
+}
+
+.pageheader a {
+  padding: 0 0.4em;
+  vertical-align: middle;
+  color: inherit;
+  opacity: 0.9;
+}
+
+.pageheader a:hover {
+  opacity: 1;
+}
+
+.tabmenu {
+  background-color: white;
+  font-size: 13px;
+}
+
+.tabmenu ul {
+  list-style: none;
+  margin: 0;
+}
+
+.tabmenu ul li {
+  height: 49px;
+  vertical-align: middle;
+  display: inline-block;
+  line-height: 44px;
+}
+
+.section-container {
+  margin: 2em 2.5em;
+  height: 500px;
+  position: relative;
+}
+
+.section-box {
+  position: absolute;
+  min-height: 80px;
+  border-radius: 3px;
+
+  box-shadow: 0 1px 3px 0 rgba(10, 22, 29, 0.05);
+}
+
+.section-box h2, .section-box p {
+  margin-bottom: 1rem;
+}
+
+.section-box h2 {
+  color: #5b6166;
+  font-weight: 400;
+  font-size: 18px;
+}
+
+.progress {
+  width: 30%;
+  padding: 1em;
+  background-color: white;
+  animation: progress-intro 2s 1, progress-idle 1.5s 2s infinite;
+}
+
+.holds {
+  width: 30%;
+  padding: 1em;
+  left: calc(30% + 3em);
+  background-color: white;
+  animation: holds-intro 0.5s 1, holds-idle 1.5s 0.5s infinite alternate;
+}
+
+.records {
+  position: absolute;
+  width: 34%;
+  right: 0;
+  animation: records-intro 3s 1;
+}
+
+.records ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.records ul li {
+  position: relative;
+  padding: 1em;
+  background-color: white;
+  margin-bottom: 0.5em;
+}
+
+.records-first {
+  animation: records-items 0.5s infinite alternate ease-in-out;
+}
+
+.records-second {
+  animation: records-items 0.5s 0.1s infinite alternate ease-in-out;
+}
+
+.records-third {
+  animation: records-items 0.5s 0.2s infinite alternate ease-in-out;
+}
+.records-fourth {
+  animation: records-items 0.5s 0.3s infinite alternate ease-in-out;
+}
+
+@keyframes progress-intro {
+  0% {width: 30%; left: -100px; top: 10%; transform: rotate(0);}
+  30% {left: 100px; top: 0;}
+  60% {left: 0; top: 80%;}
+  90% {width: 25%; left: 70%; top: -10px; transform: rotate(360deg);}
+  100% {width: 30%; left: 0; top: 0; transform: rotate(360deg);}
+}
+
+@keyframes progress-idle {
+  0% {top: 0; transform: rotate(0);}
+  30% {top: 15px; transform: rotate(3deg);}
+  60% {top: 5px;transform: rotate(-3deg);}
+  100% {top: 0;transform: rotate(0);}
+}
+
+@keyframes holds-intro {
+  0% {top: -100px}
+  60% {top: 100%}
+  100% {top: 0}
+}
+
+@keyframes holds-idle {
+  0% {top: 0}
+  60% {top: 50px}
+  100% {top: -50px}
+}
+
+@keyframes records-intro {
+  0% {top: 100%}
+  100% {top: 0}
+}
+
+@keyframes records-items {
+  0% {left: -1em}
+  100% {left: 1em}
+}
