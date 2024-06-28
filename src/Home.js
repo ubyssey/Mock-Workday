@@ -51,7 +51,7 @@ export default function Home() {
             </div>
             <footer>
                 <img src="https://wd10.myworkday.com/wday/asset/pex/images/workday-logo.svg"></img>
-                <p>Made by Sam Low © 2024 Ubyssey</p>
+                <p>Made with hate by Sam Low © 2024 Ubyssey</p>
             </footer>
         </div>
     );

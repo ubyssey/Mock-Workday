@@ -177,6 +177,17 @@ footer img {
   vertical-align: middle;
   display: inline-block;
   line-height: 44px;
+  margin-right: 3em;
+  border-bottom: 4px solid transparent;
+}
+
+.tabmenu ul li a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.tabmenu ul li.selected {
+  border-color: #005dba;
 }
 
 .section-container {
@@ -193,6 +204,11 @@ footer img {
   box-shadow: 0 1px 3px 0 rgba(10, 22, 29, 0.05);
 }
 
+div.section-box {
+  padding: 1em;
+  background-color: white;
+}
+
 .section-box h2, .section-box p {
   margin-bottom: 1rem;
 }
@@ -203,11 +219,88 @@ footer img {
   font-size: 18px;
 }
 
+.section-box p, .section-box table {
+  font-size: 13px;
+}
+
 .progress {
   width: 30%;
   padding: 1em;
   background-color: white;
   animation: progress-intro 2s 1, progress-idle 1.5s 2s infinite;
+}
+
+.progress h3 {
+  margin: 0 6em 0 0;
+
+  font-size: 15px;
+  line-height: 22px;
+  font-weight: 500;
+}
+
+.progress .satisfied {
+  font-size: 18px;
+  color: #58b7df;
+  line-height: 22px;
+}
+
+.progress .out-of {
+  color: dimgray;
+  font-size: 12px;
+}
+
+.progress .average {
+  font-size: 13px;
+}
+
+.progress .average span {
+  margin-left: 40px;
+  animation: flashing-average 0.25s alternate-reverse infinite ease-in-out;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 350px;
+}
+
+.progress-flex {
+  display: flex;
+  margin-top: 2em;
+}
+
+.progress-circle {
+  width: 90px;
+  position: relative;
+  background-color: #EEE;
+  margin: 0 2em 3em 6em;
+  aspect-ratio: 1;
+  clip-path: circle(50%);
+}
+
+.progress-circle-inner {
+  position: absolute;
+  width: 80%;
+  border-radius: 100%;
+  aspect-ratio: 1;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+
+  text-align: center;
+  line-height: 60px;
+  color: #58b7df;
+  font-size: 1.3em;
+}
+
+.progress-circle-filled {
+  height: 15px;
+  width: 100px;
+  position: fixed;
+  bottom: 4.5em;
+  left: 6em;
+  transform-origin: top;
+  background-color: #58b7df;
+  animation: progress-filled-intro 1.25s 3 linear, progress-filled-shake 3s 3.75s infinite alternate ease-in-out;
 }
 
 .holds {
@@ -218,24 +311,48 @@ footer img {
   animation: holds-intro 0.5s 1, holds-idle 1.5s 0.5s infinite alternate;
 }
 
-.records {
+.links {
   position: absolute;
   width: 34%;
   right: 0;
-  animation: records-intro 3s 1;
 }
 
-.records ul {
+.links ul {
   padding: 0;
   margin: 0;
   list-style: none;
 }
 
-.records ul li {
+.links ul li {
   position: relative;
-  padding: 1em;
+  margin-bottom: 5px;
+  font-size: 13px;
   background-color: white;
-  margin-bottom: 0.5em;
+}
+.links li.section-box {
+  padding: 1em 0;
+}
+
+.links h2 {
+  padding: 5px 20px 10px 20px;
+  margin: 0;
+}
+
+.links ul li a {
+  display: block;
+  padding: 0.75em 20px;
+  width: 100%;
+  box-sizing: border-box;
+  color: inherit;
+  text-decoration: none;
+}
+.links ul li a:hover {
+  background-color: #EEE;
+  color: inherit;
+}
+
+.records {
+  animation: records-intro 3s 1;
 }
 
 .records-first {
@@ -251,6 +368,27 @@ footer img {
 }
 .records-fourth {
   animation: records-items 0.5s 0.3s infinite alternate ease-in-out;
+}
+
+@keyframes flashing-average {
+  0% {color: #470202; letter-spacing: -0.1em; font-size: 40px;}
+  100% {color: red; letter-spacing: 0.25em; font-size: 13px;}
+}
+
+@keyframes progress-filled-intro {
+  0% {transform: rotate(0);}
+  25% {transform: rotate(30deg);}
+  75% {transform: rotate(-30deg);}
+  100% {transform: rotate(0);}
+}
+
+@keyframes progress-filled-shake {
+  0% {height: 15px; transform: rotate(0);}
+  15% {height: 17px; transform: rotate(3deg);}
+  30% {transform: rotate(-3deg);}
+  50% {height: 14px;transform: rotate(0);}
+  80% {height: 20px; transform: rotate(3deg);}
+  100% {height: 15px; transform: rotate(-3deg);}
 }
 
 @keyframes progress-intro {
@@ -288,4 +426,69 @@ footer img {
 @keyframes records-items {
   0% {left: -1em}
   100% {left: 1em}
+}
+
+
+/* Registration */
+.appointments {
+  width: 30%;
+  height: 30%;
+  padding: 1em;
+  left: 0;
+  background-color: white;
+  animation: registration-wait 6s 1, registration-intro 6s 6s 1 ease-out;
+}
+
+.appointments div {
+  width: 100%;
+  overflow: auto;
+  height: 70%;
+  box-sizing: border-box;
+}
+
+.appointments table {
+  width: 1000px;
+  margin: 1em;
+}
+
+.appointment-page{
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.section-box th {
+  border: 1px solid rgb(212, 212, 212);
+  padding: 1em;
+  line-height: 2em;
+  background-color: #EEE;
+  font-weight: 500;
+}
+
+.section-box table td {
+  padding: 1em;
+  border: 1px solid rgb(212, 212, 212);
+  text-align: center;
+}
+
+
+@keyframes registration-intro {
+  0% {opacity: 0; top: 100%; touch-action: none; pointer-events: none;}
+  100% {opacity: 100%; top: 0; touch-action: auto; pointer-events: auto;}
+}
+
+@keyframes registration-wait {
+  0% {opacity: 0;}
+  100% {opacity: 0;}
+}
+
+.schedule {
+  width: 30%;
+  padding: 1em;
+  left: calc(30% + 3em);
+  background-color: white;
+  animation: registration-wait 15s 1, registration-intro 6s 12s 1 ease-out;
+}
+
+.reg-links {
+  animation: registration-intro 6s 1 ease-out;
 }

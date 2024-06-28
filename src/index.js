@@ -7,7 +7,7 @@ import reportWebVitals from './reportWebVitals';
 import Home from './Home';
 import Nav from './Nav';
 import Registration from './Registration';
-import {Academics, AcademicsIndex} from './Academics'
+import {Academics, AcademicsIndex, RegistrationIndex} from './Academics'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -19,6 +19,7 @@ root.render(
       <Route path="/vt0FtpYcOn1z9hxG7zw0fUcKYOul9nTQLqvxXgZvlqWgAQWs3E1nrgR2KPVgTCqzF86" element={<Registration />} />
       <Route path="/academics" element={<Academics />}>
         <Route index element={<AcademicsIndex />} />
+        <Route path="/academics/registration" element={<RegistrationIndex />} />
       </Route>
     </Routes>
     </BrowserRouter>
