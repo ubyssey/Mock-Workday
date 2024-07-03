@@ -17,7 +17,7 @@ export default function Home() {
                     </div>
                 </div>
                 <div className="right">
-                    <p className="date">It's Sunday, June 16, 2024</p>
+                    <p className="date">Pretend it's Friday, June 14, 2024</p>
                     <div className="home-section">
                         <h2>Your Top Apps</h2>
                         <ul>

@@ -1,4 +1,5 @@
 import {Link, Outlet} from "react-router-dom";
+import ReactDOM from 'react-dom/client';
 
 export function Academics() {
     return (
@@ -88,9 +89,162 @@ export function AcademicsIndex() {
     );
 }
 
+function openModal() {
+    document.getElementById('stupid-fucking-modal').showModal();
+}
+
+var date_layers = {};
+date_layers["root"] = {'parent':null,
+    'children': [
+        "Plank epoch",
+        "Grand unification epoch",
+        "Inflationary epoch",
+        "Electroweak epoch",
+        "Quark epoch",
+        "Hadron epoch",
+        "Neutrino decoupling",
+        "Lepton epoch",
+        "Big Bang nucleosynthesis",
+        "Photon epoch",
+        "Recombination",
+        "Dark Ages",
+        "Star and galaxy formation and evolution",
+        "Reionization",
+        "Present time",
+        "Radiation-dominated era",
+        "Matter-dominated era",
+        "Dark-energy-dominated era",
+        "Stelliferous Era",
+        "Heat death"
+    ]
+};
+
+date_layers["Present time"] = {'parent': 'root',
+    'children': [
+        "Precambrian",
+        "Paleozoic",
+        "Mesozoic",
+        "Cenozoic",
+    ]
+};
+
+date_layers["Paleozoic"] = {'parent': 'Present time',
+    'children': [
+        "Cambrian",
+        "Ordovician",
+        "Silurian",
+        "Devonian",
+        "Carboniferous: Mississipian",
+        "Carboniferous: Pennyslvanian",
+        "Permian",
+    ]
+};
+
+date_layers["Mesozoic"] = {'parent': 'Present time',
+    'children': [
+        "Triassic",
+        "Jurassic",
+        "Cretaceous",
+    ]
+};
+
+date_layers["Cenozoic"] = {'parent': 'Present time',
+    'children': [
+        "Tertiary",
+        "Quaternary",
+    ]
+};
+
+date_layers["Tertiary"] = {'parent': 'Cenozoic',
+    'children': [
+        "Paleocene",
+        "Eocene",
+        "Oligocene",
+        "Miocene",
+        "Pilocene",
+    ]
+};
+
+date_layers["Quaternary"] = {'parent': 'Cenozoic',
+    'children': [
+        "Pleistocene",
+        "Holocene",
+    ]
+};
+
+date_layers["Holocene"] = {'parent': 'Present time',
+    'children': [
+        "Before Christ",
+        "After Christ"
+    ]
+};
+
+date_layers["Before Christ"] = {'parent': 'Holocene',
+    'children': [
+        "Paleolithic (pre c. 8800 BCE)",
+        "Mesolithic (c. 8800 – 4900 BCE)",
+        "Neolithic (c. 4900 – 2000 BCE)",
+        "Bronze Age (c. 2000 – 800 BCE)",
+        "Iron Age (c. late 11th century BCE – 1 BCE)",
+        "Roman (c. 56 BCE – 1 CE)",
+    ]
+};
+
+date_layers["After Christ"] = {'parent': 'Holocene',
+    'children': [
+        "Roman (c. 0 BCE – 400 CE)",
+        "Early medieval period (c. 400 – 800 CE)",
+        "Medieval period (800 – c. 1500)",
+        "Post-medieval period (c. 1500 – c. 1800)",
+        "Industrial/Modern",
+    ]
+};
+
+function OptionList({layer}) {
+    console.log("option list");
+    console.log(layer);
+    if (layer in date_layers) {
+        return (
+            <>
+            {date_layers[layer]['parent'] != null && <button className="options-header" onClick={() => selectDate(date_layers[layer]['parent'])}><ion-icon name="arrow-back-outline"></ion-icon> {layer}</button>}
+            <ul>{date_layers[layer]['children'].map((child, index) =>
+                <li key={index}><button onClick={() => selectDate(child)}>{child}</button></li>
+            )}
+            </ul>
+            </>
+        )
+    } else {
+        return (
+        <>
+        <button className="options-header" onClick={() => selectDate('root')}><ion-icon name="arrow-back-outline"></ion-icon> Error start again!</button>
+        <p>fuckkk</p>
+        </>
+        )
+    }
+}
+
+const selectDate = (layer) => {
+    document.getElementById('useless-searchbar').focus();
+    ReactDOM.createRoot(document.getElementById('date-options')).render(<OptionList layer={layer} />);
+}
+
 export function RegistrationIndex() {
     return (
         <div className="section-container">
+            <dialog id="stupid-fucking-modal">
+                <h1>Find Course Sections</h1>
+                <ul>
+                    <li>
+                        <label>Start Date within</label>
+                        <div className="annoying-selector">
+                            <input id="useless-searchbar" type="text" placeholder="Search"></input>
+                            <div id="date-options" className="options">
+                                <OptionList layer="root" />
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </dialog>
             <div className="section-box appointments">
                 <h2>Registration Appointments Active and Upcoming</h2>
                 <div>
@@ -125,7 +279,7 @@ export function RegistrationIndex() {
                     <li className="section-box">
                         <h2>Registration</h2>
                         <ul>
-                            <li><a href="/">Find Course Sections???</a></li>
+                            <li><button onClick={openModal}>Find Course Sections???</button></li>
                             <li><a href="/">Video for going to sleep</a></li>
                             <li><a href="/">Video for going to sleep</a></li>
                             <li><a href="/">Video for going to sleep</a></li>
