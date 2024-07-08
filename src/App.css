@@ -717,9 +717,28 @@ button:hover {
 }
 
 .terrible-spreadsheet-mf .results {
-  padding: 1em 2.5em;
+  margin: 0 2.5em;
+  flex-grow: 1;
+  min-height: 60vh;
+  position: relative;
+  padding: 1em 0;
 }
 
 .terrible-spreadsheet-mf .results ul {
   padding: 0;
+}
+
+.edge {
+  width: 5px;
+  aspect-ratio: 1;
+  position: absolute;
+  background-color: red;
+}
+
+.origin {
+  width: 5px;
+  aspect-ratio: 1;
+  position: absolute;
+  background-color: lime;
+  z-index: 10;
 }
