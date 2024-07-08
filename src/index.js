@@ -8,6 +8,7 @@ import Home from './Home';
 import Nav from './Nav';
 import Registration from './Registration';
 import {Academics, AcademicsIndex, RegistrationIndex} from './Academics'
+import { PickSubject } from './PickSubject';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -21,6 +22,7 @@ root.render(
         <Route index element={<AcademicsIndex />} />
         <Route path="/academics/registration" element={<RegistrationIndex />} />
       </Route>
+      <Route path="pick-subject" element={<PickSubject/>}></Route>
     </Routes>
     </BrowserRouter>
   </React.StrictMode>

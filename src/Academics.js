@@ -1,5 +1,6 @@
 import {Link, Outlet} from "react-router-dom";
 import ReactDOM from 'react-dom/client';
+import { useState } from 'react';
 
 export function Academics() {
     return (
@@ -31,7 +32,7 @@ export function AcademicsIndex() {
                 <div class="progress-flex">
                     <div class="progress-circle">
                         <div class="progress-circle-filled"></div>
-                        <div id="progress-inner" class="progress-circle-inner">4%</div>
+                        <div id="progress-inner" class="progress-circle-inner"><span>4%</span></div>
                     </div>
                     <div>
                         <h3>B.Sc., Major in Who Really Cares??? (Vancouver)</h3>
@@ -200,51 +201,102 @@ date_layers["After Christ"] = {'parent': 'Holocene',
     ]
 };
 
-function OptionList({layer}) {
-    console.log("option list");
-    console.log(layer);
+date_layers["Industrial/Modern"] = {'parent': 'After Christ',
+    'final': true,
+    'children': [
+        'Term 1',
+        'Term 2'
+    ]
+};
+
+
+function OptionList({layer, selected, setSelected}) {
+    function addSelected(term, button) {
+        if(selected.includes(term)) {
+            selected = selected.filter(sel => sel !== term);
+            document.getElementById(button).checked = false;
+        } else {
+            selected = [ ...selected, term ];
+            document.getElementById(button).checked = true;
+        }
+        setSelected(selected);
+    }
+
+    const selectDate = (layer) => {
+        document.getElementById('useless-searchbar').focus();
+        ReactDOM.createRoot(document.getElementById('date-options')).render(<OptionList layer={layer} selected={selected} setSelected={select => setSelected(select)}/>);
+    };
+
     if (layer in date_layers) {
-        return (
-            <>
-            {date_layers[layer]['parent'] != null && <button className="options-header" onClick={() => selectDate(date_layers[layer]['parent'])}><ion-icon name="arrow-back-outline"></ion-icon> {layer}</button>}
-            <ul>{date_layers[layer]['children'].map((child, index) =>
-                <li key={index}><button onClick={() => selectDate(child)}>{child}</button></li>
-            )}
-            </ul>
-            </>
-        )
+            return (
+                <>
+                {date_layers[layer]['parent'] != null && <button className="options-header" onClick={() => selectDate(date_layers[layer]['parent'])}><ion-icon name="arrow-back-outline"></ion-icon> {layer}</button>}
+                <ul>{date_layers[layer]['children'].map((child, index) =>
+                    <li key={index}>
+                        { 'final' in date_layers[layer] ? 
+                            <button onClick={() => {
+                                addSelected(child, "term-button-" + String(index));
+                                }}>
+                                <input defaultChecked={selected.includes(child)} disabled id={"term-button-" + String(index)} type="checkbox" name="child" value="child"></input>
+                                <label for={"term-button-" + String(index)}>{child}</label>
+                            </button>
+                        :
+                            <button onClick={() => selectDate(child)}>{child}</button>
+                        }
+                    </li>
+                )}
+                </ul>
+                </>
+            );
     } else {
         return (
         <>
         <button className="options-header" onClick={() => selectDate('root')}><ion-icon name="arrow-back-outline"></ion-icon> Error start again!</button>
         <p>fuckkk</p>
         </>
-        )
+        );
     }
 }
 
-const selectDate = (layer) => {
-    document.getElementById('useless-searchbar').focus();
-    ReactDOM.createRoot(document.getElementById('date-options')).render(<OptionList layer={layer} />);
+function StupidModal() {
+    const [selected, setSelected] = useState([]);
+    
+    return (
+        <dialog id="stupid-fucking-modal">
+            <h1>Find Course Sections</h1>
+            <ul>
+                <li>
+                    <label>Start Date within</label>
+                    <div className="annoying-selector">
+                        <ul className="selected-list">{selected.map((selection) =>
+                            <li>{selection}</li>
+                        )}</ul>
+                        <input id="useless-searchbar" type="text" placeholder="Search"></input>
+                        <div id="date-options" className="options">
+                            <OptionList layer="root" selected={selected} setSelected={select => setSelected(select)}/>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            <div className="stupid-fucking-modal--buttons">
+                <button className="cancel" onClick={() => {window.location.replace("/academics/registration")}}>Cancel</button>
+                <button className="ok" onClick={() => {
+                    if(selected.length > 0) {
+                        window.location.replace("/pick-subject/?term=" + selected.join(","));
+                    } else {
+                        document.getElementById('stupid-fucking-modal').style.animation = "";
+                        setTimeout(function () {document.getElementById('stupid-fucking-modal').style.animation = "angry 2s 1, shake 0.02s 50 alternate"}, 2);
+                    }
+                }}>OK</button>
+            </div>
+        </dialog>
+    );
 }
 
 export function RegistrationIndex() {
     return (
         <div className="section-container">
-            <dialog id="stupid-fucking-modal">
-                <h1>Find Course Sections</h1>
-                <ul>
-                    <li>
-                        <label>Start Date within</label>
-                        <div className="annoying-selector">
-                            <input id="useless-searchbar" type="text" placeholder="Search"></input>
-                            <div id="date-options" className="options">
-                                <OptionList layer="root" />
-                            </div>
-                        </div>
-                    </li>
-                </ul>
-            </dialog>
+            <StupidModal />
             <div className="section-box appointments">
                 <h2>Registration Appointments Active and Upcoming</h2>
                 <div>

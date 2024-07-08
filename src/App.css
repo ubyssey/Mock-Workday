@@ -287,9 +287,15 @@ div.section-box {
   background-color: white;
 
   text-align: center;
-  line-height: 60px;
   color: #58b7df;
   font-size: 1.3em;
+}
+
+.progress-circle-inner span {
+  transform: translate(-50%,-50%);
+  position: absolute;
+  top: 50%;
+  left: 50%;
 }
 
 .progress-circle-filled {
@@ -529,7 +535,7 @@ dialog {
     font-size: 0.9em;
     font-weight: 600;
   }
-  input {
+  input[type="text"] {
     width: 246px;
     height: 36px;
     padding: 8px 8px 8px 12px;
@@ -540,6 +546,19 @@ dialog {
   input:focus-visible {
     border: none;
   }
+}
+
+@keyframes angry {
+  0% {background-color: white;}
+  10% {background-color: red;}
+  100% {background-color: white;}
+}
+
+@keyframes shake {
+  0% {transform: rotate(0);}
+  25% {transform: rotate(10deg);}
+  75% {transform: rotate(-10deg);}
+  100% {transform: rotate(0);}
 }
 
 .options {
@@ -569,9 +588,24 @@ dialog {
 .annoying-selector ul {
   padding: 0;
   width: 100%;
-  li {
-    width: 100%;
-  }
+}
+
+.date-options li {
+  width: 100%;
+}
+
+ul.selected-list {
+  padding: 0.35em;
+}
+
+.selected-list li {
+  width: fit-content;
+  display: inline;
+  margin-right: 0.25em;
+  padding: 0.1em;
+  font-size: 0.8em;
+  color: rgb(51, 51, 51);
+  background-color: rgb(232, 235, 237);
 }
 
 .annoying-selector button {
@@ -587,6 +621,11 @@ dialog {
 
 .annoying-selector ul button:hover {
   background-color: rgb(230, 235, 237);
+  cursor: pointer;
+}
+
+.annoying-selector ul button:hover > * {
+  cursor: pointer;
 }
 
 .annoying-selector button.options-header {
@@ -597,4 +636,90 @@ dialog {
 
 button:hover {
   cursor: pointer;
+}
+
+.stupid-fucking-modal--buttons {
+  margin-top: 5em;
+  padding: 0.5em 1.5em;
+  border-top: 1px solid #dfe2e6;
+  display: flex;
+  justify-content: right;
+}
+
+.stupid-fucking-modal--buttons button {
+  margin: 0.5em;
+  border: none;
+  border-radius: 2em;
+  padding: 1em 0;
+  width: 110px;
+  text-align: center;
+  color: white;
+  font-weight: 600;
+}
+.stupid-fucking-modal--buttons button.ok {
+  background-color: orange;
+  color: white;
+}
+.stupid-fucking-modal--buttons button.ok:hover {
+  background-color: hsla(34, 100%, 47.5%, 1);
+}
+
+.stupid-fucking-modal--buttons button.cancel {
+  color: hsla(0, 0%, 20%, 1);
+  background: none;
+  border: 1px solid;
+}
+.stupid-fucking-modal--buttons button.cancel:hover {
+  color: white;
+  background-color: hsla(0, 0%, 20%, 1);
+}
+
+.info-bar {
+  background-color: white;
+  font-size: 13px;
+  padding: 0 3em 3em 3em;
+}
+
+.info-segment-idk {
+  display: flex;
+  margin: 1em 0;
+}
+
+.info-segment-idk label {
+  color: #494949;
+  font-size: 1em;
+  font-weight: 600;
+}
+
+.info-segment-idk ul {
+  display: inline-block;
+  margin: 0;
+  list-style: none;
+  padding-left: 1.5em;
+}
+
+.info-segment-idk ul li {
+  width: fit-content;
+  margin-bottom: 0.5em;
+}
+
+.terrible-spreadsheet-mf {
+  margin: 2em 0;
+  display: flex;
+}
+
+.terrible-spreadsheet-mf .filters {
+  padding: 1em 2.5em;
+  background-color: white;
+  box-sizing: border-box;
+  width: 300px;
+  flex-shrink: 0;
+}
+
+.terrible-spreadsheet-mf .results {
+  padding: 1em 2.5em;
+}
+
+.terrible-spreadsheet-mf .results ul {
+  padding: 0;
 }
