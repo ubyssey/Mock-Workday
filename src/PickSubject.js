@@ -9,855 +9,47 @@ function useQuery() {
     return React.useMemo(() => new URLSearchParams(search), [search]);
   }
 
-function animateSubjects() {
+var animationName = "";
+var animationRepeat = false
 
-    const idk = {
-        "width": 1444,
-        "height": 1080,
-        "polygons": [
-            {
-                "origin": [
-                    903,
-                    821
-                ],
-                "edges": [
-                    [
-                        1129,
-                        821
-                    ],
-                    [
-                        753,
-                        1079
-                    ],
-                    [
-                        844,
-                        718
-                    ]
-                ]
-            },
-            {
-                "origin": [
-                    1127,
-                    219
-                ],
-                "edges": [
-                    [
-                        1131,
-                        219
-                    ],
-                    [
-                        916,
-                        583
-                    ],
-                    [
-                        1088,
-                        152
-                    ]
-                ]
-            },
-            {
-                "origin": [
-                    1047,
-                    841
-                ],
-                "edges": [
-                    [
-                        1133,
-                        841
-                    ],
-                    [
-                        909,
-                        1079
-                    ],
-                    [
-                        913,
-                        609
-                    ]
-                ]
-            },
-            {
-                "origin": [
-                    692,
-                    957
-                ],
-                "edges": [
-                    [
-                        1165,
-                        957
-                    ],
-                    [
-                        621,
-                        1079
-                    ],
-                    [
-                        600,
-                        799
-                    ]
-                ]
-            },
-            {
-                "origin": [
-                    577,
-                    936
-                ],
-                "edges": [
-                    [
-                        1215,
-                        936
-                    ],
-                    [
-                        494,
-                        1079
-                    ],
-                    [
-                        436,
-                        692
-                    ]
-                ]
-            },
-            {
-                "origin": [
-                    1142,
-                    1041
-                ],
-                "edges": [
-                    [
-                        1180,
-                        1041
-                    ],
-                    [
-                        1119,
-                        1079
-                    ],
-                    [
-                        900,
-                        622
-                    ]
-                ]
-            },
-            {
-                "origin": [
-                    906,
-                    733
-                ],
-                "edges": [
-                    [
-                        1121,
-                        733
-                    ],
-                    [
-                        706,
-                        1079
-                    ],
-                    [
-                        832,
-                        605
-                    ]
-                ]
-            },
-            {
-                "origin": [
-                    793,
-                    993
-                ],
-                "edges": [
-                    [
-                        1161,
-                        993
-                    ],
-                    [
-                        743,
-                        1079
-                    ],
-                    [
-                        698,
-                        829
-                    ]
-                ]
-            },
-            {
-                "origin": [
-                    951,
-                    202
-                ],
-                "edges": [
-                    [
-                        1125,
-                        202
-                    ],
-                    [
-                        787,
-                        486
-                    ],
-                    [
-                        881,
-                        80
-                    ]
-                ]
-            },
-            {
-                "origin": [
-                    980,
-                    903
-                ],
-                "edges": [
-                    [
-                        1145,
-                        903
-                    ],
-                    [
-                        878,
-                        1079
-                    ],
-                    [
-                        853,
-                        683
-                    ]
-                ]
-            },
-            {
-                "origin": [
-                    800,
-                    256
-                ],
-                "edges": [
-                    [
-                        1138,
-                        256
-                    ],
-                    [
-                        716,
-                        401
-                    ],
-                    [
-                        777,
-                        217
-                    ]
-                ]
-            },
-            {
-                "origin": [
-                    968,
-                    273
-                ],
-                "edges": [
-                    [
-                        1147,
-                        273
-                    ],
-                    [
-                        813,
-                        541
-                    ],
-                    [
-                        857,
-                        82
-                    ]
-                ]
-            },
-            {
-                "origin": [
-                    1095,
-                    298
-                ],
-                "edges": [
-                    [
-                        1158,
-                        298
-                    ],
-                    [
-                        923,
-                        595
-                    ],
-                    [
-                        998,
-                        130
-                    ]
-                ]
-            },
-            {
-                "origin": [
-                    629,
-                    847
-                ],
-                "edges": [
-                    [
-                        1134,
-                        847
-                    ],
-                    [
-                        494,
-                        1079
-                    ],
-                    [
-                        601,
-                        799
-                    ]
-                ]
-            },
-            {
-                "origin": [
-                    806,
-                    206
-                ],
-                "edges": [
-                    [
-                        1127,
-                        206
-                    ],
-                    [
-                        706,
-                        378
-                    ],
-                    [
-                        802,
-                        199
-                    ]
-                ]
-            },
-            {
-                "origin": [
-                    553,
-                    739
-                ],
-                "edges": [
-                    [
-                        555,
-                        739
-                    ],
-                    [
-                        476,
-                        872
-                    ],
-                    [
-                        517,
-                        677
-                    ]
-                ]
-            },
-            {
-                "origin": [
-                    1071,
-                    557
-                ],
-                "edges": [
-                    [
-                        1193,
-                        557
-                    ],
-                    [
-                        769,
-                        1079
-                    ],
-                    [
-                        815,
-                        114
-                    ]
-                ]
-            },
-            {
-                "origin": [
-                    991,
-                    673
-                ],
-                "edges": [
-                    [
-                        1119,
-                        673
-                    ],
-                    [
-                        756,
-                        1079
-                    ],
-                    [
-                        746,
-                        249
-                    ]
-                ]
-            },
-            {
-                "origin": [
-                    442,
-                    769
-                ],
-                "edges": [
-                    [
-                        554,
-                        769
-                    ],
-                    [
-                        408,
-                        827
-                    ],
-                    [
-                        406,
-                        706
-                    ]
-                ]
-            },
-            {
-                "origin": [
-                    569,
-                    825
-                ],
-                "edges": [
-                    [
-                        688,
-                        825
-                    ],
-                    [
-                        506,
-                        934
-                    ],
-                    [
-                        484,
-                        678
-                    ]
-                ]
-            },
-            {
-                "origin": [
-                    451,
-                    756
-                ],
-                "edges": [
-                    [
-                        556,
-                        756
-                    ],
-                    [
-                        408,
-                        829
-                    ],
-                    [
-                        418,
-                        698
-                    ]
-                ]
-            },
-            {
-                "origin": [
-                    806,
-                    353
-                ],
-                "edges": [
-                    [
-                        1173,
-                        353
-                    ],
-                    [
-                        753,
-                        444
-                    ],
-                    [
-                        746,
-                        249
-                    ]
-                ]
-            },
-            {
-                "origin": [
-                    1030,
-                    866
-                ],
-                "edges": [
-                    [
-                        1138,
-                        866
-                    ],
-                    [
-                        906,
-                        1079
-                    ],
-                    [
-                        713,
-                        317
-                    ]
-                ]
-            },
-            {
-                "origin": [
-                    537,
-                    983
-                ],
-                "edges": [
-                    [
-                        1161,
-                        983
-                    ],
-                    [
-                        481,
-                        1079
-                    ],
-                    [
-                        506,
-                        929
-                    ]
-                ]
-            },
-            {
-                "origin": [
-                    846,
-                    638
-                ],
-                "edges": [
-                    [
-                        1192,
-                        638
-                    ],
-                    [
-                        841,
-                        645
-                    ],
-                    [
-                        838,
-                        624
-                    ]
-                ]
-            },
-            {
-                "origin": [
-                    876,
-                    166
-                ],
-                "edges": [
-                    [
-                        1100,
-                        166
-                    ],
-                    [
-                        731,
-                        417
-                    ],
-                    [
-                        832,
-                        90
-                    ]
-                ]
-            },
-            {
-                "origin": [
-                    1119,
-                    205
-                ],
-                "edges": [
-                    [
-                        1126,
-                        205
-                    ],
-                    [
-                        909,
-                        568
-                    ],
-                    [
-                        1088,
-                        152
-                    ]
-                ]
-            },
-            {
-                "origin": [
-                    956,
-                    743
-                ],
-                "edges": [
-                    [
-                        1125,
-                        743
-                    ],
-                    [
-                        761,
-                        1079
-                    ],
-                    [
-                        712,
-                        321
-                    ]
-                ]
-            },
-            {
-                "origin": [
-                    1194,
-                    573
-                ],
-                "edges": [
-                    [
-                        1194,
-                        573
-                    ],
-                    [
-                        1145,
-                        657
-                    ],
-                    [
-                        920,
-                        99
-                    ]
-                ]
-            },
-            {
-                "origin": [
-                    466,
-                    865
-                ],
-                "edges": [
-                    [
-                        1138,
-                        865
-                    ],
-                    [
-                        463,
-                        869
-                    ],
-                    [
-                        392,
-                        737
-                    ]
-                ]
-            },
-            {
-                "origin": [
-                    1217,
-                    937
-                ],
-                "edges": [
-                    [
-                        1218,
-                        937
-                    ],
-                    [
-                        1212,
-                        944
-                    ],
-                    [
-                        1217,
-                        937
-                    ]
-                ]
-            },
-            {
-                "origin": [
-                    987,
-                    325
-                ],
-                "edges": [
-                    [
-                        1167,
-                        325
-                    ],
-                    [
-                        834,
-                        590
-                    ],
-                    [
-                        848,
-                        85
-                    ]
-                ]
-            },
-            {
-                "origin": [
-                    908,
-                    104
-                ],
-                "edges": [
-                    [
-                        926,
-                        104
-                    ],
-                    [
-                        725,
-                        420
-                    ],
-                    [
-                        897,
-                        85
-                    ]
-                ]
-            },
-            {
-                "origin": [
-                    1037,
-                    459
-                ],
-                "edges": [
-                    [
-                        1189,
-                        459
-                    ],
-                    [
-                        678,
-                        1079
-                    ],
-                    [
-                        826,
-                        94
-                    ]
-                ]
-            },
-            {
-                "origin": [
-                    894,
-                    1043
-                ],
-                "edges": [
-                    [
-                        1181,
-                        1043
-                    ],
-                    [
-                        873,
-                        1079
-                    ],
-                    [
-                        762,
-                        815
-                    ]
-                ]
-            },
-            {
-                "origin": [
-                    955,
-                    425
-                ],
-                "edges": [
-                    [
-                        1186,
-                        425
-                    ],
-                    [
-                        838,
-                        627
-                    ],
-                    [
-                        818,
-                        189
-                    ]
-                ]
-            },
-            {
-                "origin": [
-                    978,
-                    263
-                ],
-                "edges": [
-                    [
-                        1141,
-                        263
-                    ],
-                    [
-                        816,
-                        543
-                    ],
-                    [
-                        870,
-                        77
-                    ]
-                ]
-            },
-            {
-                "origin": [
-                    713,
-                    877
-                ],
-                "edges": [
-                    [
-                        1138,
-                        877
-                    ],
-                    [
-                        596,
-                        1079
-                    ],
-                    [
-                        682,
-                        824
-                    ]
-                ]
-            },
-            {
-                "origin": [
-                    786,
-                    211
-                ],
-                "edges": [
-                    [
-                        1128,
-                        211
-                    ],
-                    [
-                        710,
-                        342
-                    ],
-                    [
-                        785,
-                        210
-                    ]
-                ]
-            },
-            {
-                "origin": [
-                    799,
-                    1051
-                ],
-                "edges": [
-                    [
-                        809,
-                        1051
-                    ],
-                    [
-                        782,
-                        1079
-                    ],
-                    [
-                        663,
-                        817
-                    ]
-                ]
-            },
-            {
-                "origin": [
-                    1006,
-                    980
-                ],
-                "edges": [
-                    [
-                        1161,
-                        980
-                    ],
-                    [
-                        948,
-                        1079
-                    ],
-                    [
-                        848,
-                        707
-                    ]
-                ]
-            },
-            {
-                "origin": [
-                    1073,
-                    225
-                ],
-                "edges": [
-                    [
-                        1132,
-                        225
-                    ],
-                    [
-                        837,
-                        633
-                    ],
-                    [
-                        1016,
-                        126
-                    ]
-                ]
-            }
-        ]
+function rickRoll() {
+
+    var xhttp = new XMLHttpRequest();
+
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            console.log(xhttp.responseText);
+            const rickroll = JSON.parse(xhttp.responseText);
+            animationName = 'rickroll';
+            animationRepeat = true;
+            animateFrame(rickroll, 0, 'rickroll');
+        }
     };
 
+    xhttp.open("GET", "/rickroll.json", true);
+    xhttp.send();
+}
+
+function badApple() {
+
+    var xhttp = new XMLHttpRequest();
+
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            console.log(xhttp.responseText);
+            const badapple = JSON.parse(xhttp.responseText);
+            animationName = 'badapple';
+            animationRepeat = false;
+            animateFrame(badapple, 0, 'badapple');
+        }
+    };
+
+    xhttp.open("GET", "/badapple.json", true);
+    xhttp.send();
+}
+
+function animateFrame(frames, frameNum, name) {
+    var frame = frames[frameNum];
     var comics = document.getElementsByClassName("comics");
 
     for (let i=0; i<comics.length; i++) {
@@ -866,17 +58,16 @@ function animateSubjects() {
 
     var fullwidth = document.getElementById("results").offsetWidth;
     var scale = 1;
-    if (idk["height"] > document.getElementById("results").offsetHeight) {
-        scale = document.getElementById("results").offsetHeight/idk["height"];
+    if (document.getElementById("results").offsetHeight <= document.getElementById("results").offsetWidth) {
+        scale = document.getElementById("results").offsetHeight/frame["height"];
     } else {
-        scale = fullwidth/idk["width"];
+        scale = fullwidth/frame["width"];
     }
 
-    const polygons = idk['polygons'];
-
+    const polygons = frame['polygons'];
+    
     /*
     document.getElementById("edges").innerHTML = "";
-    
     for (var p in polygons) {
         var edgeElement = document.createElement("div");
         edgeElement.style.left = String(polygons[p]['origin'][0] * scale) + "px";
@@ -893,6 +84,7 @@ function animateSubjects() {
         }
     }
     */
+    
 
     for (var i in polygons) {
         const x = polygons[i]['origin'][0] * scale;
@@ -900,7 +92,7 @@ function animateSubjects() {
 
         comics[i].style.display = "block";
         comics[i].style.position = "absolute";
-        comics[i].style.left = String(Math.floor(x)) + "px";
+        comics[i].style.left = String(Math.round(x)) + "px";
         comics[i].style.top = String(Math.round(y)) + "px";
         comics[i].style.width = "0px";
     }
@@ -908,12 +100,20 @@ function animateSubjects() {
     var margin = 1;
     while (margin < fullwidth) {
         for (var i in polygons) {
-            growImage(i, idk, fullwidth, scale, 1, 1, margin); 
-            growImage(i, idk, fullwidth, scale, 1, -1, margin);   
-            growImage(i, idk, fullwidth, scale, -1, 1, margin); 
-            growImage(i, idk, fullwidth, scale, -1, -1, margin);   
+            growImage(i, frame, fullwidth, scale, 1, 1, margin); 
+            growImage(i, frame, fullwidth, scale, 1, -1, margin);   
+            growImage(i, frame, fullwidth, scale, -1, 1, margin); 
+            growImage(i, frame, fullwidth, scale, -1, -1, margin);   
         }
         margin = margin*2;
+    }
+
+    if (animationName == name) {
+        if (frameNum < frames.length-1) {
+            requestAnimationFrame(function() {animateFrame(frames, frameNum+1, name)});
+        } else if (animationRepeat == true) {
+            requestAnimationFrame(function() {animateFrame(frames, 0, name)});
+        }
     }
 }
 
@@ -959,6 +159,7 @@ function growImage(i, frame, fullwidth, scale, dirX, dirY, margin) {
                     break;
                 }
             }
+            /*
             if (noIntersect) {
                 for(var b in polygons) {
                     if (b == i) {
@@ -978,6 +179,7 @@ function growImage(i, frame, fullwidth, scale, dirX, dirY, margin) {
                     }
                 }
             }
+            */
 
             if (noIntersect) {
                 w = w + step;
@@ -1084,7 +286,7 @@ export function PickSubject() {
 
                 <div className="filters">
                     <h2>Current Search???</h2>
-                    <button onClick={() => animateSubjects()}>animate</button>
+                    <button onClick={() => badApple()}>animate</button>
                 </div>
                 <div className="results" id="results">
                     <h2>{subjects.length} Results</h2>
