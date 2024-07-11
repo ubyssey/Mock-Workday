@@ -10,7 +10,9 @@ function useQuery() {
   }
 
 var animationName = "";
-var animationRepeat = false
+var animationRepeat = false;
+var animationTime;
+var animationLastFrame;
 
 function rickRoll() {
 
@@ -18,11 +20,10 @@ function rickRoll() {
 
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
-            console.log(xhttp.responseText);
             const rickroll = JSON.parse(xhttp.responseText);
             animationName = 'rickroll';
             animationRepeat = true;
-            animateFrame(rickroll, 0, 'rickroll');
+            requestAnimationFrame(function(t) {animateFrame(t, rickroll, 0, 'rickroll')});
         }
     };
 
@@ -36,11 +37,27 @@ function badApple() {
 
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
-            console.log(xhttp.responseText);
             const badapple = JSON.parse(xhttp.responseText);
+            // 3110
             animationName = 'badapple';
             animationRepeat = false;
-            animateFrame(badapple, 0, 'badapple');
+            gridComics();
+            document.getElementById("results").classList.add("ease-in");
+            var setup = setupComics(badapple[0]['polygons'].length);
+            setup = getNextFrame(setup, badapple[0]);
+
+            var comics = document.getElementsByClassName("comics");
+            for(let i in setup) {
+                console.log(i);
+                comics[i].style.left = String(setup[i]['left']) + "px";
+                comics[i].style.top = String(setup[i]['top']) + "px";
+                comics[i].style.width = String(setup[i]['width']) + "px";
+            }
+
+            setTimeout(() => {
+                document.getElementById("results").classList.remove("ease-in");
+                requestAnimationFrame(function(t) {animateFrame(t, setup, badapple, 0, 'badapple')});
+            }, 2000);
         }
     };
 
@@ -48,82 +65,130 @@ function badApple() {
     xhttp.send();
 }
 
-function animateFrame(frames, frameNum, name) {
-    var frame = frames[frameNum];
+function gridComics() {
     var comics = document.getElementsByClassName("comics");
+
+    console.log(comics);
+    for(let i=0; i<comics.length; i++) {
+        comics[i].style.left = String(comics[i].offsetLeft) + "px";
+        comics[i].style.top = String(comics[i].offsetTop) + "px";
+        //comics[i].style.height = "200px";
+    }
+    for(let i=0; i<comics.length; i++) {
+        comics[i].style.position = "absolute";
+    }
+}
+
+function setupComics(p) {
+    var comics = document.getElementsByClassName("comics");
+    var setup = [];
 
     for (let i=0; i<comics.length; i++) {
         comics[i].style.display = "none";
     }
 
+    for (let i=0; i< p && i<comics.length; i++) {
+        comics[i].style.display = "block";
+        comics[i].style.position = "absolute";
+        setup.push({
+            'width': 0,
+            'aspect-ratio': comics[i].naturalHeight / comics[i].naturalWidth,
+        });
+    }
+
+    return setup;
+}
+
+function getNextFrame(setup, frame) {
     var fullwidth = document.getElementById("results").offsetWidth;
     var scale = 1;
     if (document.getElementById("results").offsetHeight <= document.getElementById("results").offsetWidth) {
-        scale = document.getElementById("results").offsetHeight/frame["height"];
+        scale = (document.getElementById("results").offsetHeight-40)/frame["height"];
     } else {
         scale = fullwidth/frame["width"];
     }
 
     const polygons = frame['polygons'];
-    
-    /*
-    document.getElementById("edges").innerHTML = "";
-    for (var p in polygons) {
-        var edgeElement = document.createElement("div");
-        edgeElement.style.left = String(polygons[p]['origin'][0] * scale) + "px";
-        edgeElement.style.top = String(polygons[p]['origin'][1] * scale) + "px";
-        edgeElement.classList.add("origin");
-        document.getElementById("edges").appendChild(edgeElement);
-
-        for (var e in polygons[p]['edges']) {
-            var edgeElement = document.createElement("div");
-            edgeElement.style.left = String(polygons[p]['edges'][e][0] * scale) + "px";
-            edgeElement.style.top = String(polygons[p]['edges'][e][1] * scale) + "px";
-            edgeElement.classList.add("edge");
-            document.getElementById("edges").appendChild(edgeElement);
-        }
-    }
-    */
-    
 
     for (var i in polygons) {
-        const x = polygons[i]['origin'][0] * scale;
-        const y = polygons[i]['origin'][1] * scale;
-
-        comics[i].style.display = "block";
-        comics[i].style.position = "absolute";
-        comics[i].style.left = String(Math.round(x)) + "px";
-        comics[i].style.top = String(Math.round(y)) + "px";
-        comics[i].style.width = "0px";
+        setup[i]['left'] = Math.round(polygons[i]['origin'][0] * scale);
+        setup[i]['top'] = Math.round(polygons[i]['origin'][1] * scale);
     }
-
     var margin = 1;
     while (margin < fullwidth) {
         for (var i in polygons) {
-            growImage(i, frame, fullwidth, scale, 1, 1, margin); 
-            growImage(i, frame, fullwidth, scale, 1, -1, margin);   
-            growImage(i, frame, fullwidth, scale, -1, 1, margin); 
-            growImage(i, frame, fullwidth, scale, -1, -1, margin);   
+            setup = growImage(i, setup, frame, fullwidth, scale, 1, 1, margin); 
+            setup = growImage(i, setup, frame, fullwidth, scale, 1, -1, margin);   
+            setup = growImage(i, setup, frame, fullwidth, scale, -1, 1, margin); 
+            setup = growImage(i, setup, frame, fullwidth, scale, -1, -1, margin);   
         }
         margin = margin*2;
     }
 
-    if (animationName == name) {
-        if (frameNum < frames.length-1) {
-            requestAnimationFrame(function() {animateFrame(frames, frameNum+1, name)});
-        } else if (animationRepeat == true) {
-            requestAnimationFrame(function() {animateFrame(frames, 0, name)});
+    return setup;
+}
+
+function animateFrame(time, setup, frames, frameNum, name) {
+
+    var isNextFrame = false;
+    if (animationLastFrame == null) {
+        animationLastFrame = time;
+        isNextFrame = true;
+    } else if (time - animationLastFrame >= 50) {
+        animationLastFrame = time;
+        isNextFrame = true;
+    }
+
+    if (isNextFrame) {
+        var comics = document.getElementsByClassName("comics");
+        for(let i in setup) {
+            console.log(i);
+            comics[i].style.left = String(setup[i]['left']) + "px";
+            comics[i].style.top = String(setup[i]['top']) + "px";
+            comics[i].style.width = String(setup[i]['width']) + "px";
         }
+
+        setup = setupComics(frames[frameNum]['polygons'].length);
+        setup = getNextFrame(setup, frames[frameNum]);
+        
+        /*
+        document.getElementById("edges").innerHTML = "";
+        for (var p in polygons) {
+            var edgeElement = document.createElement("div");
+            edgeElement.style.left = String(polygons[p]['origin'][0] * scale) + "px";
+            edgeElement.style.top = String(polygons[p]['origin'][1] * scale) + "px";
+            edgeElement.classList.add("origin");
+            document.getElementById("edges").appendChild(edgeElement);
+
+            for (var e in polygons[p]['edges']) {
+                var edgeElement = document.createElement("div");
+                edgeElement.style.left = String(polygons[p]['edges'][e][0] * scale) + "px";
+                edgeElement.style.top = String(polygons[p]['edges'][e][1] * scale) + "px";
+                edgeElement.classList.add("edge");
+                document.getElementById("edges").appendChild(edgeElement);
+            }
+        }
+        */
+
+        if (animationName == name) {
+            if (frameNum < frames.length-1) {
+                requestAnimationFrame(function(t) {animateFrame(t, setup, frames, frameNum+1, name)});
+            } else if (animationRepeat == true) {
+                requestAnimationFrame(function(t) {animateFrame(t, setup, frames, 0, name)});
+            }
+        }
+
+    } else {
+        requestAnimationFrame(function(t) {animateFrame(t, setup, frames, frameNum, name)});
     }
 }
 
-function growImage(i, frame, fullwidth, scale, dirX, dirY, margin) {
-    var comics = document.getElementsByClassName("comics");
+function growImage(i, setup, frame, fullwidth, scale, dirX, dirY, margin) {
     const polygons = frame['polygons'];
-    var x = comics[i].offsetLeft;
-    var y = comics[i].offsetTop;
-    var w = comics[i].offsetWidth;
-    const aspectRatio = comics[i].naturalHeight / comics[i].naturalWidth;
+    var x = setup[i]['left'];
+    var y = setup[i]['top'];
+    var w = setup[i]['width'];
+    const aspectRatio = setup[i]['aspect-ratio'];;
     var step = margin; 
 
     var newBox;
@@ -183,22 +248,24 @@ function growImage(i, frame, fullwidth, scale, dirX, dirY, margin) {
 
             if (noIntersect) {
                 w = w + step;
-                comics[i].style.width = String(Math.round(w)) + "px";
+                setup[i]['width'] = Math.round(w);
 
                 if(dirX < 0) {
                     x = x - step;
-                    comics[i].style.left = String(x) + "px";
+                    setup[i]['left'] = x;
                 }
                 
                 if(dirY < 0) {
                     y = y - step*aspectRatio;
-                    comics[i].style.top = String(y) + "px";
+                    setup[i]['top'] = y;
                 }
 
             }
         }
         step = step / 2;
     }
+
+    return setup;
 }
 
 function isInsidePoint(box, point) {
@@ -293,7 +360,6 @@ export function PickSubject() {
                     <ul>{subjects.map(subject => 
                             <img className="comics" src={"https://imgs.xkcd.com/comics/" + subject.comic}></img>
                     )}</ul>
-
                     <div id="edges"></div>
 
                 </div>

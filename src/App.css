@@ -724,8 +724,13 @@ button:hover {
   padding: 1em 0;
 }
 
+.terrible-spreadsheet-mf .results h2 {
+  margin-bottom: 1em;
+}
+
 .terrible-spreadsheet-mf .results ul {
   padding: 0;
+  position: relative;
 }
 
 .edge {
@@ -741,4 +746,8 @@ button:hover {
   position: absolute;
   background-color: lime;
   z-index: 10;
+}
+
+.ease-in .comics {
+  transition-duration: 2s;
 }
