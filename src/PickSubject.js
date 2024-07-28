@@ -51,7 +51,7 @@ function badApple() {
                 console.log(i);
                 comics[i].style.left = String(setup[i]['left']) + "px";
                 comics[i].style.top = String(setup[i]['top']) + "px";
-                comics[i].style.width = String(setup[i]['width']) + "px";
+                comics[i].children[0].style.width = String(setup[i]['width']) + "px";
             }
 
             setTimeout(() => {
@@ -80,6 +80,7 @@ function gridComics() {
 }
 
 function setupComics(p) {
+    document.getElementById("results").classList.add("animating");
     var comics = document.getElementsByClassName("comics");
     var setup = [];
 
@@ -92,7 +93,7 @@ function setupComics(p) {
         comics[i].style.position = "absolute";
         setup.push({
             'width': 0,
-            'aspect-ratio': comics[i].naturalHeight / comics[i].naturalWidth,
+            'aspect-ratio': comics[i].children[0].naturalHeight / comics[i].children[0].naturalWidth,
         });
     }
 
@@ -145,7 +146,7 @@ function animateFrame(time, setup, frames, frameNum, name) {
             console.log(i);
             comics[i].style.left = String(setup[i]['left']) + "px";
             comics[i].style.top = String(setup[i]['top']) + "px";
-            comics[i].style.width = String(setup[i]['width']) + "px";
+            comics[i].children[0].style.width = String(setup[i]['width']) + "px";
         }
 
         setup = setupComics(frames[frameNum]['polygons'].length);
@@ -175,6 +176,8 @@ function animateFrame(time, setup, frames, frameNum, name) {
                 requestAnimationFrame(function(t) {animateFrame(t, setup, frames, frameNum+1, name)});
             } else if (animationRepeat == true) {
                 requestAnimationFrame(function(t) {animateFrame(t, setup, frames, 0, name)});
+            } else {
+                document.getElementById("results").classList.remove("animating");
             }
         }
 
@@ -292,45 +295,15 @@ export function PickSubject() {
         {'name': 'astronomy', 'comic': 'supernova.png'},
         {'name': 'math', 'comic': 'purity.png'},
 
-        {'name': 'economics', 'comic': 'banana_prices.png'},
-        {'name': 'computer-science', 'comic': 'pointers.png'},
-        {'name': 'political-science', 'comic': 'election.png'},
-        {'name': 'lingustics', 'comic': 'linguists.png'},
-        {'name': 'psychology', 'comic': 'human_subjects.png'},
-        {'name': 'astronomy', 'comic': 'supernova.png'},
-        {'name': 'math', 'comic': 'purity.png'},
+        {'name': 'statistics', 'comic': 'curve_fitting.png'},
+        {'name': 'cognitive-systems', 'comic': 'superintelligent_ais.png'},
+        {'name': 'sociology', 'comic': 'simple_answers.png'},
+        {'name': 'biology', 'comic': 'date.png'},
+        {'name': 'physics', 'comic': 'physics_confession.png'},
+        {'name': 'computer-engineering', 'comic': 'voting_software.png'},
+        {'name': 'civil-engineering', 'comic': 'highway_engineer_pranks.png'},
 
-        {'name': 'economics', 'comic': 'banana_prices.png'},
-        {'name': 'computer-science', 'comic': 'pointers.png'},
-        {'name': 'political-science', 'comic': 'election.png'},
-        {'name': 'lingustics', 'comic': 'linguists.png'},
-        {'name': 'psychology', 'comic': 'human_subjects.png'},
-        {'name': 'astronomy', 'comic': 'supernova.png'},
-        {'name': 'math', 'comic': 'purity.png'},
-
-        {'name': 'economics', 'comic': 'banana_prices.png'},
-        {'name': 'computer-science', 'comic': 'pointers.png'},
-        {'name': 'political-science', 'comic': 'election.png'},
-        {'name': 'lingustics', 'comic': 'linguists.png'},
-        {'name': 'psychology', 'comic': 'human_subjects.png'},
-        {'name': 'astronomy', 'comic': 'supernova.png'},
-        {'name': 'math', 'comic': 'purity.png'},
-
-        {'name': 'economics', 'comic': 'banana_prices.png'},
-        {'name': 'computer-science', 'comic': 'pointers.png'},
-        {'name': 'political-science', 'comic': 'election.png'},
-        {'name': 'lingustics', 'comic': 'linguists.png'},
-        {'name': 'psychology', 'comic': 'human_subjects.png'},
-        {'name': 'astronomy', 'comic': 'supernova.png'},
-        {'name': 'math', 'comic': 'purity.png'},
-
-        {'name': 'economics', 'comic': 'banana_prices.png'},
-        {'name': 'computer-science', 'comic': 'pointers.png'},
-        {'name': 'political-science', 'comic': 'election.png'},
-        {'name': 'lingustics', 'comic': 'linguists.png'},
-        {'name': 'psychology', 'comic': 'human_subjects.png'},
-        {'name': 'astronomy', 'comic': 'supernova.png'},
-        {'name': 'math', 'comic': 'purity.png'},
+        {'name': 'geography', 'comic': 'map_projections.png'},
 
     ];
 
@@ -358,7 +331,9 @@ export function PickSubject() {
                 <div className="results" id="results">
                     <h2>{subjects.length} Results</h2>
                     <ul>{subjects.map(subject => 
-                            <img className="comics" src={"https://imgs.xkcd.com/comics/" + subject.comic}></img>
+                        <button className="comics" onClick={() => {window.location.assign("/pick-course/?course=" + subject.name)}}>
+                            <img src={"https://imgs.xkcd.com/comics/" + subject.comic}></img>
+                        </button>
                     )}</ul>
                     <div id="edges"></div>
 

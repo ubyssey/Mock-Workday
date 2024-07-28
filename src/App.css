@@ -751,3 +751,44 @@ button:hover {
 .ease-in .comics {
   transition-duration: 2s;
 }
+
+.comics > img {
+  height: 200px;
+}
+
+.comics {
+  padding: 0;
+  border-radius: 0;
+  border: none;
+}
+
+.animating .comics > img {
+  height: auto;
+}
+
+.sky {
+  height: 70vh;
+  max-width: 100%;
+  margin: 2em;
+  position: relative;
+  cursor: crosshair;
+  overflow-x: clip;
+  overflow-y: hidden;
+}
+
+.courseBox {
+  margin: 1em auto;
+  transition-duration: 0.1s;
+  background-color: #DDD;
+  padding: 0.25em;
+  max-width: 300px;
+}
+
+.movin-now .courseBox {
+  position: absolute;
+  margin: 0;
+}
+
+.courseBox * {
+  margin: 0;
+}
