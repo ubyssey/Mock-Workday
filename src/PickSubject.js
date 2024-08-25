@@ -290,7 +290,7 @@ export function PickSubject() {
         {'name': 'economics', 'comic': 'banana_prices.png'},
         {'name': 'computer-science', 'comic': 'pointers.png'},
         {'name': 'political-science', 'comic': 'election.png'},
-        {'name': 'lingustics', 'comic': 'linguists.png'},
+        {'name': 'linguistics', 'comic': 'linguists.png'},
         {'name': 'psychology', 'comic': 'human_subjects.png'},
         {'name': 'astronomy', 'comic': 'supernova.png'},
         {'name': 'math', 'comic': 'purity.png'},

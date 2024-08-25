@@ -564,8 +564,11 @@ dialog {
 .options {
   display: none;
   width: 100%;
+  max-height: 50vh;
   position: absolute;
   left: -2px;
+  overflow: auto;
+
   background-color: white;
   border: 2px solid #0875e1;
   border-radius: 0 0 4px 4px;
@@ -779,9 +782,15 @@ button:hover {
 .courseBox {
   margin: 1em auto;
   transition-duration: 0.1s;
-  background-color: #DDD;
   padding: 0.25em;
   max-width: 300px;
+  font-family: serif;
+  background-color: #DDD;
+  box-shadow: 5px 5px 35px black;
+
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; /* Standard syntax */
 }
 
 .movin-now .courseBox {
@@ -791,4 +800,115 @@ button:hover {
 
 .courseBox * {
   margin: 0;
+}
+
+.projectile {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 25vw;
+  transform: translateX(-50%);
+  animation: throw 0.75s 1;
+  opacity: 0;
+
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; /* Standard syntax */
+}
+
+@keyframes throw {
+  0% {width: 25vw; opacity: 1;}
+  100% {width: 0px; opacity: 1;}
+}
+
+.clock {
+  margin: 1em 2em;
+  width: 230px;
+  height: 300px;
+  background-image: url('/public/bareclock.jpg');
+  background-size: cover;
+}
+
+.clock .hands {
+  height: 66px;
+  filter: drop-shadow(0px 3px 5px #000000aa);
+  top: 62px;
+  position: relative;
+  aspect-ratio: 1;
+  left: 72px;
+}
+
+.clock .seconds, .clock .minutes, .clock .hours{
+  width: 45%;
+  height: 5px;
+  left: calc(50% - 10px);
+  top: 50%;
+  position: absolute;
+  border-radius: 5px;
+
+  transition-duration: 0.25s;
+  background: #16283f;
+  transform: rotate(-90deg);
+  transform-origin: 10px;
+}
+
+.clock .seconds {
+  width: 45%;
+}
+
+.clock .hours {
+  width: 40%;
+}
+
+#select-course-modal {
+  max-width: 90vw;
+  width: 650px;
+}
+
+#select-course-modal .flex {
+  margin: 1em;
+  display: flex;
+}
+
+#select-course-modal ul {
+  padding: 0;
+}
+
+#select-course-modal h2 {
+  margin-bottom: 1em;
+}
+
+#select-course-modal ul li {
+  margin-bottom: 1em;
+  color: #5b6166;
+}
+
+#select-course-modal ul li.active {
+  color: black;
+  font-weight: 600;
+}
+
+#select-course-modal .flex .left {
+  text-align: center;
+}
+
+#select-course-modal .flex .right {
+  margin-right: 1em;
+}
+
+.dayOfWeek {
+  margin: 0;
+  font-weight: 600;
+} 
+
+.clock-container .instruction {
+  user-select: none;
+}
+#select-course-modal .stupid-fucking-modal--buttons {
+  margin-top: 1em;
+}
+
+.stupid-fucking-modal--buttons .ok.inactive, .stupid-fucking-modal--buttons .ok.inactive:hover {
+  cursor: auto;
+  background-color: rgb(205, 205, 205);
 }
