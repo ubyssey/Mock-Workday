@@ -765,6 +765,10 @@ button:hover {
   border: none;
 }
 
+.animating .comics {
+  position: absolute;
+}
+
 .animating .comics > img {
   height: auto;
 }
@@ -782,11 +786,12 @@ button:hover {
 .courseBox {
   margin: 1em auto;
   transition-duration: 0.1s;
-  padding: 0.25em;
+  padding: 1em;
   max-width: 300px;
-  font-family: serif;
-  background-color: #DDD;
+  font-family: roboto;
+  background-color: white;
   box-shadow: 5px 5px 35px black;
+  border-radius: 1em;
 
   -webkit-user-select: none; /* Safari */
   -ms-user-select: none; /* IE 10 and IE 11 */

@@ -2,6 +2,10 @@ import {Link, Outlet, useLocation} from "react-router-dom";
 import ReactDOM from 'react-dom/client';
 import { useState } from 'react';
 import React from "react";
+import { gsap } from "gsap";
+import { Flip } from "gsap/Flip";
+
+gsap.registerPlugin(Flip);
 
 function useQuery() {
     const { search } = useLocation();
@@ -23,7 +27,35 @@ function rickRoll() {
             const rickroll = JSON.parse(xhttp.responseText);
             animationName = 'rickroll';
             animationRepeat = true;
-            requestAnimationFrame(function(t) {animateFrame(t, rickroll, 0, 'rickroll')});
+
+            //gridComics();
+            //document.getElementById("results").classList.add("ease-in");
+
+            const state = Flip.getState(".comics > img");
+
+            var setup = setupComics(rickroll[0]['polygons'].length);
+            setup = getNextFrame(setup, rickroll[0]);
+
+            var comics = document.getElementsByClassName("comics");
+            for(let i in setup) {
+                comics[i].style.left = String(setup[i]['left']) + "px";
+                comics[i].style.top = String(setup[i]['top']) + "px";
+                comics[i].children[0].style.width = String(setup[i]['width']) + "px";
+            }
+
+            document.getElementById("results").classList.add("animating");
+
+            Flip.from(state, {
+                absolute: true, // uses position: absolute during the flip to work around flexbox challenges
+                duration: 2, 
+                stagger: 0.1,
+                ease: "power1.inOut"
+                // you can use any other tweening properties here too, like onComplete, onUpdate, delay, etc. 
+            });
+
+            setTimeout(() => {
+                requestAnimationFrame(function(t) {animateFrame(t, setup, rickroll, 0, 'rickroll')});
+            }, 2000);
         }
     };
 
@@ -41,21 +73,30 @@ function badApple() {
             // 3110
             animationName = 'badapple';
             animationRepeat = false;
-            gridComics();
-            document.getElementById("results").classList.add("ease-in");
+
+            const state = Flip.getState(".comics > img");
+
             var setup = setupComics(badapple[0]['polygons'].length);
             setup = getNextFrame(setup, badapple[0]);
 
             var comics = document.getElementsByClassName("comics");
             for(let i in setup) {
-                console.log(i);
                 comics[i].style.left = String(setup[i]['left']) + "px";
                 comics[i].style.top = String(setup[i]['top']) + "px";
                 comics[i].children[0].style.width = String(setup[i]['width']) + "px";
             }
 
+            document.getElementById("results").classList.add("animating");
+
+            Flip.from(state, {
+                absolute: true, // uses position: absolute during the flip to work around flexbox challenges
+                duration: 2, 
+                stagger: 0.1,
+                ease: "power1.inOut"
+                // you can use any other tweening properties here too, like onComplete, onUpdate, delay, etc. 
+            });
+
             setTimeout(() => {
-                document.getElementById("results").classList.remove("ease-in");
                 requestAnimationFrame(function(t) {animateFrame(t, setup, badapple, 0, 'badapple')});
             }, 2000);
         }
@@ -63,20 +104,6 @@ function badApple() {
 
     xhttp.open("GET", "/badapple.json", true);
     xhttp.send();
-}
-
-function gridComics() {
-    var comics = document.getElementsByClassName("comics");
-
-    console.log(comics);
-    for(let i=0; i<comics.length; i++) {
-        comics[i].style.left = String(comics[i].offsetLeft) + "px";
-        comics[i].style.top = String(comics[i].offsetTop) + "px";
-        //comics[i].style.height = "200px";
-    }
-    for(let i=0; i<comics.length; i++) {
-        comics[i].style.position = "absolute";
-    }
 }
 
 function setupComics(p) {
@@ -90,7 +117,7 @@ function setupComics(p) {
 
     for (let i=0; i< p && i<comics.length; i++) {
         comics[i].style.display = "block";
-        comics[i].style.position = "absolute";
+        //comics[i].style.position = "absolute";
         setup.push({
             'width': 0,
             'aspect-ratio': comics[i].children[0].naturalHeight / comics[i].children[0].naturalWidth,
@@ -116,6 +143,7 @@ function getNextFrame(setup, frame) {
         setup[i]['top'] = Math.round(polygons[i]['origin'][1] * scale);
     }
     var margin = 1;
+    //showEdges(frame, scale)
     while (margin < fullwidth) {
         for (var i in polygons) {
             setup = growImage(i, setup, frame, fullwidth, scale, 1, 1, margin); 
@@ -143,7 +171,6 @@ function animateFrame(time, setup, frames, frameNum, name) {
     if (isNextFrame) {
         var comics = document.getElementsByClassName("comics");
         for(let i in setup) {
-            console.log(i);
             comics[i].style.left = String(setup[i]['left']) + "px";
             comics[i].style.top = String(setup[i]['top']) + "px";
             comics[i].children[0].style.width = String(setup[i]['width']) + "px";
@@ -151,38 +178,63 @@ function animateFrame(time, setup, frames, frameNum, name) {
 
         setup = setupComics(frames[frameNum]['polygons'].length);
         setup = getNextFrame(setup, frames[frameNum]);
-        
-        /*
-        document.getElementById("edges").innerHTML = "";
-        for (var p in polygons) {
-            var edgeElement = document.createElement("div");
-            edgeElement.style.left = String(polygons[p]['origin'][0] * scale) + "px";
-            edgeElement.style.top = String(polygons[p]['origin'][1] * scale) + "px";
-            edgeElement.classList.add("origin");
-            document.getElementById("edges").appendChild(edgeElement);
 
-            for (var e in polygons[p]['edges']) {
-                var edgeElement = document.createElement("div");
-                edgeElement.style.left = String(polygons[p]['edges'][e][0] * scale) + "px";
-                edgeElement.style.top = String(polygons[p]['edges'][e][1] * scale) + "px";
-                edgeElement.classList.add("edge");
-                document.getElementById("edges").appendChild(edgeElement);
-            }
-        }
-        */
-
+        var endAnim = true;
         if (animationName == name) {
             if (frameNum < frames.length-1) {
                 requestAnimationFrame(function(t) {animateFrame(t, setup, frames, frameNum+1, name)});
+                endAnim = false;
             } else if (animationRepeat == true) {
                 requestAnimationFrame(function(t) {animateFrame(t, setup, frames, 0, name)});
-            } else {
-                document.getElementById("results").classList.remove("animating");
+                endAnim = false;
             }
+        }
+
+        if (endAnim == true) {
+            const state = Flip.getState(".comics > img");
+
+            document.getElementById("results").classList.remove("animating");
+
+            for(let i=0; i<comics.length; i++) {
+                comics[i].children[0].style.removeProperty("width");
+                comics[i].children[0].style.removeProperty("height");
+                comics[i].style.removeProperty("left");
+                comics[i].style.removeProperty("top");
+                comics[i].style.removeProperty("height");
+                comics[i].style.removeProperty("display");
+            }
+
+            Flip.from(state, {
+                absolute: true, // uses position: absolute during the flip to work around flexbox challenges
+                duration: 2, 
+                stagger: 0.1,
+                ease: "power1.inOut"
+                // you can use any other tweening properties here too, like onComplete, onUpdate, delay, etc. 
+            });
         }
 
     } else {
         requestAnimationFrame(function(t) {animateFrame(t, setup, frames, frameNum, name)});
+    }
+}
+
+function showEdges(frame, scale) {
+    const polygons = frame['polygons'];
+    document.getElementById("edges").innerHTML = "";
+    for (var p in polygons) {
+        var edgeElement = document.createElement("div");
+        edgeElement.style.left = String(polygons[p]['origin'][0] * scale) + "px";
+        edgeElement.style.top = String(polygons[p]['origin'][1] * scale) + "px";
+        edgeElement.classList.add("origin");
+        document.getElementById("edges").appendChild(edgeElement);
+
+        for (var e in polygons[p]['edges']) {
+            var edgeElement = document.createElement("div");
+            edgeElement.style.left = String(polygons[p]['edges'][e][0] * scale) + "px";
+            edgeElement.style.top = String(polygons[p]['edges'][e][1] * scale) + "px";
+            edgeElement.classList.add("edge");
+            document.getElementById("edges").appendChild(edgeElement);
+        }
     }
 }
 
@@ -283,6 +335,16 @@ function isInsideBox(box, otherBox) {
     return false;
 }
 
+function maybeRick() {
+    console.log(document.body.getAttribute("moved"));
+    if (document.body.getAttribute("moved") == 'true') {
+        document.body.setAttribute("moved", 'false');
+    } else if (animationName == ""){
+        rickRoll();
+    }
+    const t = setTimeout(maybeRick, 7000);
+}
+
 export function PickSubject() {
     let query = useQuery();
 
@@ -292,20 +354,31 @@ export function PickSubject() {
         {'name': 'political-science', 'comic': 'election.png'},
         {'name': 'linguistics', 'comic': 'linguists.png'},
         {'name': 'psychology', 'comic': 'human_subjects.png'},
+        
         {'name': 'astronomy', 'comic': 'supernova.png'},
         {'name': 'math', 'comic': 'purity.png'},
-
         {'name': 'statistics', 'comic': 'curve_fitting.png'},
         {'name': 'cognitive-systems', 'comic': 'superintelligent_ais.png'},
         {'name': 'sociology', 'comic': 'simple_answers.png'},
+        
         {'name': 'biology', 'comic': 'date.png'},
         {'name': 'physics', 'comic': 'physics_confession.png'},
         {'name': 'computer-engineering', 'comic': 'voting_software.png'},
         {'name': 'civil-engineering', 'comic': 'highway_engineer_pranks.png'},
-
         {'name': 'geography', 'comic': 'map_projections.png'},
 
     ];
+    
+    if(!document.body.hasAttribute("moved")) {
+        const waitForRick = setTimeout(maybeRick, 7000);
+        document.body.setAttribute("moved", "true");
+        document.body.addEventListener("mousemove", ()=> {
+            document.body.setAttribute("moved", "true");
+            if (animationName == "rickroll") {
+                animationName = "";
+            }
+        });
+    }
 
     return (
         <div className="content-container">
@@ -336,7 +409,6 @@ export function PickSubject() {
                         </button>
                     )}</ul>
                     <div id="edges"></div>
-
                 </div>
         </div>
 
