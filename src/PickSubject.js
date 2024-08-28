@@ -192,7 +192,7 @@ function animateFrame(time, setup, frames, frameNum, name) {
 
         if (endAnim == true) {
             const state = Flip.getState(".comics > img");
-
+            animationName = "";
             document.getElementById("results").classList.remove("animating");
 
             for(let i=0; i<comics.length; i++) {
@@ -336,7 +336,6 @@ function isInsideBox(box, otherBox) {
 }
 
 function maybeRick() {
-    console.log(document.body.getAttribute("moved"));
     if (document.body.getAttribute("moved") == 'true') {
         document.body.setAttribute("moved", 'false');
     } else if (animationName == ""){
