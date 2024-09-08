@@ -1,8 +1,13 @@
 import {Link} from "react-router-dom";
+import {funnyQuip, setQuipts, setPriorityQuipts} from "./AnnoyingMascot";
 
 export default function Home() {
+    setPriorityQuipts([
+        "Welcome to 'It Doesn't WorkDay'!",
+        "I am $300,000,000 <b>(Three Hundred Million Dollars)</b>, the official mascot of 'It Doesn't Workday'!",
+    ]);
     return (
-        <div class="content-container">
+        <div className="content-container">
             <div className="banner"></div>
             <div className="home">
                 <div className="left">
@@ -51,7 +56,7 @@ export default function Home() {
             </div>
             <footer>
                 <img src="https://wd10.myworkday.com/wday/asset/pex/images/workday-logo.svg"></img>
-                <p>Made with hate by Sam Low © 2024 Ubyssey</p>
+                <p>Made with hate by Sam Low and Ubyssey Humour Contributors © 2024 Ubyssey</p>
             </footer>
         </div>
     );

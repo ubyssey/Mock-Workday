@@ -1,6 +1,7 @@
 import {Link, Outlet} from "react-router-dom";
 import ReactDOM from 'react-dom/client';
 import { useState } from 'react';
+import { setQuipts, setPriorityQuipts } from "./AnnoyingMascot";
 
 export function Academics() {
     return (
@@ -25,22 +26,24 @@ export function Academics() {
 }
 
 export function AcademicsIndex() {
+    setPriorityQuipts(["SHEEEEESH", "WOW! Not doing so good I see!"]);
+    setQuipts(["Would be so embaressing if you opened this page in public HAHSAHAHAHAHAAHAHAH", "Planning on graduating, With THAT average?"]);
     return (
         <div className="section-container">
             <div className="section-box progress">
                 <h2>Academic Progress</h2>
-                <div class="progress-flex">
-                    <div class="progress-circle">
-                        <div class="progress-circle-filled"></div>
-                        <div id="progress-inner" class="progress-circle-inner"><span>4%</span></div>
+                <div className="progress-flex">
+                    <div className="progress-circle">
+                        <div className="progress-circle-filled"></div>
+                        <div id="progress-inner" className="progress-circle-inner"><span>4%</span></div>
                     </div>
                     <div>
                         <h3>B.Sc., Major in Who Really Cares??? (Vancouver)</h3>
-                        <div class="satisfied">12 Satisfied</div>
-                        <div class="out-of">of 300 Requirements</div>    
+                        <div className="satisfied">12 Satisfied</div>
+                        <div className="out-of">of 300 Requirements</div>    
                     </div>
                 </div>
-                <div class="average"><b>Cumulative Average</b> <span>you are worthless.</span></div>
+                <div className="average"><b>Cumulative Average</b> <span>you are worthless.</span></div>
             </div>
             <div className="section-box holds">
                 <h2>My Holds</h2>
@@ -52,7 +55,7 @@ export function AcademicsIndex() {
                         <th>Hold Type</th>
                     </tr>
                     <tr>
-                        <td colspan="4"><p>I have no idea what this is so I can't make jokes about it</p></td>
+                        <td colSpan="4"><p>I have no idea what this is so I can't make jokes about it</p></td>
                     </tr>
                 </table>
             </div>
@@ -294,6 +297,7 @@ function StupidModal() {
 }
 
 export function RegistrationIndex() {
+    setPriorityQuipts(["We use these CUTE entrance animations to disguise the loading times! I bet you didn't even notice haha!"]);
     return (
         <div className="section-container">
             <StupidModal />

@@ -138,7 +138,7 @@ function Clock({time, setTime, dayOfWeek, setDayOfWeek}) {
 
     return (
         <div className="clock-container">
-        <p class="dayOfWeek">{DOWNames[dayOfWeek]}</p>
+        <p className="dayOfWeek">{DOWNames[dayOfWeek]}</p>
         <div className="clock" title={twoDigit(getHours(time)) + ":" + twoDigit(getMinutes(time)) + ":" + twoDigit(getSeconds(time))} onScroll={(e) => wind(e)} onClick={(e) => wind(e)}>
             <div className="hands">
                 <div className="seconds" style={{'transform': 'rotate(' + String(time*6 - 90) + "deg)"}}></div>
@@ -383,7 +383,8 @@ function randomPos() {
     for (let i=0; i <boxes.length; i++) {
         let box = boxes[i];
         var fits = false;
-        while (!fits) {
+        var trys = 10;
+        while (!fits && trys > 0) {
             fits = true;
             var x = 50 + Math.random()*(bg.offsetWidth - box.offsetWidth - 100);
             var y = 50 + Math.random()*(bg.offsetHeight - box.offsetHeight - 100);
@@ -397,6 +398,7 @@ function randomPos() {
                     }
                 }
             }
+            trys = trys - 1;
         }
         futureBoxes.push({"left": x, "top": y, 'width': box.offsetWidth, 'height': box.offsetHeight});
     }
@@ -417,7 +419,7 @@ export function DuckHunt({classes=["mango", "shiba"]}) {
             <div id="bg" className="sky" onClick={(e) => throwProjectile(e)}>
                 {classes.map((course) =>
                     <div className="courseBox" name={course}>
-                        <p>{course}</p>
+                        <p>{course.split(" - ")[0]}</p>
                     </div>
                 )}
             </div>

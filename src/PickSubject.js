@@ -4,6 +4,7 @@ import { useState } from 'react';
 import React from "react";
 import { gsap } from "gsap";
 import { Flip } from "gsap/Flip";
+import { setQuipts, setPriorityQuipts } from "./AnnoyingMascot";
 
 gsap.registerPlugin(Flip);
 
@@ -31,7 +32,7 @@ function rickRoll() {
             //gridComics();
             //document.getElementById("results").classList.add("ease-in");
 
-            const state = Flip.getState(".comics > img");
+            const state = Flip.getState(".comics > *");
 
             var setup = setupComics(rickroll[0]['polygons'].length);
             setup = getNextFrame(setup, rickroll[0]);
@@ -55,6 +56,7 @@ function rickRoll() {
 
             setTimeout(() => {
                 requestAnimationFrame(function(t) {animateFrame(t, setup, rickroll, 0, 'rickroll')});
+                setPriorityQuipts(["We'veKnwown Each OtheR For So LoNNNG!!11!", "nNeverY GonNa Give You Up!!!", "NEEEver Goanna Let You dowN!", "tOGether FoREVEERRR... Oops wrong song!"]);
             }, 2000);
         }
     };
@@ -65,6 +67,10 @@ function rickRoll() {
 
 function badApple() {
 
+    if (animationName == "badapple") {
+        animationName = "";
+        return;
+    }
     var xhttp = new XMLHttpRequest();
 
     xhttp.onreadystatechange = function() {
@@ -74,7 +80,7 @@ function badApple() {
             animationName = 'badapple';
             animationRepeat = false;
 
-            const state = Flip.getState(".comics > img");
+            const state = Flip.getState(".comics > *");
 
             var setup = setupComics(badapple[0]['polygons'].length);
             setup = getNextFrame(setup, badapple[0]);
@@ -191,7 +197,8 @@ function animateFrame(time, setup, frames, frameNum, name) {
         }
 
         if (endAnim == true) {
-            const state = Flip.getState(".comics > img");
+            const state = Flip.getState(".comics > *");
+            setPriorityQuipts([]);
             animationName = "";
             document.getElementById("results").classList.remove("animating");
 
@@ -344,6 +351,25 @@ function maybeRick() {
     const t = setTimeout(maybeRick, 7000);
 }
 
+function reorderSubjects(order) {
+    animationName = "";
+    setPriorityQuipts([]);
+    const r = document.getElementById("results");
+
+    const state = Flip.getState(".comics > *");
+    for(let i=0; i<order.length; i++) {
+        r.insertBefore(document.getElementById(order[i]), r.children[i+1]);
+    }
+    Flip.from(state, {
+        absolute: true, // uses position: absolute during the flip to work around flexbox challenges
+        duration: 2, 
+        stagger: 0.1,
+        ease: "power1.inOut"
+        // you can use any other tweening properties here too, like onComplete, onUpdate, delay, etc. 
+    });
+
+}
+
 export function PickSubject() {
     let query = useQuery();
 
@@ -375,6 +401,7 @@ export function PickSubject() {
             document.body.setAttribute("moved", "true");
             if (animationName == "rickroll") {
                 animationName = "";
+                setPriorityQuipts([]);
             }
         });
     }
@@ -398,12 +425,47 @@ export function PickSubject() {
 
                 <div className="filters">
                     <h2>Current Search???</h2>
-                    <button onClick={() => badApple()}>animate</button>
+                    <h2>Order by</h2>
+                    <button onClick={() => reorderSubjects([
+                        'computer-engineering',
+                        'computer-science',
+                        'political-science',
+                        'economics',
+                        'physics',
+                        'sociology',
+                        'biology',
+                        'civil-engineering',
+                        'astronomy',
+                        'math', 
+                        'psychology',
+                        'cognitive-systems',
+                        'statistics',
+                        'geography',
+                        'linguistics',
+                    ])}>Most Likely to be Responsible for Humanity's Inevitable Collapse</button>
+                    <button onClick={() => reorderSubjects([
+                        'psychology',
+                        'sociology',
+                        'biology',
+                        'astronomy',
+                        'economics',
+                        'statistics',
+                        'cognitive-systems',
+                        'physics',
+                        'political-science',
+                        'linguistics',
+                        'computer-engineering',
+                        'computer-science',
+                        'math',
+                        'geography',
+                        'civil-engineering',
+                    ])}>Usefulness in the Courtship Process</button>
+                    <button onClick={() => badApple()}>Bad Apple</button>
                 </div>
                 <div className="results" id="results">
                     <h2>{subjects.length} Results</h2>
                     <ul>{subjects.map(subject => 
-                        <button className="comics" onClick={() => {window.location.assign("/pick-course/?course=" + subject.name)}}>
+                        <button className="comics" id={subject.name} onClick={() => {window.location.assign("/pick-course/?course=" + subject.name)}}>
                             <img src={"https://imgs.xkcd.com/comics/" + subject.comic}></img>
                         </button>
                     )}</ul>

@@ -10,11 +10,13 @@ import Registration from './Registration';
 import {Academics, AcademicsIndex, RegistrationIndex} from './Academics'
 import { PickSubject } from './PickSubject';
 import PickCourse from './PickCourse';
+import AnnoyingMascot from './AnnoyingMascot';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <Nav />
+    <AnnoyingMascot />
     <BrowserRouter>
     <Routes>
       <Route path="/" element={<Home />} />

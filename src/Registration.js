@@ -1,8 +1,9 @@
 import {Link} from "react-router-dom";
+import { setQuipts } from "./AnnoyingMascot";
 
 export default function Registration() {
     return (
-        <div class="content-container">
+        <div className="content-container">
             <div>
             <div className="pageheader">
                 <h1><Link to={"/"}><ion-icon name="arrow-back-outline"></ion-icon></Link> Registration Appointments Active and Upcoming</h1>

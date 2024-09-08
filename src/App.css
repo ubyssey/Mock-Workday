@@ -1,10 +1,33 @@
 @font-face {
-  font-family: roboto;
+  font-family: "roboto";
   src: 
     local('Roboto'),
-    url('/public/Roboto/Roboto-Regular.ttf'),
-    url('/public/Roboto/Roboto-Medium.ttf'),
+    url('/public/Roboto/Roboto-Regular.ttf');
+  font-weight: 100 400;
+}
+
+@font-face {
+  font-family: "roboto";
+  src: 
+    local('Roboto'),
+    url('/public/Roboto/Roboto-Medium.ttf');
+  font-weight: 500 600;
+}
+
+@font-face {
+  font-family: "roboto";
+  src: 
+    local('Roboto'),
     url('/public/Roboto/Roboto-Bold.ttf');
+  font-weight: 700 800;
+}
+
+@font-face {
+  font-family: "roboto";
+  src: 
+    local('Roboto'),
+    url('/public/Roboto/Roboto-Black.ttf');
+  font-weight: 900;
 }
 
 .content-container {
@@ -719,6 +742,27 @@ button:hover {
   flex-shrink: 0;
 }
 
+.filters button {
+  background: none;
+  border: none;
+  display: block;
+  margin: 1em 0;
+  text-align: left;
+  font-size: 0.8em;
+  color: #464646;
+}
+
+.filters button:hover {
+  color: black;
+}
+
+.filters h2 {
+  color: #333;
+  font-weight: 700;
+  margin: 1em 0;
+  font-size: 1.1em;
+}
+
 .terrible-spreadsheet-mf .results {
   margin: 0 2.5em;
   flex-grow: 1;
@@ -757,6 +801,17 @@ button:hover {
 
 .comics > img {
   height: 200px;
+}
+
+.comics > div {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-weight: 600;
+  color: black;
+  font-size: 2em;
+  filter: drop-shadow(0 -1px 5px white)
 }
 
 .comics {
@@ -916,4 +971,41 @@ button:hover {
 .stupid-fucking-modal--buttons .ok.inactive, .stupid-fucking-modal--buttons .ok.inactive:hover {
   cursor: auto;
   background-color: rgb(205, 205, 205);
+}
+
+.mascot {
+  --scale: 200px;
+  position: fixed;
+  width: var(--scale);
+  filter: drop-shadow(0 0 10px #00000052);
+  bottom: 1em;
+  left: 1em;
+  z-index: 500;
+  transition-duration: 0.5s;
+}
+
+.mascot img {
+  width: 100%;
+  height: auto;
+}
+
+.mascot .speechBubble {
+  display: none;
+  background-color: white;
+  width: max-content;
+  max-width: 100%;
+  padding: 1em;
+  border-radius: 1.5em 1.5em 1.5em 0;
+  position: absolute;
+  bottom: 100%;
+  left: calc(100% - 2em);
+  font-size: calc(var(--scale) / 15);
+}
+
+.mascot.speaking {
+  --scale: 250px;
+}
+
+.mascot.speaking .speechBubble {
+  display: block;
 }
