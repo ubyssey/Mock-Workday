@@ -35,12 +35,12 @@ export function AcademicsIndex() {
                 <div className="progress-flex">
                     <div className="progress-circle">
                         <div className="progress-circle-filled"></div>
-                        <div id="progress-inner" className="progress-circle-inner"><span>4%</span></div>
+                        <div id="progress-inner" className="progress-circle-inner"><span>-0%</span></div>
                     </div>
                     <div>
                         <h3>B.Sc., Major in Who Really Cares??? (Vancouver)</h3>
-                        <div className="satisfied">12 Satisfied</div>
-                        <div className="out-of">of 300 Requirements</div>    
+                        <div className="satisfied">-0.2 Satisfied</div>
+                        <div className="out-of">of 300...000...000 Requirements</div>    
                     </div>
                 </div>
                 <div className="average"><b>Cumulative Average</b> <span>you are worthless.</span></div>
@@ -255,7 +255,7 @@ function OptionList({layer, selected, setSelected}) {
         return (
         <>
         <button className="options-header" onClick={() => selectDate('root')}><ion-icon name="arrow-back-outline"></ion-icon> Error start again!</button>
-        <p>fuckkk</p>
+        <p>Sowwy we just added this option for fun 👉👈</p>
         </>
         );
     }
@@ -327,34 +327,38 @@ export function RegistrationIndex() {
                 </div>
             </div>
             <div className="section-box schedule">
-                <h2>Current Schedule</h2>
-                <p>No Courses Registered</p>
+                <h2>Saved Schedule</h2>
+                <p>{localStorage.getItem("courses")!=null ? localStorage.getItem("courses") : "No Courses Saved"}</p>
+
+                <button className={"register-button" + (localStorage.getItem("courses")==null ? ' inactive': '')} onClick={() => {
+                    if(localStorage.getItem("courses")!=null) {
+                        window.location.replace("/register");
+                    }
+                }}>Register</button>
             </div>
             <div className="reg-links links">
                 <ul>
                     <li className="section-box">
                         <h2>Registration</h2>
                         <ul>
-                            <li><button onClick={openModal}>Find Course Sections???</button></li>
-                            <li><a href="/">Video for going to sleep</a></li>
-                            <li><a href="/">Video for going to sleep</a></li>
-                            <li><a href="/">Video for going to sleep</a></li>
+                            <li><button onClick={openModal}>Find Course Sections (why is it called that???)</button></li>
                         </ul>
                     </li>
                     <li className="section-box">
                         <h2>Quicklinks</h2>
                         <ul>
-                            <li><a href="/">Video for going to sleep</a></li>
-                            <li><a href="/">Video for going to sleep</a></li>
+                            <li><a href="https://ssc.adm.ubc.ca/sscportal/" target="_blank">RIP 🪦😭</a></li>
+                            <li><a href="https://ubc.ca.panopto.com/Panopto/Pages/Viewer.aspx?id=2f15ecad-04c8-44d4-9928-b15c012ca32b&start=0" target="_blank">Really funny video</a></li>
+                            <li><a href="https://ubyssey.ca/tag/workday-student/" target="_blank"><i>The Ubyssey's</i> coverage! READ!!!</a></li>
                         </ul>
                     </li>
                     <li className="section-box">
-                        <h2>Quicklinks</h2>
+                        <h2>Those at fault</h2>
                         <ul>
-                            <li><a href="/">Video for going to sleep</a></li>
-                            <li><a href="/">Video for going to sleep</a></li>
-                            <li><a href="/">Video for going to sleep</a></li>
-                            <li><a href="/">Video for going to sleep</a></li>
+                            <li><a href="https://irp.ubc.ca/" target="_blank">Integrated Renewal Program</a></li>
+                            <li><a href="https://bog.ubc.ca/" target="_blank">Board of Governors?</a></li>
+                            <li><a href="https://www.ubc.ca/" target="_blank">UBC</a></li>
+                            <li><a href="https://www.workday.com/" target="_blank">Workday</a></li>
                         </ul>
                     </li>
 

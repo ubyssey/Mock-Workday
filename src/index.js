@@ -11,13 +11,14 @@ import {Academics, AcademicsIndex, RegistrationIndex} from './Academics'
 import { PickSubject } from './PickSubject';
 import PickCourse from './PickCourse';
 import AnnoyingMascot from './AnnoyingMascot';
+import RegisterSaved from './Register';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <Nav />
     <AnnoyingMascot />
     <BrowserRouter>
+    <Nav />
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/vt0FtpYcOn1z9hxG7zw0fUcKYOul9nTQLqvxXgZvlqWgAQWs3E1nrgR2KPVgTCqzF86" element={<Registration />} />
@@ -27,6 +28,7 @@ root.render(
       </Route>
       <Route path="pick-subject" element={<PickSubject/>}></Route>
       <Route path="pick-course" element={<PickCourse/>}></Route>
+      <Route path="register" element={<RegisterSaved/>}></Route>
     </Routes>
     </BrowserRouter>
   </React.StrictMode>
