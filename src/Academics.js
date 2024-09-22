@@ -255,7 +255,7 @@ function OptionList({layer, selected, setSelected}) {
         return (
         <>
         <button className="options-header" onClick={() => selectDate('root')}><ion-icon name="arrow-back-outline"></ion-icon> Error start again!</button>
-        <p>Sowwy we just added this option for fun 👉👈</p>
+        <p>Sawwy we just added this option for fun 👉👈</p>
         </>
         );
     }

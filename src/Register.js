@@ -1,9 +1,17 @@
 import {Link} from "react-router-dom";
 import { setQuipts } from "./AnnoyingMascot";
+import { useEffect, useState } from "react";
 
 export default function RegisterSaved() {
     function startCaptcha() {
-        
+        document.getElementById("captcha").style.opacity = "0";
+        document.getElementById("captcha").checked = true;
+        document.getElementById("captcha-spinner").style.display = "block";
+        setTimeout(() => {
+            document.getElementById("captcha-spinner").style.display = "none";
+            document.getElementById("captcha").style.opacity = "1";
+            document.getElementById('silly-captcha').showModal();
+        }, 1500);
     }
     return (
         <div className="content-container">
@@ -26,10 +34,12 @@ export default function RegisterSaved() {
                         </tr>
                     </table>
 
-                    <div className="captcha-check" onClick={() => startCaptcha()}>
-                        <input type="checkbox" id="captcha" name="captcha" value=""></input>
+                    <button className="captcha-check" onClick={() => startCaptcha()}>
+                        <input type="checkbox" disabled id="captcha" name="captcha" value=""></input>
+                        <ion-icon id="captcha-spinner" class="spinner" name="reload-outline"></ion-icon>
                         <label for="captcha">Its time to end this hellish journey</label>
-                    </div>
+                    </button>
+                    <CaptchaModal></CaptchaModal>
 
                     </div>
                 </div>
@@ -42,5 +52,148 @@ export default function RegisterSaved() {
                 <p>Made by Sam Low © 2024 Ubyssey</p>
             </footer>
         </div>
+    );
+}
+
+function CaptchaModal() {
+    const [prob, setProb] = useState(0);
+    const [buttonState, setButtonState] = useState("SKIP");
+    const [answerState, setAnswer] = useState([]);
+    const [solutionState, setSolution] = useState([]);
+    const problems = [
+        {
+            'type': 'select',
+            'prompt': 'A better use of 300 million dollars',
+            'boxes': [
+                [
+                    {'image': '/lmao.jpg', 'choose': true},
+                    {'text': 'give it to the ubyssey 🙏', 'choose': true},
+                    {'text': 'Ubyssey'},
+                ],
+                [
+                    {'text': 'Ubyssey'},
+                    {'text': 'Ubyssey'},
+                    {'text': 'Ubyssey'},
+                ],
+                [
+                    {'text': 'Ubyssey'},
+                    {'text': 'Ubyssey'},
+                    {'text': 'Ubyssey'},
+                ],
+            ],
+        },
+
+        {
+            'type': 'select',
+            'prompt': 'A good feature of Workday Student',
+            'boxes': [
+                [
+                    {'text': 'finaces',},
+                    {'text': 'timetable',},
+                    {'text': 'Ubyssey'},
+                ],
+                [
+                    {'text': 'Ubyssey'},
+                    {'text': 'Ubyssey'},
+                    {'text': 'Ubyssey'},
+                ],
+                [
+                    {'text': 'Ubyssey'},
+                    {'text': 'Ubyssey'},
+                    {'text': 'Ubyssey'},
+                ],
+            ],
+        },
+    ];
+
+    let solution = [];
+    useEffect(() => {
+        solution = [];
+        let answer = [];
+        if (prob < problems.length) {
+            if (problems[prob]['type'] == 'select') {
+                console.log(problems[prob]);
+                for (let r=0; r<problems[prob]['boxes'].length; r++) {
+                    for (let c=0; c<problems[prob]['boxes'][r].length; c++) {
+                        solution.push(problems[prob]['boxes'][r][c]['choose'] != null);
+                        answer.push(false);
+                    }
+                }
+            }
+            setAnswer(answer);
+            setSolution(solution);
+        }
+        console.log("reseted");
+        console.log(solution);
+        console.log(answer);
+    }, [prob]);
+
+    let captcha = <></>;
+    if (prob < problems.length) {
+        if (problems[prob]['type'] == 'select') {
+            captcha = (
+                <>            
+                    <div className="captcha-header">
+                        Select all squares with
+                        <span>{problems[prob]['prompt']}</span>
+                        If there are none, click skip
+                    </div>
+                    <table>
+                        {problems[prob]['boxes'].map((row, ri) =>
+                            <tr>
+                                {row.map((cell, ci) =>
+                                    <td className={answerState[(row.length * ri) + ci] ? 'selected' : ''}>
+                                        <button onClick={(e) => {
+                                            const answer = answerState.map((c, i) => {
+                                                if (i === (row.length * ri) + ci) {
+                                                    return c === false;
+                                                } else {
+                                                    return c;
+                                                }
+                                                });
+                                            setAnswer(answer);
+                                            console.log(answer);
+                                            if (answer.includes(true)) {
+                                                setButtonState("VERIFY");
+                                            } else {
+                                                setButtonState("SKIP");
+                                            }
+                                        }} 
+                                        style={cell['image'] && {"background-image": "url('/lmao.jpg')"}}>
+                                            {cell['text'] && cell['text']}
+                                        </button>
+                                    </td>
+                                )}
+                            </tr>
+                        )}
+                    </table>
+                </>
+            );
+        }
+    } else {
+        captcha = (<p>finished</p>);
+        document.getElementById('silly-captcha').close();
+    }
+
+    return (
+        <dialog id="silly-captcha">
+        <div class="captcha-box">
+
+            {captcha}
+            <div className="captcha-bottom">
+                <p>{prob + 1} / {problems.length}</p>
+                <button onClick={() => {
+                    if(JSON.stringify(answerState) == JSON.stringify(solutionState)) {
+                        setProb(prob + 1);
+                    } else {
+                        console.log("answer");
+                        console.log(answerState);
+                        console.log("solution");
+                        console.log(solutionState);
+                    }
+                }}>{buttonState}</button>
+            </div>
+        </div>
+        </dialog>
     );
 }

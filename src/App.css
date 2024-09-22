@@ -1119,6 +1119,7 @@ nav.nav {
 }
 
 .captcha-check {
+  position: relative;
   width: fit-content;
   margin: 1em 0;
   padding: 1em 0.5em;
@@ -1132,6 +1133,87 @@ nav.nav {
   }
 }
 
-.captcha-check * {
-  cursor: pointer;
+.spinner {
+  display: none;
+  font-size: 1.5em;
+  position: absolute;
+  left: 0.5em;
+  color: #408def;
+  animation: spin 0.5s infinite ease-out;
+  top: 0.65em;
+  transform: translate(-50%, 0);
+}
+
+@keyframes spin {
+  0% {transform: rotate(0);}
+  100% {transform: rotate(360deg);}
+}
+#silly-captcha {
+  min-width: unset;
+  border-radius: 0;
+}
+.captcha-header {
+  margin: 0.5em;
+  padding: 1.5em 2em;
+  background-color: #408def;
+  color: white;
+  span {
+    display: block;
+    margin: 0.25em 0;
+    font-size: 1.5em;
+    font-weight: 700;
+  }
+}
+
+.captcha-box table {
+  width: 450px;
+  margin: 0.5em;
+}
+
+.captcha-box table td {
+  border: 1px solid rgb(212, 212, 212);
+  padding: 0;
+  text-align: center;
+  width: 150px;
+  height: 150px;
+  background-color: #408def;
+  box-sizing: border-box;
+  transition-duration: 0.75s;
+}
+.captcha-box table td.selected {
+  padding: 1em;
+}
+.captcha-box table td button {
+  border: none;
+  background: white;
+  
+  padding: 1em;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  font-weight: 600;
+  color: #333;
+}
+
+.captcha-bottom {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 600;
+}
+
+.captcha-bottom p {
+  margin: 0.5em;
+  padding: 1em;
+}
+
+.captcha-bottom button {
+  background-color: #408def;
+  margin: 0.5em;
+  padding: 0.75em 2em;
+  border-radius: 3px;
+  border: none;
+
+  color: white;
+  font-weight: 600;
 }
