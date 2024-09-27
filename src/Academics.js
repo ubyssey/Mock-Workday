@@ -341,7 +341,7 @@ export function RegistrationIndex() {
                     <li className="section-box">
                         <h2>Registration</h2>
                         <ul>
-                            <li><button onClick={openModal}>Find Course Sections (why is it called that???)</button></li>
+                            <li><button onClick={openModal}>Find Course Sections (What is a course section?)</button></li>
                         </ul>
                     </li>
                     <li className="section-box">

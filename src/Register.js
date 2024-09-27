@@ -172,7 +172,10 @@ function CaptchaModal() {
         }
     } else {
         captcha = (<p>finished</p>);
-        document.getElementById('silly-captcha').close();
+        setTimeout(() => {
+            document.getElementById('silly-captcha').close();
+            window.location.replace("/hooray");
+        }, 1000);
     }
 
     return (
@@ -184,14 +187,19 @@ function CaptchaModal() {
                 <p>{prob + 1} / {problems.length}</p>
                 <button onClick={() => {
                     if(JSON.stringify(answerState) == JSON.stringify(solutionState)) {
-                        setProb(prob + 1);
+                        document.getElementById('silly-captcha').classList.add('correct');
+                        setTimeout(() => {
+                            document.getElementById('silly-captcha').classList.remove('correct');
+                            setProb(prob + 1);
+                        }, 750);
                     } else {
-                        console.log("answer");
-                        console.log(answerState);
-                        console.log("solution");
-                        console.log(solutionState);
+                        document.getElementById('silly-captcha').classList.add('wrong');
+                        setTimeout(() => document.getElementById('silly-captcha').classList.remove('wrong'), 750);
                     }
-                }}>{buttonState}</button>
+                }}><span className="state">{buttonState}</span>
+                    <span className="wrong">WRONG</span>
+                    <span className="correct">Correct!</span>    
+                </button>
             </div>
         </div>
         </dialog>

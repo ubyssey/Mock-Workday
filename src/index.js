@@ -12,6 +12,7 @@ import { PickSubject } from './PickSubject';
 import PickCourse from './PickCourse';
 import AnnoyingMascot from './AnnoyingMascot';
 import RegisterSaved from './Register';
+import Hooray from './Hooray';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -29,6 +30,7 @@ root.render(
       <Route path="pick-subject" element={<PickSubject/>}></Route>
       <Route path="pick-course" element={<PickCourse/>}></Route>
       <Route path="register" element={<RegisterSaved/>}></Route>
+      <Route path="hooray" element={<Hooray/>}></Route>
     </Routes>
     </BrowserRouter>
   </React.StrictMode>
