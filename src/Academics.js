@@ -55,7 +55,7 @@ export function AcademicsIndex() {
                         <th>Hold Type</th>
                     </tr>
                     <tr>
-                        <td colSpan="4"><p>I have no idea what this is so I can't make jokes about it</p></td>
+                        <td colSpan="4"><p>Hold... my hand?</p></td>
                     </tr>
                 </table>
             </div>
@@ -349,7 +349,7 @@ export function RegistrationIndex() {
                         <ul>
                             <li><a href="https://ssc.adm.ubc.ca/sscportal/" target="_blank">RIP 🪦😭</a></li>
                             <li><a href="https://ubc.ca.panopto.com/Panopto/Pages/Viewer.aspx?id=2f15ecad-04c8-44d4-9928-b15c012ca32b&start=0" target="_blank">Really funny video</a></li>
-                            <li><a href="https://ubyssey.ca/tag/workday-student/" target="_blank"><i>The Ubyssey's</i> coverage! READ!!!</a></li>
+                            <li><a href="https://ubyssey.ca/tag/workday-student/" target="_blank"><i>The Ubyssey's</i> coverage!</a></li>
                         </ul>
                     </li>
                     <li className="section-box">

@@ -32,9 +32,9 @@ export default function Hooray() {
             element.appendChild( number );
     
             const objectCSS = new CSS3DObject( element );
-            objectCSS.position.x = -250;
-            objectCSS.position.y = 200;
-            objectCSS.position.z = - 500;
+            objectCSS.position.x = -800 + (Math.random() * 1000);
+            objectCSS.position.y =  0 + (Math.random() * 500);
+            objectCSS.position.z = -450 + (Math.random() * 100);
             objectCSS.rotation.x = Math.PI * 2 * Math.random();
             objectCSS.rotation.y = Math.PI * 2 * Math.random();
             objectCSS.rotation.z = Math.PI * 2 * Math.random();
@@ -53,12 +53,29 @@ export default function Hooray() {
         render();
         wheeling();
         function wheeling() {
-            const speed = 0.025;
+            const speed = 5;
             requestAnimationFrame(wheeling);
             for(let i=0; i<objects.length; i++) {
-                objects[i].rotation.x += 5 * parseFloat(objects[i].type) * speed;
-                objects[i].rotation.y += 3 * speed;
-                objects[i].rotation.z += 2 * speed;
+                var proximityModifier = 0;
+                var pull = [0,0,0];
+                for(let a=0; a<objects.length; a++) {
+                    if (a!=i) {
+                        const xDif = objects[a].position.x - objects[i].position.x;
+                        const yDif = objects[a].position.y - objects[i].position.y;
+                        const zDif = objects[a].position.z - objects[i].position.z;
+                        const difSquared = (xDif * xDif) + (yDif*yDif) + (zDif*zDif);
+                        pull[0] += xDif/difSquared;
+                        pull[1] += yDif/difSquared;
+                        pull[2] += zDif/difSquared;
+                        proximityModifier += 1/difSquared;
+                    }
+                }
+                objects[i].position.x += pull[0];
+                objects[i].position.y += pull[1];
+                objects[i].position.z += pull[2];
+                objects[i].rotation.x += 5 * parseFloat(objects[i].type) * speed * proximityModifier;
+                objects[i].rotation.y += 3 * speed * proximityModifier;
+                objects[i].rotation.z += 2 * speed * proximityModifier;
             }
             controls.update();
             renderer.render( scene, camera ); 

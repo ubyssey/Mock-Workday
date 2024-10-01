@@ -12,7 +12,11 @@ var backupQuips = [
     "Abstract, bundle, generalize, be nothing and everything at the same time!",
     "wwWait! Am I on a WEBSITE????!!! 🤮",
     "I'm Sorry 🥺",
-    "Next time we'll just use an Instagram story for course regestration",
+    "Next time we'll just use an Instagram story for course registration",
+    "Your AI (Annoyingly Inescapable) Assistant! ✨",
+    "BUT IM SO SMOOTH! SO ROUND!",
+    "Blame the database guy!",
+    "Hiding the complexity so that you can have the fun of finding it again!"
 ];
 
 export default function AnnoyingMascot() {

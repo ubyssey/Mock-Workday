@@ -9,6 +9,8 @@ export default function Nav() {
             "This doesn't work(day) btw",
             "We could just list the pages in the navigation but that wouldn't be CUTE!",
             "HEyyyy! Don't search me! My pages are hidden for a reason!",
+            "Accident has no place in the construction of such a labyrinth.",
+            "Nice try."
         ]
         setJoke(jokes[Math.floor(Math.random() * jokes.length)]);
     }

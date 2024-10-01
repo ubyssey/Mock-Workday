@@ -148,9 +148,138 @@ footer img {
   background-color: rgb(223, 226, 230);
 }
 
+.home-section ul a:hover .circle {
+  background-color: #c6d1df;
+}
+
 .home-section ul .app-icon {
-  width: 64px;
+  margin-left: 8px;
+  position: relative;
+  width: 60px;
   height: 68px;
+}
+
+.app-icon .circle {
+  width: auto;
+  height: 50px;
+  border-radius: 100%;
+  background-color: #E0E8F2;
+  aspect-ratio: 1;
+
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  transition-property: width, height;
+  transition-duration: 0.25s;
+}
+.app-icon:hover .circle{
+  height: 57px;
+}
+
+.app-icon svg {
+  z-index: 10;
+  width: auto;
+  height: 50%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  transition-duration: 1s;
+}
+
+.app-icon svg.grad {
+  height: 80%;
+  top: 75%;
+}
+
+.app-icon svg.grad > *{
+  display: none;
+}
+
+.app-icon:hover svg.grad > *{
+  display: block;
+}
+
+.app-icon svg.grad > .hat {
+  display: block;
+}
+
+.app-icon svg.grad .bags, .app-icon svg.grad .tear {
+  opacity: 0;
+  transition-duration: 1s;
+  transition-delay: 1s;
+}
+
+.app-icon:hover svg.grad {
+  height: 75%;
+  top: 50%;
+}
+/*
+.app-icon:hover svg.grad .bags {
+  opacity: 1;
+}
+*/
+.app-icon:hover svg.grad .tear {
+  animation: cry 5s 2s infinite;
+}
+
+@keyframes cry {
+  0% {opacity: 0;transform: translateY(0%);}
+  5% {opacity: 1;transform: translateY(0%);}
+  30% {opacity: 1;}
+  80% {opacity: 0;transform: translateY(20%);}
+  100% {opacity: 0;}
+}
+
+.app-icon svg.rocket {
+  width: auto;
+  height: 125%;
+  position: absolute;
+  left: 50%;
+  top: 65%;
+  transform: translate(-50%, -50%);
+  transition-duration: 1s;
+}
+
+svg.rocket .fire {
+  display: none;
+}
+.fire-a {
+  animation: firing-a 1s infinite;
+}
+.fire-b {
+  animation: firing-b 1s infinite;
+}
+.fire-c {
+  animation: firing-c 1s infinite;
+}
+svg.rocket:hover {
+  top: -100%;
+}
+.app-icon:hover .rocket .fire {
+  display: block;
+}
+
+@keyframes firing-a {
+  0% {opacity: 0;}
+  5% {opacity: 1;}
+  25% {opacity: 0;}
+  100% {opacity: 0;}
+}
+@keyframes firing-b {
+  0% {opacity: 0;}
+  20% {opacity: 0;}
+  25% {opacity: 1;}
+  40% {opacity: 0;}
+  100% {opacity: 0;}
+}
+@keyframes firing-c {
+  0% {opacity: 0;}
+  35% {opacity: 0;}
+  40% {opacity: 1;}
+  80% {opacity: 0;}
+  100% {opacity: 0;}
 }
 
 .home-section ul h3 {
@@ -974,7 +1103,7 @@ button:hover {
 }
 
 .mascot {
-  --scale: 200px;
+  --scale: 150px;
   position: fixed;
   width: var(--scale);
   filter: drop-shadow(0 0 10px #00000052);
@@ -999,11 +1128,11 @@ button:hover {
   position: absolute;
   bottom: 100%;
   left: calc(100% - 2em);
-  font-size: calc(var(--scale) / 15);
+  font-size: calc(var(--scale) / 10);
 }
 
 .mascot.speaking {
-  --scale: 250px;
+  --scale: 200px;
 }
 
 .mascot.speaking .speechBubble {
