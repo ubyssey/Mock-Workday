@@ -18,8 +18,11 @@ export default function Nav() {
     return (
         <nav className="nav">
             <div className="left">
-                <button><ion-icon name="menu-outline"></ion-icon> MENU</button>
-                <Link to={"/"}>Home</Link>
+                <a className="humour-link" href="https://ubyssey.ca/humour">
+                <span><img src={'/dingbat.svg'} alt="Ubyssey dingbat logo"></img></span> Humour
+                </a>
+                {/*<button><ion-icon name="menu-outline"></ion-icon> MENU</button>*/}
+                <Link className="home-link" to={"/"}>Home</Link>
             </div>
             <div className="why-tf-are-you-reading-this">
                 <div className="searcharea">

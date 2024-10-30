@@ -159,7 +159,7 @@ export default function PickCourse() {
             "Math 100 - Not Sure I didn't take it", 
             "Math 101 - My view of humanity is decidedly more negative after suffering those group projects",
             "Math 200 - The biweekly assignments took 7 years off my expected lifespan",
-            "Math 220 - I actually liked this one",
+            "Math 220 - PROVE IT! (I actually liked this one)",
             "Math 221 - Linear Algebra made intolerable",
             "Math 210 - Integrals made worse",
         ],
@@ -169,6 +169,10 @@ export default function PickCourse() {
             "CPSC 210 - Introduction to Using a Computer",
             "CPSC 221 - Introduction to Using a Computer Correctly",
             "CPSC 213 - Introduction to Being a Computer",
+            "CPSC 313 - Intermediate Being a Computer",
+            "CPSC 320 - Intermediate Using a Computer",
+            "CPSC 344 - Introduction to remembering to be a human again",
+            "CPSC 444 - Advanced remembering to be a human again",
         ],
         "political-science": [
             'POLI 100 - Introduction to Politics',
@@ -296,6 +300,7 @@ export default function PickCourse() {
             'BIOL 413 - Zoogeography',
             'BIOL 417 - Phylogenetic Biology',
             'BIOL 427 - Ornithology and Herpetology',
+            'MOUT 101 - Mouth pipetting',
         ],
         'physics': [
             'PHYS 117 - Dynamics and Waves',
@@ -354,6 +359,12 @@ export default function PickCourse() {
             'GEOG 437 - Terrain Analysis',
             'GEOG 423 - Development of Environmental Thought',
             'GEOG 435 - Wine Geographies',
+        ],
+        'english': [
+            'PEAS 301 - Spinning Thread into Gold',
+            'ENGL 100 - Reading some things. Maybe some writing too.',
+            'ENGL 220 - Reading some old things and thinking about them',
+            'ENGL 444 - Becoming Employable (Section Cancelled)',
         ]
 
     }
@@ -368,49 +379,51 @@ export default function PickCourse() {
             <DuckHunt classes={classes}/>
             
             <footer>
-            <img src="https://wd10.myworkday.com/wday/asset/pex/images/workday-logo.svg"></img>
-            <p>Made with hate by Sam Low © 2024 Ubyssey</p>
+                <img src={'/itdoesntwork.svg'}></img>
+                <p>Made with hate by <a href="https://ubyssey.ca/authors/samlow/">Sam Low</a> and Ubyssey Humour Contributors. © 2024 Ubyssey</p>
             </footer>
         </div>
     );
 }
 
 function randomPos() {
-    var bg = document.getElementById("bg");
-    bg.classList.add("movin-now");
-    var boxes = document.getElementsByClassName('courseBox');
-    var futureBoxes = [];
-    for (let i=0; i <boxes.length; i++) {
-        let box = boxes[i];
-        var fits = false;
-        var trys = 10;
-        while (!fits && trys > 0) {
-            fits = true;
-            var x = 50 + Math.random()*(bg.offsetWidth - box.offsetWidth - 100);
-            var y = 50 + Math.random()*(bg.offsetHeight - box.offsetHeight - 100);
-            
-            for (let a=0; a < futureBoxes.length; a++) {
-                if ((x >= futureBoxes[a].left && x <= futureBoxes[a].left + futureBoxes[a].width) || (futureBoxes[a].left >= x && futureBoxes[a].left <= x + box.offsetWidth)) {
-                    if((y >= futureBoxes[a].top && y <= futureBoxes[a].top + futureBoxes[a].height) || (futureBoxes[a].top >= y && futureBoxes[a].top <= y + box.offsetHeight))
-                    {
-                        fits = false;
-                        break;
+    if(document.getElementById("bg")) {
+        var bg = document.getElementById("bg");
+        bg.classList.add("movin-now");
+        var boxes = document.getElementsByClassName('courseBox');
+        var futureBoxes = [];
+        for (let i=0; i <boxes.length; i++) {
+            let box = boxes[i];
+            var fits = false;
+            var trys = 10;
+            while (!fits && trys > 0) {
+                fits = true;
+                var x = 50 + Math.random()*(bg.offsetWidth - box.offsetWidth - 100);
+                var y = 50 + Math.random()*(bg.offsetHeight - box.offsetHeight - 100);
+                
+                for (let a=0; a < futureBoxes.length; a++) {
+                    if ((x >= futureBoxes[a].left && x <= futureBoxes[a].left + futureBoxes[a].width) || (futureBoxes[a].left >= x && futureBoxes[a].left <= x + box.offsetWidth)) {
+                        if((y >= futureBoxes[a].top && y <= futureBoxes[a].top + futureBoxes[a].height) || (futureBoxes[a].top >= y && futureBoxes[a].top <= y + box.offsetHeight))
+                        {
+                            fits = false;
+                            break;
+                        }
                     }
                 }
+                trys = trys - 1;
             }
-            trys = trys - 1;
+            futureBoxes.push({"left": x, "top": y, 'width': box.offsetWidth, 'height': box.offsetHeight});
         }
-        futureBoxes.push({"left": x, "top": y, 'width': box.offsetWidth, 'height': box.offsetHeight});
-    }
-    for (let a=0; a < futureBoxes.length; a++) {
-        boxes[a].style.left = String(futureBoxes[a].left) + "px";
-        boxes[a].style.top = String(futureBoxes[a].top) + "px";
+        for (let a=0; a < futureBoxes.length; a++) {
+            boxes[a].style.left = String(futureBoxes[a].left) + "px";
+            boxes[a].style.top = String(futureBoxes[a].top) + "px";
+        }
+        setTimeout(randomPos, 1250);
     }
 }
 
 export function DuckHunt({classes=["mango", "shiba"]}) {
 
-    var interval = setInterval(randomPos, 1250);
     setTimeout(randomPos, 500);
 
     return (

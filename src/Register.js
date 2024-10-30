@@ -48,8 +48,8 @@ export default function RegisterSaved() {
 
             </div>
             <footer>
-                <img src="https://wd10.myworkday.com/wday/asset/pex/images/workday-logo.svg"></img>
-                <p>Made by Sam Low © 2024 Ubyssey</p>
+                <img src={'/itdoesntwork.svg'}></img>
+                <p>Made with hate by <a href="https://ubyssey.ca/authors/samlow/">Sam Low</a> and Ubyssey Humour Contributors. © 2024 Ubyssey</p>
             </footer>
         </div>
     );

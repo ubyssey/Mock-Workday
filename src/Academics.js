@@ -18,8 +18,8 @@ export function Academics() {
             <Outlet />
 
             <footer>
-                <img src="https://wd10.myworkday.com/wday/asset/pex/images/workday-logo.svg"></img>
-                <p>Made with hate by Sam Low © 2024 Ubyssey</p>
+                <img src={'/itdoesntwork.svg'}></img>
+                <p>Made with hate by <a href="https://ubyssey.ca/authors/samlow/">Sam Low</a> and Ubyssey Humour Contributors. © 2024 Ubyssey</p>
             </footer>
         </div>
     );
@@ -61,30 +61,22 @@ export function AcademicsIndex() {
             </div>
             <div className="records links">
                 <ul>
-                    <li className="section-box records-first">
-                        <h2>My Holds</h2>
-                        <ul>
-                            <li><a href="/">Video for going to sleep</a></li>
-                            <li><a href="/">Video for going to sleep</a></li>
-                        </ul>
-                    </li>
-                    <li className="section-box records-second">
-                        <h2>My Holds</h2>
-                        <ul>
-                            <li><a href="/">Video for going to sleep</a></li>
-                            <li><a href="/">Video for going to sleep</a></li>
-                        </ul>
-                    </li>
                     <li className="section-box records-third">
-                        <h2>My Holds</h2>
+                        <h2>Humour</h2>
                         <ul>
-                            <li><a href="/">Video for going to sleep</a></li>
+                            <li><a target="_blank" href="https://ubyssey.ca/humour/ubcs-upgrade-to-workday-shockingly-sparks-negative-backlash/">UBC transitions to Workday Student, students express frustration </a></li>
                         </ul>
                     </li>
-                    <li className="section-box records-fourth">
-                        <h2>My Holds</h2>
+
+                    <li className="section-box records-first">
+                        <h2>News</h2>
                         <ul>
-                            <li><a href="/">Video for going to sleep</a></li>
+                            <li><a target="_blank" href="https://ubyssey.ca/news/ubc-transitions-to-workday-student/">UBC transitions to Workday Student, students express frustration</a></li>
+                            <li><a target="_blank" href="https://ubyssey.ca/news/revamp-of-ubcs-student-information-system-to-launch-late-summer-2023/">Revamp of UBC's student information system to launch late summer 2023</a></li>
+                            <li><a target="_blank" href="https://ubyssey.ca/news/from-the-boardroom-june-24/">From the Boardroom: Governors sign provincial mandate letter, approve Workday Student funding</a></li>
+                            <li><a target="_blank" href="https://ubyssey.ca/news/irp-partially-launches/">UBC’s long-anticipated $336-million software renewal partially launches</a></li>
+                            <li><a target="_blank" href="https://ubyssey.ca/news/IRP-delayed-until-2023/">UBC’s $342 million software overhaul partially delayed until 2023  </a></li>
+                            <li><a target="_blank" href="https://www.ubyssey.ca/news/ubc-invests-in-core-software-system-overhaul/">UBC investing over $60 million to overhaul core software systems by 2021 </a></li>
                         </ul>
                     </li>
                 </ul>

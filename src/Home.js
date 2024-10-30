@@ -1,5 +1,10 @@
 import {Link} from "react-router-dom";
 import {funnyQuip, setQuipts, setPriorityQuipts} from "./AnnoyingMascot";
+import { useEffect } from "react";
+import { gsap } from "gsap";
+import { Flip } from "gsap/Flip";
+
+gsap.registerPlugin(Flip);
 
 export default function Home() {
     setPriorityQuipts([
@@ -45,6 +50,33 @@ export default function Home() {
         timelySuggestions.push("Go to sleep!!!");
     }
 
+    useEffect(() => {
+        var rocket = document.getElementById("rocket");
+        rocket.addEventListener("mouseover", () => {
+            if (!rocket.classList.contains("explode")) {
+                rocket.classList.add("explode");
+
+        
+                const state = Flip.getState(".rocket");
+                setTimeout(() => {
+                    document.getElementById("root").appendChild(rocket);
+    
+                    Flip.from(state, {
+                        absolute: true, // uses position: absolute during the flip to work around flexbox challenges
+                        duration: 1, 
+                        stagger: 0.1,
+                        ease: "power1.inOut"
+                        // you can use any other tweening properties here too, like onComplete, onUpdate, delay, etc. 
+                    });    
+                },300);
+
+                setTimeout(()=> {
+                    rocket.remove();
+                }, 4400);
+            }
+        });
+    }, []);
+
     return (
         <div className="content-container">
             <div className="banner"></div>
@@ -53,7 +85,7 @@ export default function Home() {
                     <h1>{greetings[Math.floor(Math.random()*greetings.length)]}</h1>
                     <div className="home-section">
                         <h2>Awaiting Your Action</h2>
-                        <p>Course registration is open for your account. Register for courses now.</p>
+                        <p>Course registration is open for your account. Register for courses now. Thats what this is.</p>
                     </div>
                     <div className="home-section">
                         <h2>Timely Suggestions</h2>
@@ -143,8 +175,8 @@ export default function Home() {
                 </div>
             </div>
             <footer>
-                <img src="https://wd10.myworkday.com/wday/asset/pex/images/workday-logo.svg"></img>
-                <p>Made with hate by Sam Low and Ubyssey Humour Contributors © 2024 Ubyssey</p>
+                <img src={'/itdoesntwork.svg'}></img>
+                <p>Made with hate by <a href="https://ubyssey.ca/authors/samlow/">Sam Low</a> and Ubyssey Humour Contributors. Banner by <a href="https://ubyssey.ca/authors/ayla-cilliers/">Ayla Cilliers</a>. © 2024 Ubyssey</p>
             </footer>
         </div>
     );

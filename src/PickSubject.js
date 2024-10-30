@@ -392,6 +392,7 @@ export function PickSubject() {
         {'name': 'civil-engineering', 'comic': 'highway_engineer_pranks.png'},
         {'name': 'geography', 'comic': 'map_projections.png'},
 
+        {'name': 'english', 'comic': 'university_commas.png'},
     ];
     
     if(!document.body.hasAttribute("moved")) {
@@ -442,9 +443,11 @@ export function PickSubject() {
                         'statistics',
                         'geography',
                         'linguistics',
+                        'english',
                     ])}>Most Likely to be Responsible for Humanity's Inevitable Collapse</button>
                     <button onClick={() => reorderSubjects([
                         'psychology',
+                        'english',
                         'sociology',
                         'biology',
                         'astronomy',
@@ -474,8 +477,8 @@ export function PickSubject() {
         </div>
 
         <footer>
-            <img src="https://wd10.myworkday.com/wday/asset/pex/images/workday-logo.svg"></img>
-            <p>Made with hate by Sam Low © 2024 Ubyssey</p>
+            <img src={'/itdoesntwork.svg'}></img>
+            <p>Made with hate by <a href="https://ubyssey.ca/authors/samlow/">Sam Low</a> and Ubyssey Humour Contributors. © 2024 Ubyssey</p>
         </footer>
     </div>
     );

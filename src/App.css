@@ -67,19 +67,25 @@ footer {
 }
 
 footer img {
-  width: 84px;
+  width: 200px;
   height: 53px;
+}
+
+footer a {
+  text-decoration: none;
+  font-weight: 600;
+  color: #393939;
 }
 
 .banner {
   width: 100%;
   height: 192px;
 
-  background-position: 50% center;
+  background-position-y: 15%;
   background-size: cover;
   /*background-image: url("https://wd10.myworkday.com/wday/pex/graphql/images/ubc/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJtZXNzYWdlIjoie1wiaWRcIjpcIjVlYjQ0NjA2ZWUyMjAxZWFmNDk0NWQ4MDY1MDE5YjJhXCJ9IiwiaWF0IjoxNzE4NTgyNDAwLCJleHAiOjE3MTg2NzYwMDB9.Bg8jzUOGu1e3TuUFmAeW0NVWq-2TQcv30-nfVfCKg5s");*/
   /*background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Irving_K._Barber_Library.jpg/640px-Irving_K._Barber_Library.jpg');*/
-  background-image: url('/public/workdaybanner.jpg');
+  background-image: url('/public/workdaybanner-ayla.png');
 }
 
 .home {
@@ -254,11 +260,30 @@ svg.rocket .fire {
 .fire-c {
   animation: firing-c 1s infinite;
 }
-svg.rocket:hover {
-  top: -100%;
+svg.rocket.explode {
+  /*top: -100px;*/
+  animation: spiraling 3s 1s 1 ease-in-out;
 }
-.app-icon:hover .rocket .fire {
+
+@keyframes spiraling {
+  /*0% {rotate: 180deg}*/
+  5% {right: 15%; top:30%; rotate: -180deg; transform-origin: -3px -5px;}
+  25% {right: 50%; top:70%; transform-origin: -2px -5px;}
+  45% {right: 30%; top:55%; transform-origin: -5px -5px;}
+  75% {right: 80%; top:5%; transform-origin: -3px -5px;}
+  100% {transform-origin: -2px -5px; rotate: -1980deg;}
+}
+
+.rocket.explode .fire {
   display: block;
+}
+
+#root > .rocket {
+  position: absolute;
+  left: 55%;
+  top: -25%;
+  z-index: 10;
+  height: 200px;
 }
 
 @keyframes firing-a {
@@ -1184,6 +1209,8 @@ nav.nav {
   }
   .dysfunctionalSearch input {
     margin: 0.6em;
+    max-width: none;
+    width: 100%;
     border: none;
     background: none;
     outline: none;
@@ -1199,19 +1226,32 @@ nav.nav {
     
     font-size: 1.5em;
   }
-  button {
+  a, button {
     background: none;
     padding: 1em;
     border-radius: 0;
     border: none;
-    border-right: 1px solid #cad4d9;
-
+    
     font-weight: 700;
     font-size: 0.85em;
     color: #333d47;
+    text-decoration: none;    
+    text-transform: uppercase;
 
     font-family: roboto;
   }
+  a.humour-link img {
+    width: 2em;
+    vertical-align: middle;
+  }
+  a.humour-link, button {
+    border-right: 1px solid #cad4d9;
+    transition: background-color 0.5s;
+  }
+  a.humour-link:hover, button:hover {
+    background-color: #e8ebed;
+  }
+  .home-link {padding: 1.5em; padding-right: 0;}
   button ion-icon {
     font-size: 2em;
     vertical-align: middle;
@@ -1223,6 +1263,7 @@ nav.nav {
   }
   .right {
     margin-right: 0.5em;
+    padding-left: 100px;
   }
   .hotphoto {
     border-radius: 100%;
@@ -1382,6 +1423,7 @@ nav.nav {
   filter: drop-shadow(0 2px 5px #00000036);
   background-color: white;
   display: flex;
+  flex-direction: column;
 }
 
 .courseCard {
@@ -1408,4 +1450,53 @@ nav.nav {
   position: absolute;
   top: 0;
   bottom: 0;
+}
+
+.confetti {
+  width: 50px;
+  height: 10px;
+  background-color: red;
+  
+  z-index: 500;
+}
+
+.confetti.blue {
+  background-color: #005CB9;
+}
+
+.confetti.gold {
+  background-color: #F38B00;
+}
+
+.confetti.white {
+  background-color: white;
+}
+
+
+#confettitwall {
+  position: fixed;
+  top: 64px;
+}
+
+.hooray footer a {
+  z-index: 600;
+  position: relative;
+}
+
+.timetable p {
+  margin-inline: 1em;
+  margin-bottom: 1em;
+  z-index: 10;
+}
+
+.timetable a {
+  color: #0071c9;
+  text-decoration: none;
+  border-bottom: 1px solid;
+}
+
+.jerkday {
+  font-size: 2em;
+  font-weight: 600;
+  color: purple;
 }
