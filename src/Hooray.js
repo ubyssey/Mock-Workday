@@ -35,6 +35,19 @@ export default function Hooray() {
         scene.add( objectCSS );
         objects.push(objectCSS);
 
+        var element = document.createElement( 'img' );
+        element.className = 'me';
+        element.src = "/lmao.jpg";
+        var objectCSS = new CSS3DObject( element );
+        objectCSS.position.x = 1500;
+        objectCSS.position.y =  700;
+        objectCSS.position.z = 3000;
+        objectCSS.rotation.x = 0.75;
+        objectCSS.rotation.y = 0;
+        objectCSS.rotation.z = 0;
+        scene.add( objectCSS );
+        objects.push(objectCSS);
+
         var element = document.createElement( 'div' );
         element.className = 'jerkday';
         element.textContent = "Jerkday?";
@@ -43,6 +56,20 @@ export default function Hooray() {
         objectCSS.position.y =  500;
         objectCSS.position.z = -750;
         objectCSS.rotation.x = 0.5;
+        objectCSS.rotation.y = 0;
+        objectCSS.rotation.z = 0;
+        scene.add( objectCSS );
+        objects.push(objectCSS);
+
+
+        var element = document.createElement( 'div' );
+        element.className = 'workedtheday';
+        element.innerHTML = '<svg viewBox="0 0 500 500"><path id="curve" d="M73.2,148.6c4-6.1,65.5-96.8,178.6-95.6c111.3,1.2,170.8,90.3,175.1,97" /><text width="500"><textPath href="#curve">You Worked the Day!</textPath></text></svg>';
+        var objectCSS = new CSS3DObject( element );
+        objectCSS.position.x = window.innerWidth * -0.5;
+        objectCSS.position.y =  window.innerHeight * 0.5;
+        objectCSS.position.z = -2500;
+        objectCSS.rotation.x = 0;
         objectCSS.rotation.y = 0;
         objectCSS.rotation.z = 0;
         scene.add( objectCSS );
@@ -161,7 +188,7 @@ export default function Hooray() {
                 objectsConfetti[i].rotation.z += 2 * speed;
                 objectsConfetti[i].position.y -= 10 * speed;
 
-                if (objectsConfetti[i].position.y < -0.5 * window.innerHeight + 164) {
+                if (objectsConfetti[i].position.y < -0.35 * window.innerHeight + 64) {
                     objectsConfetti.splice(i,1);
                 }
             }
@@ -182,14 +209,6 @@ export default function Hooray() {
             <div className="section-container">
 
                 <div className="timetable">
-                    <svg viewBox="0 0 500 500">
-                        <path id="curve" d="M73.2,148.6c4-6.1,65.5-96.8,178.6-95.6c111.3,1.2,170.8,90.3,175.1,97" />
-                        <text width="500">
-                        <textPath href="#curve">
-                            You Worked the Day!
-                        </textPath>
-                        </text>
-                    </svg>
                     <div id="implaying4dtimetable" className="ezekiel"></div>
                     <p>Share with among your internet prisons! Or friends if you have those...</p>
 

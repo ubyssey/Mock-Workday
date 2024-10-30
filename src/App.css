@@ -1424,6 +1424,7 @@ nav.nav {
   background-color: white;
   display: flex;
   flex-direction: column;
+  justify-content: end;
 }
 
 .courseCard {
@@ -1499,4 +1500,12 @@ nav.nav {
   font-size: 2em;
   font-weight: 600;
   color: purple;
+}
+
+.workedtheday {
+  width: 500px;
+}
+
+.me {
+  width: 600px;
 }

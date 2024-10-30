@@ -64,7 +64,7 @@ export function AcademicsIndex() {
                     <li className="section-box records-third">
                         <h2>Humour</h2>
                         <ul>
-                            <li><a target="_blank" href="https://ubyssey.ca/humour/ubcs-upgrade-to-workday-shockingly-sparks-negative-backlash/">UBC transitions to Workday Student, students express frustration </a></li>
+                            <li><a target="_blank" href="https://ubyssey.ca/humour/ubcs-upgrade-to-workday-shockingly-sparks-negative-backlash/">UBC’s 'upgrade' to Workday shockingly sparks negative backlash</a></li>
                         </ul>
                     </li>
 
