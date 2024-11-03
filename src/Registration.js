@@ -42,7 +42,7 @@ export default function Registration() {
             </div>
             <footer>
                 <img src={'/itdoesntwork.svg'}></img>
-                <p>Made with hate by <a href="https://ubyssey.ca/authors/samlow/">Sam Low</a> and Ubyssey Humour Contributors. © 2024 Ubyssey</p>
+                <p>Made with hate by <a href="https://ubyssey.ca/authors/samlow/">Sam Low</a> and <a href="https://ubyssey.ca/humour">Ubyssey Humour Contributors</a>. <span className="nowrap">© 2024 Ubyssey</span></p>
             </footer>
         </div>
     );

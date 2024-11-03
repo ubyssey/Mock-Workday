@@ -171,20 +171,26 @@ export default function PickCourse() {
             "CPSC 213 - Introduction to Being a Computer",
             "CPSC 313 - Intermediate Being a Computer",
             "CPSC 320 - Intermediate Using a Computer",
-            "CPSC 344 - Introduction to remembering to be a human again",
-            "CPSC 444 - Advanced remembering to be a human again",
+            "CPSC 344 - Human-Computer Interaction 1: Introduction to wondering what you would do if you were a person",
+            "CPSC 444 - Human-Computer Interaction 2: Advanced wondering what you would do if you were a person",
         ],
         "political-science": [
-            'POLI 100 - Introduction to Politics',
-            'POLI 101 - Introduction to Canadian Government',
+            'POLI 0 - Roberts Rules of Oysters',
+            'POLI 0 - So why is everything so fucked up these days?',
+            'POLI 0 - I Listen to the Ezra Klien Show So This Should be Pretty Easy for Me (cracks knuckles, reclines in chair)',
+            'POLI 100 - Introduction to That Thing Everyone Except Insane People Hate',
+            'POLI 101 - Introduction to Canadian Government: In a healthy democracy everyone would know this stuff but alas...',
+
             'POLI 110 - Investigating Politics',
             'POLI 220 - Introduction to Comparative Politics',
             'POLI 240 - Currents of Political Thought',
             'POLI 260 - Introduction to Global Politics',
         ],
         'economics': [
-            'ECON 101 - Principles of Microeconomics',
-            'ECON 102 - Principles of Macroeconomics',
+            'ECON 101 - Markets are good and cool (except when they\'re not)',
+            'ECON 102 - That John Maynard Keynes "in the long run we are all dead" quote goes pretty hard, right?',
+            'ECON 0 - Malthusian Collapse When?',
+
             'ECON 234 - Wealth and Poverty of Nations',
             'ECON 204 - Intermediate Microeconomic Analysis',
             'ECON 210 - Microeconomic Policy',
@@ -202,7 +208,8 @@ export default function PickCourse() {
             'ECON 482 - The Economic Consequences of Religion',
         ],
         'linguistics': [
-            'LING 142 - Language and Technology',
+            'LING 100 - Introduction to Thinking A Lot About How Your Tongue Moves Around Within Your Mouth',
+
             'LING 142 - Language and Technology',
             'LING 200 - Linguistic Theory and Analysis I',
             'LING 201 - Linguistic Theory and Analysis II',
@@ -224,6 +231,8 @@ export default function PickCourse() {
             'LING 452 - Acquisition of Syntax'
         ],
         'pyschology': [
+            'PSYC 0 - Introduction to "whoa that experiment performed in during the cold war was not ethical at all"',
+
             'PSYC 101 - Introduction to Biological and Cognitive Psychology',
             'PSYC 102 - Introduction to Developmental, Social, Personality, and Clinical Psychology',
             'PSYC 217 - Research Methods',
@@ -235,6 +244,8 @@ export default function PickCourse() {
             'PSYC 409 - Cognitive Neuropsychology',
         ],
         'astronomy': [
+            'ASTR 102 - Introduction to Inconcievable Massive Celestial Objects. Now with Philosophical Implications!',
+
             'ASTR 200 - Frontiers of Astrophysics',
             'ASTR 205 - Stars and Stellar Populations',
             'ASTR 300 - Galaxies',
@@ -246,6 +257,8 @@ export default function PickCourse() {
             'ASTR 405 - Astronomical Laboratory',
         ],
         'statistics': [
+            'STAT 251 - Theres Nothing Standard or Normal about the Standard Normal Distribution (feat. 3b1b)',
+
             'STAT 200 - Elementary Statistics for Applications',
             'STAT 302 - Introduction to Probability',
             'STAT 305 - Introduction to Statistical Inference',
@@ -258,7 +271,8 @@ export default function PickCourse() {
             'STAT 443 - Time Series and Forecasting',
         ],
         'cognitive-systems': [
-            'COGS 200 - Introduction to Cognitive Systems',
+            'COGS 200 - Introduction to Surface Level Pondering',
+
             'COGS 300 - Understanding and Designing Cognitive Systems',
             'COGS 303 - Research Methods in Cognitive Systems',
             'COGS 401 - Seminar in Cognitive Systems',
@@ -266,7 +280,8 @@ export default function PickCourse() {
         ],
         'sociology': [
             'SOCI 100 - Introduction to Sociology',
-            'SOCI 101 - Social Interaction and Culture',
+            'SOCI 101 - Reshaping Your Entire Worldview + An Essay You Will Fail',
+
             'SOCI 210 - Canadian Social Structure',
             'SOCI 220 - Sociology of Indigenous Peoples',
             'SOCI 250 - Crime and Society',
@@ -283,6 +298,11 @@ export default function PickCourse() {
             'SOCI 466 - Sociology of Education',
         ],
         'biology': [
+            'MOUT 101 - Mouth pipetting',
+            'BIOL 111 - I\'m just here for the science credit!',
+            'BIOL 121 - \'On the Origin of Species\'? more like ',
+            'BIOL 335 - Genetics (but be chill about it okay)',
+
             'BIOL 112 - Biology of the Cell',
             'BIOL 121 - Genetics, Evolution and Ecology',
             'BIOL 140 - Laboratory Investigations in Life Science',
@@ -300,7 +320,6 @@ export default function PickCourse() {
             'BIOL 413 - Zoogeography',
             'BIOL 417 - Phylogenetic Biology',
             'BIOL 427 - Ornithology and Herpetology',
-            'MOUT 101 - Mouth pipetting',
         ],
         'physics': [
             'PHYS 117 - Dynamics and Waves',
@@ -321,11 +340,12 @@ export default function PickCourse() {
             'PHYS 473 - Applied Nuclear Physics',
         ],
         'computer-engineering': [
-            'CPEN 211 - Introduction to Microcomputers',
+            'CPEN 211 - Introduction to lil\' baby computers',
+            'CPEN 481 - Economic Analysis of Engineering Projects (hint: never trust an engineer\'s predicted timeline)',
+
             'CPEN 281 - Technical Communication',
             'CPEN 311 - Digital Systems Design',
             'CPEN 331 - Operating Systems',
-            'CPEN 481 - Economic Analysis of Engineering Projects',
             'CPEN 491 - Computer Engineering Capstone Design Project',
         ],
         'civil-engineering': [
@@ -365,8 +385,14 @@ export default function PickCourse() {
             'ENGL 100 - Reading some things. Maybe some writing too.',
             'ENGL 220 - Reading some old things and thinking about them',
             'ENGL 444 - Becoming Employable (Section Cancelled)',
+        ],
+        'philosophy': [
+            'PHIL 120 - wait logic and validity actually has an objective definition?',
+            'PHIL 321 - Decision Theory: Adding Numbers Up and Seeing Which is Larger',
+            'PHIL 0 - Defining words',
+            'PHIL 0 - Making things up',
+            'PHIL 0 - What did unemployed rich guys in historical central europe think about badly structued thought experiments?',
         ]
-
     }
 
     let classes = courses[query.get("course") ];
@@ -380,7 +406,7 @@ export default function PickCourse() {
             
             <footer>
                 <img src={'/itdoesntwork.svg'}></img>
-                <p>Made with hate by <a href="https://ubyssey.ca/authors/samlow/">Sam Low</a> and Ubyssey Humour Contributors. © 2024 Ubyssey</p>
+                <p>Made with hate by <a href="https://ubyssey.ca/authors/samlow/">Sam Low</a> and <a href="https://ubyssey.ca/humour">Ubyssey Humour Contributors</a>. <span className="nowrap">© 2024 Ubyssey</span></p>
             </footer>
         </div>
     );

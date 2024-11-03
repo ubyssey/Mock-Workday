@@ -49,7 +49,7 @@ export default function RegisterSaved() {
             </div>
             <footer>
                 <img src={'/itdoesntwork.svg'}></img>
-                <p>Made with hate by <a href="https://ubyssey.ca/authors/samlow/">Sam Low</a> and Ubyssey Humour Contributors. © 2024 Ubyssey</p>
+                <p>Made with hate by <a href="https://ubyssey.ca/authors/samlow/">Sam Low</a> and Ubyssey Humour Contributors. <span className="nowrap">© 2024 Ubyssey</span></p>
             </footer>
         </div>
     );

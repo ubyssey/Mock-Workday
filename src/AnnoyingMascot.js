@@ -25,7 +25,7 @@ export default function AnnoyingMascot() {
         <div id="mascot" className="mascot">
             <div id="speechBubble" className="speechBubble">
             </div>
-            <img src={"/moneystack.png"}></img>
+            <img src={"/cheque-mascot.svg"}></img>
         </div>
     );
 }

@@ -12,14 +12,14 @@ export function Academics() {
             <div className="tabmenu">
                 <ul>
                 <li><Link to={"/academics/"}>Academics</Link></li>
-                    <li><Link to={"/academics/registration"}>Registration</Link></li>
+                    <li><Link to={"/academics/registration"}>Registration 👈</Link></li>
                 </ul>
             </div>
             <Outlet />
 
             <footer>
                 <img src={'/itdoesntwork.svg'}></img>
-                <p>Made with hate by <a href="https://ubyssey.ca/authors/samlow/">Sam Low</a> and Ubyssey Humour Contributors. © 2024 Ubyssey</p>
+                <p>Made with hate by <a href="https://ubyssey.ca/authors/samlow/">Sam Low</a> and <a href="https://ubyssey.ca/humour">Ubyssey Humour Contributors</a>. <span className="nowrap">© 2024 Ubyssey</span></p>
             </footer>
         </div>
     );
@@ -34,8 +34,8 @@ export function AcademicsIndex() {
                 <h2>Academic Progress</h2>
                 <div className="progress-flex">
                     <div className="progress-circle">
-                        <div className="progress-circle-filled"></div>
                         <div id="progress-inner" className="progress-circle-inner"><span>-0%</span></div>
+                        <div className="progress-circle-filled"></div>
                     </div>
                     <div>
                         <h3>B.Sc., Major in Who Really Cares??? (Vancouver)</h3>
@@ -333,7 +333,7 @@ export function RegistrationIndex() {
                     <li className="section-box">
                         <h2>Registration</h2>
                         <ul>
-                            <li><button onClick={openModal}>Find Course Sections (What is a course section?)</button></li>
+                            <li><button onClick={openModal}>Find Course Sections (What is a course section?) 👈</button></li>
                         </ul>
                     </li>
                     <li className="section-box">
@@ -345,7 +345,7 @@ export function RegistrationIndex() {
                         </ul>
                     </li>
                     <li className="section-box">
-                        <h2>Those at fault</h2>
+                        <h2>Who to blame</h2>
                         <ul>
                             <li><a href="https://irp.ubc.ca/" target="_blank">Integrated Renewal Program</a></li>
                             <li><a href="https://bog.ubc.ca/" target="_blank">Board of Governors?</a></li>

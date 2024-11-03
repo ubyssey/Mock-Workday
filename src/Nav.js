@@ -19,7 +19,7 @@ export default function Nav() {
         <nav className="nav">
             <div className="left">
                 <a className="humour-link" href="https://ubyssey.ca/humour">
-                <span><img src={'/dingbat.svg'} alt="Ubyssey dingbat logo"></img></span> Humour
+                <span><img src={'/dingbat.svg'} alt="Ubyssey dingbat logo"></img></span> <span className="hide-on-mobile">Humour</span>
                 </a>
                 {/*<button><ion-icon name="menu-outline"></ion-icon> MENU</button>*/}
                 <Link className="home-link" to={"/"}>Home</Link>

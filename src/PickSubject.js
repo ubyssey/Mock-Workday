@@ -343,12 +343,14 @@ function isInsideBox(box, otherBox) {
 }
 
 function maybeRick() {
-    if (document.body.getAttribute("moved") == 'true') {
-        document.body.setAttribute("moved", 'false');
-    } else if (animationName == ""){
-        rickRoll();
+    if(document.getElementById("results")) {
+        if (document.body.getAttribute("moved") == 'true') {
+            document.body.setAttribute("moved", 'false');
+        } else if (animationName == ""){
+            rickRoll();
+        }
+        const t = setTimeout(maybeRick, 7000);
     }
-    const t = setTimeout(maybeRick, 7000);
 }
 
 function reorderSubjects(order) {
@@ -393,6 +395,7 @@ export function PickSubject() {
         {'name': 'geography', 'comic': 'map_projections.png'},
 
         {'name': 'english', 'comic': 'university_commas.png'},
+        {'name': 'philosophy', 'comic': 'trapped.png'},
     ];
     
     if(!document.body.hasAttribute("moved")) {
@@ -433,6 +436,7 @@ export function PickSubject() {
                         'political-science',
                         'economics',
                         'physics',
+                        'philosophy',
                         'sociology',
                         'biology',
                         'civil-engineering',
@@ -451,6 +455,7 @@ export function PickSubject() {
                         'sociology',
                         'biology',
                         'astronomy',
+                        'philosophy',
                         'economics',
                         'statistics',
                         'cognitive-systems',
@@ -463,7 +468,84 @@ export function PickSubject() {
                         'geography',
                         'civil-engineering',
                     ])}>Usefulness in the Courtship Process</button>
-                    <button onClick={() => badApple()}>Bad Apple</button>
+                    <button onClick={() => reorderSubjects([
+                        'philosophy',
+                        'english',
+                        'linguistics',                        
+                        'cognitive-systems',
+                        'geography',
+                        'sociology',
+                        'psychology',
+                        'math',
+                        'astronomy',
+                        'political-science',
+                        'economics',
+                        'statistics',
+                        'physics',
+                        'biology',
+                        'computer-science',
+                        'computer-engineering',
+                        'civil-engineering',
+                    ])}>Propensity of others to ask the "so... what job is that for?" question</button>
+                    <button onClick={() => reorderSubjects([
+                        'computer-engineering',
+                        'political-science',
+                        'economics',
+                        'statistics',
+                        'computer-science',
+                        'philosophy',
+                        'physics',
+                        'civil-engineering',
+                        'psychology',
+                        'cognitive-systems',
+                        'linguistics',
+                        'astronomy',
+                        'math',
+                        'english',
+                        'biology',
+                        'geography',
+                        'sociology',
+                    ])}>Number of alumni rejected at the gates of heaven (yearly average)</button>
+                    <button onClick={() => reorderSubjects([
+                        'computer-science',
+                        'english',
+                        'computer-engineering',
+                        'math',
+                        'physics',
+                        'geography',
+                        'psychology',
+                        'sociology',
+                        'philosophy',
+                        'biology',
+                        'statistics',
+                        'cognitive-systems',
+                        'political-science',
+                        'linguistics',
+                        'civil-engineering',
+                        'astronomy',
+                        'economics',
+                    ])}>How concerningly large the gender gap in enrolment is</button>                
+                    <button onClick={() => reorderSubjects([
+                        'math',
+                        'computer-engineering',
+                        'physics',
+                        'statistics',
+                        'computer-science',
+                        'psychology',
+                        'biology',
+                        'civil-engineering',
+                        'astronomy',
+                        'english',
+                        'sociology',
+                        'economics',
+                        'political-science',
+                        'linguistics',
+                        'philosophy',
+                        'geography',
+                        'cognitive-systems',
+                    ])}>Misery.</button>
+                    <h2>Niche reference</h2>
+                    <button onClick={() => badApple()}>Play animation</button>
                 </div>
                 <div className="results" id="results">
                     <h2>{subjects.length} Results</h2>
@@ -478,7 +560,7 @@ export function PickSubject() {
 
         <footer>
             <img src={'/itdoesntwork.svg'}></img>
-            <p>Made with hate by <a href="https://ubyssey.ca/authors/samlow/">Sam Low</a> and Ubyssey Humour Contributors. © 2024 Ubyssey</p>
+            <p>Made with hate by <a href="https://ubyssey.ca/authors/samlow/">Sam Low</a> and <a href="https://ubyssey.ca/humour">Ubyssey Humour Contributors</a>. <span className="nowrap">© 2024 Ubyssey</span></p>
         </footer>
     </div>
     );

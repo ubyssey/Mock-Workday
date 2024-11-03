@@ -85,7 +85,7 @@ export default function Home() {
                     <h1>{greetings[Math.floor(Math.random()*greetings.length)]}</h1>
                     <div className="home-section">
                         <h2>Awaiting Your Action</h2>
-                        <p>Course registration is open for your account. Register for courses now. Thats what this is.</p>
+                        <p><u>Register for courses now. Thats what this is about.</u></p>
                     </div>
                     <div className="home-section">
                         <h2>Timely Suggestions</h2>
@@ -151,7 +151,7 @@ export default function Home() {
                                         </svg>
                                         <div className="circle"></div>
                                     </div>
-                                    <h3>Academics</h3>
+                                    <h3>Academics 👈</h3>
                                 </Link>
                             </li>
                             <li>
@@ -163,12 +163,12 @@ export default function Home() {
                                 </Link>
                             </li>
                             <li>
-                                <Link to={"/pay"}>
+                                <a href="#">
                                     <div className="app-icon">
                                         <div className="circle"></div>
                                     </div>
-                                    <h3>Benefits and Pay</h3>
-                                </Link>
+                                    <h3>Share with Friends</h3>
+                                </a>
                             </li>
                         </ul>
                     </div>
@@ -176,7 +176,7 @@ export default function Home() {
             </div>
             <footer>
                 <img src={'/itdoesntwork.svg'}></img>
-                <p>Made with hate by <a href="https://ubyssey.ca/authors/samlow/">Sam Low</a> and Ubyssey Humour Contributors. Banner by <a href="https://ubyssey.ca/authors/ayla-cilliers/">Ayla Cilliers</a>. © 2024 Ubyssey</p>
+                <p>Made with hate by <a href="https://ubyssey.ca/authors/samlow/">Sam Low</a> and <a href="https://ubyssey.ca/humour">Ubyssey Humour Contributors</a>. Banner by <a href="https://ubyssey.ca/authors/ayla-cilliers/">Ayla Cilliers</a>. <span className="nowrap">© 2024 Ubyssey</span></p>
             </footer>
         </div>
     );

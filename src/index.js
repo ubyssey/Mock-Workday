@@ -13,6 +13,7 @@ import PickCourse from './PickCourse';
 import AnnoyingMascot from './AnnoyingMascot';
 import RegisterSaved from './Register';
 import Hooray from './Hooray';
+import Finances from './Finances';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -23,6 +24,7 @@ root.render(
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/vt0FtpYcOn1z9hxG7zw0fUcKYOul9nTQLqvxXgZvlqWgAQWs3E1nrgR2KPVgTCqzF86" element={<Registration />} />
+      <Route path="/finances" element={<Finances />} />
       <Route path="/academics" element={<Academics />}>
         <Route index element={<AcademicsIndex />} />
         <Route path="/academics/registration" element={<RegistrationIndex />} />

@@ -30,6 +30,9 @@
   font-weight: 900;
 }
 
+body {
+  background-color: rgb(240, 241, 242);
+}
 .content-container {
   display: flex;
   min-height: calc(100vh - 64px);
@@ -75,6 +78,9 @@ footer a {
   text-decoration: none;
   font-weight: 600;
   color: #393939;
+}
+footer p {
+  margin-inline: 1em;
 }
 
 .banner {
@@ -445,17 +451,21 @@ div.section-box {
 }
 
 .progress-circle {
+  aspect-ratio: 1;
   height: 55px;
+  width: 55px;
+
   position: relative;
   background-color: #EEE;
   margin: 0 2em 3em 6em;
-  aspect-ratio: 1;
-  clip-path: circle(50%);
+  clip-path: circle(48%);
 }
 
 .progress-circle-inner {
-  position: absolute;
-  width: 80%;
+  position: relative;
+  z-index: 100;
+
+  width: 75%;
   border-radius: 100%;
   aspect-ratio: 1;
   left: 50%;
@@ -476,11 +486,13 @@ div.section-box {
 }
 
 .progress-circle-filled {
-  height: 15px;
+  position: relative;
+  top: 0;
+  left: 0;
+
+  height: 40px;
   width: 100px;
-  position: fixed;
   bottom: 4.5em;
-  left: 6em;
   transform-origin: top;
   background-color: #58b7df;
   animation: progress-filled-intro 1.25s 3 linear, progress-filled-shake 3s 3.75s infinite alternate ease-in-out;
@@ -627,7 +639,7 @@ div.section-box {
   padding: 1em;
   left: 0;
   background-color: white;
-  animation: registration-wait 6s 1, registration-intro 6s 6s 1 ease-out;
+  animation: registration-wait 15s 1, registration-intro 6s 12s 1 ease-out;
 }
 
 .appointments div {
@@ -677,11 +689,11 @@ div.section-box {
   padding: 1em;
   left: calc(30% + 3em);
   background-color: white;
-  animation: registration-wait 15s 1, registration-intro 6s 12s 1 ease-out;
+  animation: registration-intro 6s 1 ease-out;
 }
 
 .reg-links {
-  animation: registration-intro 6s 1 ease-out;
+  animation: registration-wait 6s 1, registration-intro 6s 6s 1 ease-out;
 }
 
 dialog {
@@ -894,6 +906,10 @@ button:hover {
   box-sizing: border-box;
   width: 300px;
   flex-shrink: 0;
+  flex-grow: 0;
+  height: fit-content;
+  position: sticky;
+  top: 3em;
 }
 
 .filters button {
@@ -1508,4 +1524,97 @@ nav.nav {
 
 .me {
   width: 600px;
+}
+
+.finances {
+  display: flex;
+  gap: 1em;
+  flex-wrap: wrap;
+}
+.finances .section-box {
+  position: relative;
+}
+
+.finances .section-box h2, .finances .section-box a {
+  font-weight: 400;
+  color: #393939;
+  text-decoration: none;
+}
+.finances .section-box a:hover {
+  text-decoration: underline;
+}
+
+.nowrap {
+  white-space: nowrap;
+}
+
+@media only screen and (max-width: 600px) {
+  .mascot {
+    width: calc(var(--scale) / 2);
+    bottom: 3em;
+  }
+  .mascot .speechBubble {
+    left: 1em;
+    max-width: 200%;
+  }
+  .home {
+    flex-direction: column;
+  }
+  .home .left, .home .right {
+    margin:0;
+    width: 100%;
+  }
+  nav.nav .right {
+    padding-left: 0;
+  }
+  .hide-on-mobile {
+    display: none;
+  }
+  .section-container {
+    margin-inline: 1em;
+    height: auto;
+  }
+  .appointments {
+    transform: none;
+    overflow: auto;
+  }
+  .section-box {
+    margin-block: 2em;
+    position: relative;
+    left: 0;
+    width: calc(100% - 2em) !important;
+  }
+  .register-button {
+    float: none;
+  }
+  .holds {
+    margin-block: 3em;
+  }
+  .links {
+    width: 100%;
+    left: 0.5em;
+    position: relative;
+  }
+  dialog {
+    max-width: 100%;
+    min-width: 0;
+  }
+  .terrible-spreadsheet-mf {
+    flex-direction: column;
+  }
+  .terrible-spreadsheet-mf .filters {
+    position: static;
+    width: 100%;
+  }
+  .comics > img {
+    max-width: 100%;
+    width: 100%;
+    height: auto;
+  }
+  #select-course-modal .flex {
+    flex-direction: column;
+  }
+  .clock {
+    margin-inline: auto;
+  }
 }
