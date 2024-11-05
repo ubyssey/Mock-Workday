@@ -77,12 +77,24 @@ export default function Home() {
         });
     }, []);
 
+    function copyLink(e) {
+        e.preventDefault();
+        navigator.clipboard.writeText(window.location.href).then(() => {
+            /* Resolved - text copied to clipboard successfully */
+            var copyLinkName = document.getElementById("copy-link").innerHTML;
+            document.getElementById("copy-link").innerHTML = "Copied to Clipboard";
+            setTimeout( function() {
+              document.getElementById("copy-link").innerHTML = copyLinkName;
+          }, 1000);
+        })
+    }
+
     return (
         <div className="content-container">
             <div className="banner"></div>
             <div className="home">
                 <div className="left">
-                    <h1>{greetings[Math.floor(Math.random()*greetings.length)]}</h1>
+                    <h1 className="only-desktop">{greetings[Math.floor(Math.random()*greetings.length)]}</h1>
                     <div className="home-section">
                         <h2>Awaiting Your Action</h2>
                         <p><u>Register for courses now. Thats what this is about.</u></p>
@@ -93,6 +105,7 @@ export default function Home() {
                     </div>
                 </div>
                 <div className="right">
+                    <h1 className="only-mobile">{greetings[Math.floor(Math.random()*greetings.length)]}</h1>
                     <p className="date">Pretend it's Friday, June 14, 2024</p>
                     <div className="home-section">
                         <h2>Your Top Apps</h2>
@@ -163,11 +176,11 @@ export default function Home() {
                                 </Link>
                             </li>
                             <li>
-                                <a href="#">
+                                <a href="#" onClick={(e)=> copyLink(e)}>
                                     <div className="app-icon">
                                         <div className="circle"></div>
                                     </div>
-                                    <h3>Share with Friends</h3>
+                                    <h3 id="copy-link">Share with Friends</h3>
                                 </a>
                             </li>
                         </ul>

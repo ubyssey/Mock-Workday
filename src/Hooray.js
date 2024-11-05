@@ -1,11 +1,18 @@
 import {Link} from "react-router-dom";
-import { setQuipts } from "./AnnoyingMascot";
+import { setQuipts, setPriorityQuipts } from "./AnnoyingMascot";
 import * as THREE from 'three'; 
 import { CSS3DRenderer, CSS3DObject } from 'three/addons/renderers/CSS3DRenderer.js';
 import { useEffect } from "react";
 import { TrackballControls } from 'three/addons/controls/TrackballControls.js';
 
 export default function Hooray() {
+    setPriorityQuipts([
+        "YAYYYYY!",
+    ]);
+    setQuipts([
+        "Have fun doing this next year!",
+        "Congratulatons, Congratulatons, Congratulatons",
+    ]);
     useEffect(() => {
         const scene = new THREE.Scene();
         const objects = [];

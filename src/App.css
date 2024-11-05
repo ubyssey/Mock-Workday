@@ -655,8 +655,9 @@ div.section-box {
 }
 
 .appointment-page{
-  left: 50%;
-  transform: translateX(-50%);
+  max-width: 800px;
+  margin: auto;
+  position: relative;
 }
 
 .section-box th {
@@ -1401,6 +1402,15 @@ nav.nav {
   background-position: center;
   font-weight: 600;
   color: #333;
+  position: relative;
+}
+
+.captcha-box table td button mark {
+  background-color: white;
+  color: #333;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .captcha-bottom {
@@ -1533,6 +1543,7 @@ nav.nav {
 }
 .finances .section-box {
   position: relative;
+  height: fit-content;
 }
 
 .finances .section-box h2, .finances .section-box a {
@@ -1548,7 +1559,22 @@ nav.nav {
   white-space: nowrap;
 }
 
+@media only screen and (min-width: 600px) {
+  .only-mobile {
+    display: none;
+  }
+  .only-desktop {
+    display: block;
+  }
+}
+
 @media only screen and (max-width: 600px) {
+  .only-mobile {
+    display: block;
+  }
+  .only-desktop {
+    display: none;
+  }
   .mascot {
     width: calc(var(--scale) / 2);
     bottom: 3em;
@@ -1559,6 +1585,7 @@ nav.nav {
   }
   .home {
     flex-direction: column;
+    flex-flow: column-reverse;
   }
   .home .left, .home .right {
     margin:0;
@@ -1574,7 +1601,7 @@ nav.nav {
     margin-inline: 1em;
     height: auto;
   }
-  .appointments {
+  .appointments, .appointment-page {
     transform: none;
     overflow: auto;
   }
@@ -1616,5 +1643,6 @@ nav.nav {
   }
   .clock {
     margin-inline: auto;
+    height: 200px;
   }
 }

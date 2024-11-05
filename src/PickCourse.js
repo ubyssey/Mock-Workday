@@ -164,33 +164,32 @@ export default function PickCourse() {
             "Math 210 - Integrals made worse",
         ],
         "computer-science": [
-            "CPSC 110 - Introduction to Typing on a Computer",
+            "CPSC 110 - Introduction to Typing on a Computer and Hating Racket",
             "CPSC 121 - Introduction to Thinking about a Computer",
             "CPSC 210 - Introduction to Using a Computer",
             "CPSC 221 - Introduction to Using a Computer Correctly",
-            "CPSC 213 - Introduction to Being a Computer",
-            "CPSC 313 - Intermediate Being a Computer",
-            "CPSC 320 - Intermediate Using a Computer",
-            "CPSC 344 - Human-Computer Interaction 1: Introduction to wondering what you would do if you were a person",
-            "CPSC 444 - Human-Computer Interaction 2: Advanced wondering what you would do if you were a person",
+            "CPSC 213 - Introduction to Becoming a Computer Yourself",
+            "CPSC 313 - Intermediate Study in Forgetting Your Humanity and Becoming Machine",
+            "CPSC 320 - Intermediate Study in How to use a Computer Correctly",
+            "CPSC 344 - Human-Computer Interaction 1: Wondering what you would do if you were still a person",
+            "CPSC 444 - Human-Computer Interaction 2: Advanced wondering what you would do if you were still a person",
         ],
         "political-science": [
-            'POLI 0 - Roberts Rules of Oysters',
-            'POLI 0 - So why is everything so fucked up these days?',
-            'POLI 0 - I Listen to the Ezra Klien Show So This Should be Pretty Easy for Me (cracks knuckles, reclines in chair)',
-            'POLI 100 - Introduction to That Thing Everyone Except Insane People Hate',
-            'POLI 101 - Introduction to Canadian Government: In a healthy democracy everyone would know this stuff but alas...',
-
-            'POLI 110 - Investigating Politics',
-            'POLI 220 - Introduction to Comparative Politics',
-            'POLI 240 - Currents of Political Thought',
-            'POLI 260 - Introduction to Global Politics',
+            'POLI 100 - Democracy: yay or nay?',
+            'POLI 101 - Introduction to Canadian Government: In a healthy democracy we would all know this stuff but alas...',
+            'POLI 302 - Public Administration (for nerds)',
+            'POLI 310 - Playing the Diplomacy Board Game',
+            'POLI 320 - I Listen to Pod Save America So This Should be Pretty Easy for Me (cracks knuckles, reclines in chair)',
+            'POLI 340 - So why is everything so fucked these days?',
+            'POLI 377 - AAAAAAAAAAAAAAAAAHHHHHHH',
         ],
         'economics': [
             'ECON 101 - Markets are good and cool (except when they\'re not)',
             'ECON 102 - That John Maynard Keynes "in the long run we are all dead" quote goes pretty hard, right?',
-            'ECON 0 - Malthusian Collapse When?',
-
+            'ECON 374 - Georgism sounds interesting.',
+            'ECON 421 - We are all just agents optimizing for utility, with Applications',
+            'ECON 472 - Malthusian Collapse When?',
+            /*
             'ECON 234 - Wealth and Poverty of Nations',
             'ECON 204 - Intermediate Microeconomic Analysis',
             'ECON 210 - Microeconomic Policy',
@@ -205,11 +204,15 @@ export default function PickCourse() {
             'ECON 421 - Introduction to Game Theory and Applications',
             'ECON 472 - Economics of Renewable Resources',
             'ECON 493 - Advanced Empirical Methods for International Economics',
-            'ECON 482 - The Economic Consequences of Religion',
+            'ECON 482 - The Economic Consequences of Religion',*/
         ],
         'linguistics': [
             'LING 100 - Introduction to Thinking A Lot About How Your Tongue Moves Around Within Your Mouth',
-
+            'LING 101 - Tom Scott\'s Videos were good',
+            'LING 200 - I liked Tom Scott\'s Videos',
+            'LING 315 - Rejecting the Sapir-Wohrf Hypothesis',
+            'LING 342 - Defining Natural Systems with Logic is so Cool',
+            /*
             'LING 142 - Language and Technology',
             'LING 200 - Linguistic Theory and Analysis I',
             'LING 201 - Linguistic Theory and Analysis II',
@@ -228,11 +231,15 @@ export default function PickCourse() {
             'LING 415 - Language Across Time, Geography, and Society',
             'LING 447 - Topics in Linguistics',
             'LING 451 - Acquisition of Phonology',
-            'LING 452 - Acquisition of Syntax'
+            'LING 452 - Acquisition of Syntax'*/
         ],
         'pyschology': [
-            'PSYC 0 - Introduction to "whoa that experiment performed in during the cold war was not ethical at all"',
-
+            'PSYC 100 - Introduction to "whoa those experiments performed during the cold war were not ethical at all"',
+            'PSYC 102 - Introduction to Brains Being Weird',,
+            'PSYC 305 - I\'m INFP. - wait no. I\'m INTP. Or maybe I\'m actually a \'Shy Extrovert\'!',
+            'PSYC 355 - What the heck is wrong with us?',
+            'PSYC 312 - Freud was kinda dumb',
+            /*
             'PSYC 101 - Introduction to Biological and Cognitive Psychology',
             'PSYC 102 - Introduction to Developmental, Social, Personality, and Clinical Psychology',
             'PSYC 217 - Research Methods',
@@ -241,11 +248,15 @@ export default function PickCourse() {
             'PSYC 304 - Brain and Behaviour',
             'PSYC 401 - Clinical Psychology',
             'PSYC 404 - Psychology of Religion',
-            'PSYC 409 - Cognitive Neuropsychology',
+            'PSYC 409 - Cognitive Neuropsychology',*/
         ],
         'astronomy': [
-            'ASTR 102 - Introduction to Inconcievable Massive Celestial Objects. Now with Philosophical Implications!',
-
+            'ASTR 102 - Introduction to Inconcievably Massive Celestial Objects. Now with Philosophical Implications!',
+            'ASTR 200 - wtf is darkmatter?',
+            'ASTR 300 - Galaxies for Galaxy Brains',
+            'ASTR 311 - Space. The Final Frontier. These are the voyages of the starship Enterprise...',
+            'ASTR 333 - Exoplanets and Astrobiology: We are still looking ;(',
+            /*
             'ASTR 200 - Frontiers of Astrophysics',
             'ASTR 205 - Stars and Stellar Populations',
             'ASTR 300 - Galaxies',
@@ -254,11 +265,15 @@ export default function PickCourse() {
             'ASTR 406 - High-Energy Astrophysics',
             'ASTR 407 - Planetary Science',
             'ASTR 404 - Astronomical and Astrophysical Measurements',
-            'ASTR 405 - Astronomical Laboratory',
+            'ASTR 405 - Astronomical Laboratory',*/
         ],
         'statistics': [
-            'STAT 251 - Theres Nothing Standard or Normal about the Standard Normal Distribution (feat. 3b1b)',
-
+            'DSCI 100 - Using an R library',
+            'STAT 200 - Elementary Statistics 💅',
+            'STAT 251 - Nothing Standard or Normal about the Standard Normal Distribution (feat. 3b1b)',
+            'STAT 300 - Introduction to the Bayes\' Theorem as Religion',
+            'STAT 305 - Numerology',
+            /*
             'STAT 200 - Elementary Statistics for Applications',
             'STAT 302 - Introduction to Probability',
             'STAT 305 - Introduction to Statistical Inference',
@@ -269,19 +284,25 @@ export default function PickCourse() {
             'STAT 445 - Introduction to Exploratory Data Analysis',
             'STAT 406 - Methods for Statistical Learning',
             'STAT 443 - Time Series and Forecasting',
+            */
         ],
         'cognitive-systems': [
             'COGS 200 - Introduction to Surface Level Pondering',
-
+            'COGS 300 - Designing little guys',
+            'COGS 401 - Cool Seminars',
+            'COGS 402 - Now its your turn!',
+            /*
             'COGS 300 - Understanding and Designing Cognitive Systems',
             'COGS 303 - Research Methods in Cognitive Systems',
             'COGS 401 - Seminar in Cognitive Systems',
             'COGS 402 - Research in Cognitive Systems',
+            */
         ],
         'sociology': [
-            'SOCI 100 - Introduction to Sociology',
+            'SOCI 100 - Introduction to \'We Live in a Society\'',
             'SOCI 101 - Reshaping Your Entire Worldview + An Essay You Will Fail',
-
+            'SOCI 200 - Things are not good'
+            /*
             'SOCI 210 - Canadian Social Structure',
             'SOCI 220 - Sociology of Indigenous Peoples',
             'SOCI 250 - Crime and Society',
@@ -296,13 +317,19 @@ export default function PickCourse() {
             'SOCI 420 - Sociology of the Environment',
             'SOCI 444 - Sociology of Aging',
             'SOCI 466 - Sociology of Education',
+            */
         ],
         'biology': [
             'MOUT 101 - Mouth pipetting',
             'BIOL 111 - I\'m just here for the science credit!',
             'BIOL 121 - \'On the Origin of Species\'? more like ',
+            'BIOL 153 - Human Biology',
+            'BIOL 310 - A Scent and a Sound, I\'m Lost and I\'m Found and I\'m Hungry Like the Wolf',
+            'BIOL 317 - Weed Science (real title)',
             'BIOL 335 - Genetics (but be chill about it okay)',
+            'BIOL 348 - Biology of Cannabis (real)',
 
+            /*
             'BIOL 112 - Biology of the Cell',
             'BIOL 121 - Genetics, Evolution and Ecology',
             'BIOL 140 - Laboratory Investigations in Life Science',
@@ -320,8 +347,11 @@ export default function PickCourse() {
             'BIOL 413 - Zoogeography',
             'BIOL 417 - Phylogenetic Biology',
             'BIOL 427 - Ornithology and Herpetology',
+            */
         ],
         'physics': [
+            'PHYS 473 - Applied Nuclear Physics (WHAT?!!!)',
+            /*
             'PHYS 117 - Dynamics and Waves',
             'PHYS 118 - Electricity, Light and Radiation',
             'PHYS 119 - Experimental Physics Lab',
@@ -338,17 +368,23 @@ export default function PickCourse() {
             'PHYS 412 - Quantum Physics',
             'PHYS 438 - Zoological Physics',
             'PHYS 473 - Applied Nuclear Physics',
+            */
         ],
         'computer-engineering': [
             'CPEN 211 - Introduction to lil\' baby computers',
-            'CPEN 481 - Economic Analysis of Engineering Projects (hint: never trust an engineer\'s predicted timeline)',
+            'CPEN 481 - Economic Analysis of Engineering Projects (hint: it always takes longer than you expected)',
+            'CPEN 281 - The Turbo Encabulator and Other Innovations in Applied Science',
+            'CPEN 311 - Design of Write-only Memory Systems',
 
+            /*
             'CPEN 281 - Technical Communication',
             'CPEN 311 - Digital Systems Design',
             'CPEN 331 - Operating Systems',
             'CPEN 491 - Computer Engineering Capstone Design Project',
+            */
         ],
         'civil-engineering': [
+            /*
             'CIVL 200 - Engineering and Sustainable Development',
             'CIVL 230 - Solid Mechanics I',
             'CIVL 300 - Construction Engineering and Management',
@@ -359,8 +395,15 @@ export default function PickCourse() {
             'CIVL 402 - Professionalism and Law in Civil Engineering',
             'CIVL 409 - Municipal Engineering',
             'CIVL 446 - Engineering Design and Analysis II',
+            */
         ],
         'geography': [
+            'GEOG 121 - Geography, Environment and Globalization',
+            'GEOG 202 - Collective action problems are difficult',
+            'GEOG 210 - Omg FIELD TRIPS?!',
+            'GEOG 211 - The State of the Earth (its bad probably)',
+            'GEOG 300 - Geography of [something]',
+            /*
             'GEOG 108 - Introduction to Physical Geography I',
             'GEOG 109 - Introduction to Physical Geography II',
             'GEOG 128 - Human Geography: Space, Place, and Community',
@@ -379,19 +422,22 @@ export default function PickCourse() {
             'GEOG 437 - Terrain Analysis',
             'GEOG 423 - Development of Environmental Thought',
             'GEOG 435 - Wine Geographies',
+            */
         ],
         'english': [
-            'PEAS 301 - Spinning Thread into Gold',
             'ENGL 100 - Reading some things. Maybe some writing too.',
             'ENGL 220 - Reading some old things and thinking about them',
+            'PEAS 301 - Spinning Thread into Gold',
             'ENGL 444 - Becoming Employable (Section Cancelled)',
         ],
         'philosophy': [
-            'PHIL 120 - wait logic and validity actually has an objective definition?',
+            'PHIL 100 - Introduction to Thinking',
+            'PHIL 103 - Defining words',
+            'PHIL 104 - Making things up',
+            'PHIL 220 - wait logic and validity actually has an objective definition?',
+            'PHIL 221 - What did unemployed rich guys in historical central europe think about badly defined thought experiments?',
+            'PHIL 230 - Introduction to Ethics (in case you forgot)',
             'PHIL 321 - Decision Theory: Adding Numbers Up and Seeing Which is Larger',
-            'PHIL 0 - Defining words',
-            'PHIL 0 - Making things up',
-            'PHIL 0 - What did unemployed rich guys in historical central europe think about badly structued thought experiments?',
         ]
     }
 

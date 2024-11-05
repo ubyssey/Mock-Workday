@@ -24,13 +24,13 @@ export default function Registration() {
                         <tr>
                             <td>B. Sc., Major in Is This Really the Best Way to Start a Conversation?</td>
                             <td>Active</td>
-                            <td>2024 - 2025 Winter Term 1 at the University of British Columbia Vancouver, Vancouver, BC, Canada V6T 1Z4</td>
+                            <td>2024 - 2025 Winter Term 1 at the University of British Columbia Vancouver, Vancouver, BC, Canada V6T 1Z4, Planet Earth, Solar System, Oort Cloud, Local Interstellar Cloud, Local Cavity, Orion Arm, Milky Way, Local Group, Virgo Supercluster, Laniakea Supercluster, the Universe.</td>
                             <td>20240612T160340Z00:00:00</td>
                         </tr>
                         <tr>
                             <td></td>
                             <td>Active</td>
-                            <td>2024 - 2025 Winter Term 2 at the University of British Columbia Vancouver, Vancouver, BC, Canada V6T 1Z4</td>
+                            <td>2024 - 2025 Winter Term 2 at the University of British Columbia Vancouver, Vancouver, BC, Canada V6T 1Z4, Planet Earth, Solar System, Oort Cloud, Local Interstellar Cloud, Local Cavity, Orion Arm, Milky Way, Local Group, Virgo Supercluster, Laniakea Supercluster, the Universe.</td>
                             <td>20240612T160340Z00:00:00</td>
                         </tr>
                     </table>

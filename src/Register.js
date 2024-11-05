@@ -17,7 +17,7 @@ export default function RegisterSaved() {
         <div className="content-container">
             <div>
             <div className="pageheader">
-                <h1>Start Registration from Saved Schedule</h1>
+                <h1><Link to={"/academics/registration"}><ion-icon name="arrow-back-outline"></ion-icon></Link> Start Registration from Saved Schedule</h1>
             </div>
 
             <div className="section-container">
@@ -49,7 +49,7 @@ export default function RegisterSaved() {
             </div>
             <footer>
                 <img src={'/itdoesntwork.svg'}></img>
-                <p>Made with hate by <a href="https://ubyssey.ca/authors/samlow/">Sam Low</a> and Ubyssey Humour Contributors. <span className="nowrap">© 2024 Ubyssey</span></p>
+                <p>Made with hate by <a href="https://ubyssey.ca/authors/samlow/">Sam Low</a> and <a href="https://ubyssey.ca/humour">Ubyssey Humour Contributors</a>. <span className="nowrap">© 2024 Ubyssey</span></p>
             </footer>
         </div>
     );
@@ -66,19 +66,19 @@ function CaptchaModal() {
             'prompt': 'A better use of 300 million dollars',
             'boxes': [
                 [
-                    {'image': '/lmao.jpg', 'choose': true},
+                    {'text': '???', 'choose': true},
+                    {'text': 'Build a second Nest', 'choose': true},
+                    {'text': '2 months rent in Vancouver', 'choose': true},
+                ],
+                [
+                    {'text': 'Print 3 billion pages with the PayForPrint library printers', 'choose': true},
                     {'text': 'give it to the ubyssey 🙏', 'choose': true},
-                    {'text': 'Ubyssey'},
+                    {'image': '/theshadow.webp', 'text': 'Construct 1000 more \'The Shadow\'\'s', 'choose': true},
                 ],
                 [
-                    {'text': 'Ubyssey'},
-                    {'text': 'Ubyssey'},
-                    {'text': 'Ubyssey'},
-                ],
-                [
-                    {'text': 'Ubyssey'},
-                    {'text': 'Ubyssey'},
-                    {'text': 'Ubyssey'},
+                    {'text': '???', 'choose': true},
+                    {'text': '???', 'choose': true},
+                    {'text': '???', 'choose': true},
                 ],
             ],
         },
@@ -88,19 +88,19 @@ function CaptchaModal() {
             'prompt': 'A good feature of Workday Student',
             'boxes': [
                 [
-                    {'text': 'finaces',},
-                    {'text': 'timetable',},
-                    {'text': 'Ubyssey'},
+                    {'image': '/lmao.jpg',},
+                    {'text': '???',},
+                    {'text': '???'},
                 ],
                 [
-                    {'text': 'Ubyssey'},
-                    {'text': 'Ubyssey'},
-                    {'text': 'Ubyssey'},
+                    {'text': '???'},
+                    {'text': '???'},
+                    {'text': '???'},
                 ],
                 [
-                    {'text': 'Ubyssey'},
-                    {'text': 'Ubyssey'},
-                    {'text': 'Ubyssey'},
+                    {'text': '???'},
+                    {'text': '???'},
+                    {'text': '???'},
                 ],
             ],
         },
@@ -159,8 +159,8 @@ function CaptchaModal() {
                                                 setButtonState("SKIP");
                                             }
                                         }} 
-                                        style={cell['image'] && {"background-image": "url('/lmao.jpg')"}}>
-                                            {cell['text'] && cell['text']}
+                                        style={cell['image'] && {"background-image": "url('" + cell['image'] + "')"}}>
+                                            <mark>{cell['text'] && cell['text']}</mark>
                                         </button>
                                     </td>
                                 )}

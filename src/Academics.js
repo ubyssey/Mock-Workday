@@ -106,7 +106,7 @@ date_layers["root"] = {'parent':null,
         "Dark Ages",
         "Star and galaxy formation and evolution",
         "Reionization",
-        "Present time",
+        "Present time 👈",
         "Radiation-dominated era",
         "Matter-dominated era",
         "Dark-energy-dominated era",
@@ -115,7 +115,34 @@ date_layers["root"] = {'parent':null,
     ]
 };
 
-date_layers["Present time"] = {'parent': 'root',
+
+date_layers["Dark-energy-dominated era"] = {'parent': 'root',
+    'children': [
+        "Junior High",
+        "High School",
+        "Everything is my dark-energy dominated era",
+    ]
+};
+
+date_layers["Everything is my dark-energy dominated era"] = {'parent': 'root',
+    'children': [
+        "Thats so true",
+    ]
+};
+
+date_layers["High School"] = {'parent': 'root',
+    'children': [
+        "Thats so true",
+    ]
+};
+
+date_layers["Junior High"] = {'parent': 'root',
+    'children': [
+        "Thats so true",
+    ]
+};
+
+date_layers["Present time 👈"] = {'parent': 'root',
     'children': [
         "Precambrian",
         "Paleozoic",
@@ -124,7 +151,13 @@ date_layers["Present time"] = {'parent': 'root',
     ]
 };
 
-date_layers["Paleozoic"] = {'parent': 'Present time',
+date_layers["Precambrian"] = {'parent': 'Present time 👈',
+    'children': [
+        "Bro is precambrian?",
+    ]
+};
+
+date_layers["Paleozoic"] = {'parent': 'Present time 👈',
     'children': [
         "Cambrian",
         "Ordovician",
@@ -136,7 +169,7 @@ date_layers["Paleozoic"] = {'parent': 'Present time',
     ]
 };
 
-date_layers["Mesozoic"] = {'parent': 'Present time',
+date_layers["Mesozoic"] = {'parent': 'Present time 👈',
     'children': [
         "Triassic",
         "Jurassic",
@@ -144,7 +177,7 @@ date_layers["Mesozoic"] = {'parent': 'Present time',
     ]
 };
 
-date_layers["Cenozoic"] = {'parent': 'Present time',
+date_layers["Cenozoic"] = {'parent': 'Present time 👈',
     'children': [
         "Tertiary",
         "Quaternary",
@@ -168,7 +201,7 @@ date_layers["Quaternary"] = {'parent': 'Cenozoic',
     ]
 };
 
-date_layers["Holocene"] = {'parent': 'Present time',
+date_layers["Holocene"] = {'parent': 'Present time 👈',
     'children': [
         "Before Christ",
         "After Christ"
@@ -186,6 +219,32 @@ date_layers["Before Christ"] = {'parent': 'Holocene',
     ]
 };
 
+date_layers["Roman (c. 56 BCE – 1 CE)"] = {'parent': 'Before Christ',
+    'children': [
+        "Eh, eheu, ehue/ Eh, eheu, ehue/ Eh, eheu, ehue/ Eh, eheu, ehue",
+        "Eh, eheu, ehue/ Eh, eheu, ehue/ Eh, eheu, ehue/ Eh, eheu, ehue",
+        "Eh, eheu, ehue/ Eh, eheu, ehue/ Eh, eheu, ehue/ Eh, eheu, ehue",
+        "Eh, eheu, ehue/ Eh, eheu, ehue/ Eh, eheu, ehue/ Eh, eheu, ehue",
+        "Eh, eheu, ehue/ Eh, eheu, ehue/ Eh, eheu, ehue/ Eh, eheu, ehue",
+        "Eh, eheu, ehue/ Eh, eheu, ehue/ Eh, eheu, ehue/ Eh, eheu, ehue",
+    ]
+};
+
+date_layers["Roman (c. 0 BCE – 400 CE)"] = {'parent': 'After Christ',
+    'children': [
+        "Julio-Claudian dynasty (27 BC – AD 68)",
+        "Year of the Four Emperors (68–69)",
+        "Flavian dynasty (69–96)",
+        "Nerva–Antonine dynasty (96–192)",
+        "Year of the Five Emperors (193)",
+        "Severan dynasty (193–235)",
+        "Crisis of the Third Century (235–285)",
+        "Tetrarchy (284–324)",
+        "Constantinian dynasty (306–363)",
+        "Valentinianic dynasty (364–392)",
+    ]
+};
+
 date_layers["After Christ"] = {'parent': 'Holocene',
     'children': [
         "Roman (c. 0 BCE – 400 CE)",
@@ -197,13 +256,68 @@ date_layers["After Christ"] = {'parent': 'Holocene',
 };
 
 date_layers["Industrial/Modern"] = {'parent': 'After Christ',
+    'children': [
+        "End of world war 2 (1945)",
+        "First episode of scooby doo (1969)",
+        "Collapse of the Soviet Union (1988-1991)",
+        "Seinfeld 'The Contest' Airs (1992)",
+        "Release of Fearless (2008)",
+        "The Global Financial Crisis (2008)",
+        "Release of Speak Now (2010)",
+        "Release of Red (2012)",
+        "Release of 1989 (2014)",
+        "One Direction breaks up (2015)",
+        "Release of Reputation (2017)",
+        "Release of Lover (2019)",
+        "Beginning of COVID-19 Pandemic (2019)",
+        "Release of folklore (2020)",
+        "Release of evermore (2020)",
+        "Release of fearless (taylor's version) (2021)",
+        "Release of red (taylor's version) (2021)",
+        "Release of midnights (2022)",
+        "Release of speak now (taylor's version) (2023)",
+        "Release of 1989 (taylor's version) (2023)",
+        "Release of The tortured poets society (2024)",
+    ]
+};
+
+date_layers['Release of The tortured poets society (2024)']= {'parent': 'Industrial/Modern',
+    'alt title': 'Quiz: 2x5',
+    'children': [
+        '10',
+        '15',
+        '7'
+    ]
+}
+
+date_layers['10'] = {'parent': 'Release of The tortured poets society (2024)',
+    'alt title': 'Quiz: Proper use of \'affect\' and \'effect\'',
+    'children': [
+        'Caffine doesn\'t effect me anymore',
+        'Caffine doesn\'t affect me anymore',
+    ]
+}
+
+date_layers['Caffine doesn\'t affect me anymore'] = {'parent': '10', 
+    'alt title': 'When was the Ubyssey founded?',
+    'children': [
+        '1911',
+        '1937',
+        '1918',
+        '1952',
+        '1880',
+    ]
+}
+
+
+date_layers['1918'] = {'parent': 'Caffine doesn\'t affect me anymore',
+    'alt title': 'Finally.',
     'final': true,
     'children': [
         'Term 1',
         'Term 2'
     ]
-};
-
+}
 
 function OptionList({layer, selected, setSelected}) {
     function addSelected(term, button) {
@@ -225,7 +339,7 @@ function OptionList({layer, selected, setSelected}) {
     if (layer in date_layers) {
             return (
                 <>
-                {date_layers[layer]['parent'] != null && <button className="options-header" onClick={() => selectDate(date_layers[layer]['parent'])}><ion-icon name="arrow-back-outline"></ion-icon> {layer}</button>}
+                {date_layers[layer]['parent'] != null && <button className="options-header" onClick={() => selectDate(date_layers[layer]['parent'])}><ion-icon name="arrow-back-outline"></ion-icon> {(date_layers[layer]['alt title'] ? date_layers[layer]['alt title'] : layer)}</button>}
                 <ul>{date_layers[layer]['children'].map((child, index) =>
                     <li key={index}>
                         { 'final' in date_layers[layer] ? 
