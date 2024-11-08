@@ -13,7 +13,7 @@ export default function Finances() {
             <div className="section-container finances">
 
                 <div className="section-box">
-                    <h2><a href="https://ubyssey.ca/tag/workday-student/" target="_blank">idk, read some <i>ubyssey</i> about it</a></h2>
+                    <h2><a href="https://ubyssey.ca/tag/workday-student/" target="_blank">Read some <i>ubyssey</i> about it</a></h2>
                 </div>
 
                 <div className="section-box">

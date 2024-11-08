@@ -413,7 +413,7 @@ export function PickSubject() {
     return (
         <div className="content-container">
         <div className="pageheader">
-            <h1><Link to={"/"}></Link> Select Course Subject</h1>
+            <h1><Link to={"/academics/registration"}><ion-icon name="arrow-back-outline"></ion-icon></Link> Select Course Subject</h1>
         </div>
         <div className="info-bar">
 
@@ -546,6 +546,7 @@ export function PickSubject() {
                     ])}>Misery.</button>
                     <h2>Niche reference</h2>
                     <button onClick={() => badApple()}>Play animation</button>
+                    <div className="credit">Comics from <a href="https://xkcd.com/">xkcd</a></div>
                 </div>
                 <div className="results" id="results">
                     <h2>{subjects.length} Results</h2>

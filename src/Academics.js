@@ -1,6 +1,6 @@
 import {Link, Outlet} from "react-router-dom";
 import ReactDOM from 'react-dom/client';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { setQuipts, setPriorityQuipts } from "./AnnoyingMascot";
 
 export function Academics() {
@@ -11,8 +11,8 @@ export function Academics() {
             </div>
             <div className="tabmenu">
                 <ul>
-                <li><Link to={"/academics/"}>Academics</Link></li>
-                    <li><Link to={"/academics/registration"}>Registration 👈</Link></li>
+                    <li id='academics-nav'><Link to={"/academics/"}>Academics</Link></li>
+                    <li id='registration-nav'><Link to={"/academics/registration"}>Registration <span className="hideonbold pointer">👈</span></Link></li>
                 </ul>
             </div>
             <Outlet />
@@ -28,6 +28,10 @@ export function Academics() {
 export function AcademicsIndex() {
     setPriorityQuipts(["SHEEEEESH", "WOW! Not doing so good I see!"]);
     setQuipts(["Would be so embaressing if you opened this page in public HAHSAHAHAHAHAAHAHAH", "Planning on graduating, With THAT average?"]);
+    useEffect(() => {
+        document.getElementById("academics-nav").classList.add("bold");
+        document.getElementById("registration-nav").classList.remove("bold");
+    }, []);
     return (
         <div className="section-container">
             <div className="section-box progress">
@@ -143,11 +147,12 @@ date_layers["Junior High"] = {'parent': 'root',
 };
 
 date_layers["Present time 👈"] = {'parent': 'root',
+    'alt title': 'Present time',
     'children': [
         "Precambrian",
         "Paleozoic",
         "Mesozoic",
-        "Cenozoic",
+        "Cenozoic 👈",
     ]
 };
 
@@ -177,10 +182,11 @@ date_layers["Mesozoic"] = {'parent': 'Present time 👈',
     ]
 };
 
-date_layers["Cenozoic"] = {'parent': 'Present time 👈',
+date_layers["Cenozoic 👈"] = {'parent': 'Present time 👈',
+    'alt title': 'Cenozoic',
     'children': [
         "Tertiary",
-        "Quaternary",
+        "Quaternary 👈",
     ]
 };
 
@@ -194,17 +200,19 @@ date_layers["Tertiary"] = {'parent': 'Cenozoic',
     ]
 };
 
-date_layers["Quaternary"] = {'parent': 'Cenozoic',
+date_layers["Quaternary 👈"] = {'parent': 'Cenozoic',
+    'alt title': 'Quaternary',
     'children': [
         "Pleistocene",
-        "Holocene",
+        "Holocene 👈",
     ]
 };
 
-date_layers["Holocene"] = {'parent': 'Present time 👈',
+date_layers["Holocene 👈"] = {'parent': 'Present time 👈',
+    'alt title': 'Holocene',
     'children': [
         "Before Christ",
-        "After Christ"
+        "After Christ 👈"
     ]
 };
 
@@ -245,17 +253,18 @@ date_layers["Roman (c. 0 BCE – 400 CE)"] = {'parent': 'After Christ',
     ]
 };
 
-date_layers["After Christ"] = {'parent': 'Holocene',
+date_layers["After Christ 👈"] = {'parent': 'Holocene',
+    'alt title': 'After Christ',
     'children': [
         "Roman (c. 0 BCE – 400 CE)",
         "Early medieval period (c. 400 – 800 CE)",
         "Medieval period (800 – c. 1500)",
         "Post-medieval period (c. 1500 – c. 1800)",
-        "Industrial/Modern",
+        "Industrial/Modern 👈",
     ]
 };
 
-date_layers["Industrial/Modern"] = {'parent': 'After Christ',
+date_layers["Industrial/Modern 👈"] = {'parent': 'After Christ',
     'children': [
         "End of world war 2 (1945)",
         "First episode of scooby doo (1969)",
@@ -277,11 +286,11 @@ date_layers["Industrial/Modern"] = {'parent': 'After Christ',
         "Release of midnights (2022)",
         "Release of speak now (taylor's version) (2023)",
         "Release of 1989 (taylor's version) (2023)",
-        "Release of The tortured poets society (2024)",
+        "Release of The tortured poets society (2024) 👈",
     ]
 };
 
-date_layers['Release of The tortured poets society (2024)']= {'parent': 'Industrial/Modern',
+date_layers['Release of The tortured poets society (2024) 👈']= {'parent': 'Industrial/Modern',
     'alt title': 'Quiz: 2x5',
     'children': [
         '10',
@@ -404,6 +413,39 @@ function StupidModal() {
 
 export function RegistrationIndex() {
     setPriorityQuipts(["We use these CUTE entrance animations to disguise the loading times! I bet you didn't even notice haha!"]);
+    useEffect(() => {
+        document.getElementById("academics-nav").classList.remove("bold");
+        document.getElementById("registration-nav").classList.add("bold");
+    }, []);
+
+    
+    var canRegister = false;
+
+    var scienceTerms = ['CPSC', 'BIOL', 'CPEN', 'CIVL', 'PHYS', 'MATH', 'STAT', 'ASTR', 'DSCI'];
+    var sciences = [];
+    var arts = [];
+
+    if(localStorage.getItem("courses") != null) {
+        var courses = localStorage.getItem("courses").split(";");
+        for(let a=0; a < courses.length; a++) {
+            var course = courses[a];
+            var isArts = true;
+            for (let i=0; i<scienceTerms.length; i++) {
+                if (course.includes(scienceTerms[i])) {
+                    sciences.push(course);
+                    isArts = false;
+                    break;
+                }
+            }
+            if (isArts) {
+                arts.push(course);
+            }
+        }
+        if (arts.length > 1 && sciences.length > 1){
+            canRegister = true;
+        }
+    }
+
     return (
         <div className="section-container">
             <StupidModal />
@@ -434,10 +476,29 @@ export function RegistrationIndex() {
             </div>
             <div className="section-box schedule">
                 <h2>Saved Schedule</h2>
-                <p>{localStorage.getItem("courses")!=null ? localStorage.getItem("courses") : "No Courses Saved"}</p>
-
-                <button className={"register-button" + (localStorage.getItem("courses")==null ? ' inactive': '')} onClick={() => {
-                    if(localStorage.getItem("courses")!=null) {
+                {localStorage.getItem("courses")!=null ? 
+                    <>
+                        <p className={sciences.length >= 2 ? "met" : "not-met"}><span className="met"><ion-icon name="checkmark-circle-outline"></ion-icon></span><span className="not-met"><ion-icon name="close-circle-outline"></ion-icon></span> {sciences.length}/2 Science Requirement (<span className="not-met">not </span>met)</p>
+                        <ul>
+                            {sciences.map(c =>
+                            <li>{c}</li>
+                            )}
+                        </ul> 
+                        <p className={arts.length >= 2 ? "met" : "not-met"}><span className="met"><ion-icon name="checkmark-circle-outline"></ion-icon></span><span className="not-met"><ion-icon name="close-circle-outline"></ion-icon></span> {arts.length}/2 Arts Requirement (<span className="not-met">not </span>met)</p>
+                        <ul>
+                            {arts.map(c =>
+                            <li>{c}</li>
+                            )}
+                        </ul> 
+                    </>
+                    : 
+                    <>
+                        <p>No Courses Saved.</p>
+                        <p>Use "Find Course Sections" to add courses to your Saved Schedule!</p>
+                    </>
+                }
+                <button className={"register-button" + (!canRegister ? ' inactive': '')} onClick={() => {
+                    if(canRegister) {
                         window.location.replace("/register");
                     }
                 }}>Register</button>
@@ -447,7 +508,7 @@ export function RegistrationIndex() {
                     <li className="section-box">
                         <h2>Registration</h2>
                         <ul>
-                            <li><button onClick={openModal}>Find Course Sections (What is a course section?) 👈</button></li>
+                            <li><button onClick={openModal}>Find Course Sections (What is a course section?) {!canRegister && <span className="pointer">👈</span>}</button></li>
                         </ul>
                     </li>
                     <li className="section-box">
@@ -460,11 +521,11 @@ export function RegistrationIndex() {
                     </li>
                     <li className="section-box">
                         <h2>Who to blame</h2>
-                        <ul>
-                            <li><a href="https://irp.ubc.ca/" target="_blank">Integrated Renewal Program</a></li>
-                            <li><a href="https://bog.ubc.ca/" target="_blank">Board of Governors?</a></li>
+                        <ul>    
                             <li><a href="https://www.ubc.ca/" target="_blank">UBC</a></li>
                             <li><a href="https://www.workday.com/" target="_blank">Workday</a></li>
+                            <li><a href="https://bog.ubc.ca/" target="_blank">Board of Governors</a></li>
+                            <li><a href="https://irp.ubc.ca/" target="_blank">Integrated Renewal Program</a></li>
                         </ul>
                     </li>
 

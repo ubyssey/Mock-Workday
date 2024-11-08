@@ -36,10 +36,10 @@ function SelectCourse({course}) {
         if (active) {
             var courses = [];
             if (localStorage.getItem('courses') != null) {
-                courses = localStorage.getItem("courses").split(','); 
+                courses = localStorage.getItem("courses").split(';'); 
             }
             courses.push(course);
-            localStorage.setItem('courses', courses.join(','));
+            localStorage.setItem('courses', courses.join(';'));
             console.log("'" + course + "' added to planned courses!");
             alert("'" + course + "' added to planned courses!");
             cancel();
@@ -156,12 +156,12 @@ export default function PickCourse() {
 
     let courses = {
         "math": [
-            "Math 100 - Not Sure I didn't take it", 
-            "Math 101 - My view of humanity is decidedly more negative after suffering those group projects",
-            "Math 200 - The biweekly assignments took 7 years off my expected lifespan",
-            "Math 220 - PROVE IT! (I actually liked this one)",
-            "Math 221 - Linear Algebra made intolerable",
-            "Math 210 - Integrals made worse",
+            "MATH 100 - High School Calculus AGAIN", 
+            "MATH 101 - My view of humanity is decidedly more negative after suffering those group projects",
+            "MATH 200 - Honours in rRmoving 7 Years From Your Expected Lifespan Through Biweekly Proof Assignments",
+            "MATH 220 - PROVE IT!",
+            "MATH 221 - Linear Algebra made intolerable",
+            "MATH 210 - Integrals made worse",
         ],
         "computer-science": [
             "CPSC 110 - Introduction to Typing on a Computer and Hating Racket",
@@ -301,7 +301,9 @@ export default function PickCourse() {
         'sociology': [
             'SOCI 100 - Introduction to \'We Live in a Society\'',
             'SOCI 101 - Reshaping Your Entire Worldview + An Essay You Will Fail',
-            'SOCI 200 - Things are not good'
+            'SOCI 200 - Things are not good',
+            'SOCI 300 - \'The point, however, is to change it.\'',
+            'SOCI 400 - Learning to Love/Hate Humanity',
             /*
             'SOCI 210 - Canadian Social Structure',
             'SOCI 220 - Sociology of Indigenous Peoples',
@@ -320,7 +322,7 @@ export default function PickCourse() {
             */
         ],
         'biology': [
-            'MOUT 101 - Mouth pipetting',
+            'BIOL 101 - Mouth pipetting',
             'BIOL 111 - I\'m just here for the science credit!',
             'BIOL 121 - \'On the Origin of Species\'? more like ',
             'BIOL 153 - Human Biology',
@@ -350,7 +352,12 @@ export default function PickCourse() {
             */
         ],
         'physics': [
+            'PHYS 118 - HOW CAN IT BE BOTH???',
+            'PHYS 354 - Playing with magnets (I assume)',
+            'PHYS 412 - Ant-Man and the Wasp: Quantumania',
+            'PHYS 438 - Physics Except All the Word Problems use a Circus as the Setting',
             'PHYS 473 - Applied Nuclear Physics (WHAT?!!!)',
+            'PHYS 473 - Exploring New Ways to End the World',
             /*
             'PHYS 117 - Dynamics and Waves',
             'PHYS 118 - Electricity, Light and Radiation',
@@ -384,6 +391,10 @@ export default function PickCourse() {
             */
         ],
         'civil-engineering': [
+            'CIVL 200 - Engineering (In a Civil Manner)',
+            'CIVL 230 - How Many Nuclear Strikes Could Your Structure Handle Before Collapsing?',
+            'CIVL 305 - Water Park Construction With Applications for Rollercoaster Tycoon',
+            'CIVL 402 - Introduction to How to Not Break the Law',
             /*
             'CIVL 200 - Engineering and Sustainable Development',
             'CIVL 230 - Solid Mechanics I',
@@ -445,7 +456,7 @@ export default function PickCourse() {
     return (
         <div className="content-container">
             <div className="pageheader">
-                <h1><Link to={"/"}></Link> Select Course Subject</h1>
+                <h1><Link to={"/pick-subject/?term=Term 2,Term 1"}><ion-icon name="arrow-back-outline"></ion-icon></Link> Select Course Subject</h1>
             </div>
 
             <DuckHunt classes={classes}/>

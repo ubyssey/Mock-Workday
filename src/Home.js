@@ -9,7 +9,7 @@ gsap.registerPlugin(Flip);
 export default function Home() {
     setPriorityQuipts([
         "Welcome to 'It Doesn't WorkDay'!",
-        "I am $300,000,000 <b>(Three Hundred Million Dollars)</b>, the official mascot of 'It Doesn't Workday'!",
+        "I am <b>Three Hundred Million Dollars</b>, the official mascot of 'Itdoesn'twork day'!",
         "Its time for you to do your course registration... so go do that!",
         "I'll be here keeping you company ;)"
     ]);
@@ -97,7 +97,7 @@ export default function Home() {
                     <h1 className="only-desktop">{greetings[Math.floor(Math.random()*greetings.length)]}</h1>
                     <div className="home-section">
                         <h2>Awaiting Your Action</h2>
-                        <p><u>Register for courses now. Thats what this is about.</u></p>
+                        <p>Register for courses now. Thats what this is about!!!</p>
                     </div>
                     <div className="home-section">
                         <h2>Timely Suggestions</h2>
@@ -164,7 +164,7 @@ export default function Home() {
                                         </svg>
                                         <div className="circle"></div>
                                     </div>
-                                    <h3>Academics 👈</h3>
+                                    <h3>Academics <span className="pointer">👈</span></h3>
                                 </Link>
                             </li>
                             <li>
@@ -178,6 +178,11 @@ export default function Home() {
                             <li>
                                 <a href="#" onClick={(e)=> copyLink(e)}>
                                     <div className="app-icon">
+                                        <svg width="321" height="320" viewBox="0 0 321 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M260.379 179.872C260.379 179.872 320.129 120.122 260.379 60.3712C200.628 0.620649 140.878 60.3712 140.878 60.3712" stroke="#285385" stroke-width="28" stroke-linecap="round"/>
+                                        <path d="M60.6212 140.628C60.6212 140.628 0.870677 200.378 60.6212 260.129C120.372 319.879 180.122 260.129 180.122 260.129" stroke="#285385" stroke-width="28" stroke-linecap="round"/>
+                                        <path d="M200.628 120.829L121.079 200.378" stroke="#285385" stroke-width="28" stroke-linecap="round"/>
+                                        </svg>
                                         <div className="circle"></div>
                                     </div>
                                     <h3 id="copy-link">Share with Friends</h3>

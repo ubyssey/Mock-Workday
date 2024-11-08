@@ -66,21 +66,22 @@ function CaptchaModal() {
             'prompt': 'A better use of 300 million dollars',
             'boxes': [
                 [
-                    {'text': '???', 'choose': true},
-                    {'text': 'Build a second Nest', 'choose': true},
-                    {'text': '2 months rent in Vancouver', 'choose': true},
+                    {'text': 'Live stage lighting and music mixing during AMS meetings', 'image': '/amsCouncil.jpg', 'choose': true},
+                    {'text': 'Build a second Nest', 'image': '/nest.jpg', 'choose': true},
+                    {'text': 'Funding for Pea Man\'s next stunt', 'image': '/peaman.jpg', 'choose': true},
                 ],
                 [
-                    {'text': 'Print 3 billion pages with the PayForPrint library printers', 'choose': true},
-                    {'text': 'give it to the ubyssey 🙏', 'choose': true},
-                    {'image': '/theshadow.webp', 'text': 'Construct 1000 more \'The Shadow\'\'s', 'choose': true},
+                    {'text': '2 months rent in Vancouver', 'image': '/vancouver.jpg', 'choose': true},
+                    {'text': 'Give it to The Ubyssey 🙏', 'image': '/ubysseyOffice.jpg', 'choose': true},
+                    {'text': 'Construct 1000 more \'The Shadow\'\'s', 'image': '/theshadow.webp', 'choose': true},
                 ],
                 [
-                    {'text': '???', 'choose': true},
-                    {'text': '???', 'choose': true},
-                    {'text': '???', 'choose': true},
+                    {'text': '3 billion prints using PayForPrint', 'image': '/paper.jpg', 'choose': true},
+                    {'text': 'Demolish frat village and replace with large McDonald\'s PlayPlace', 'image': '/fraternities.jpg','choose': true},
+                    {'text': 'Just keep expanding Blue Chip', 'image': '/blueChip.jpg', 'choose': true},
                 ],
             ],
+            'credit': 'Ubyssey (Charlotte Alden, Isabella Falsetti, Jullian Forst, Iman Janmohomed, Elizabeth Wang, Viyan Handley), Wikimedia Commons (David G. Gordon, Sage Ross)'
         },
 
         {
@@ -89,18 +90,18 @@ function CaptchaModal() {
             'boxes': [
                 [
                     {'image': '/lmao.jpg',},
-                    {'text': '???',},
-                    {'text': '???'},
+                    {'image': '/wdcalendar.png',},
+                    {'image': '/wdcourses.png',},
                 ],
                 [
-                    {'text': '???'},
-                    {'text': '???'},
-                    {'text': '???'},
+                    {'image': '/wdfuture.png',},
+                    {'image': '/wdmenu.png',},
+                    {'image': '/wdnodata.png',},
                 ],
                 [
-                    {'text': '???'},
-                    {'text': '???'},
-                    {'text': '???'},
+                    {'image': '/wdtime.png',},
+                    {'image': '/wdwtf.png',},
+                    {'image': '/wdzeros.png',},
                 ],
             ],
         },
@@ -167,6 +168,7 @@ function CaptchaModal() {
                             </tr>
                         )}
                     </table>
+                    <p className="credit">{problems[prob]["credit"]!= null && "Images: " + problems[prob]["credit"]}</p>
                 </>
             );
         }
@@ -191,6 +193,7 @@ function CaptchaModal() {
                         setTimeout(() => {
                             document.getElementById('silly-captcha').classList.remove('correct');
                             setProb(prob + 1);
+                            setButtonState("SKIP");
                         }, 750);
                     } else {
                         document.getElementById('silly-captcha').classList.add('wrong');

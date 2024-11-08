@@ -639,7 +639,7 @@ div.section-box {
   padding: 1em;
   left: 0;
   background-color: white;
-  animation: registration-wait 15s 1, registration-intro 6s 12s 1 ease-out;
+  animation: registration-wait 15s 1, registration-intro 15s 3s 1 ease-out;
 }
 
 .appointments div {
@@ -688,13 +688,34 @@ div.section-box {
 .schedule {
   width: 30%;
   padding: 1em;
-  left: calc(30% + 3em);
+  left: calc(30% + 2.5em);
   background-color: white;
-  animation: registration-intro 6s 1 ease-out;
+  animation: registration-intro 10s 1 ease-out;
+}
+
+.schedule ion-icon {
+  vertical-align: bottom;
+  font-size: 1.25em;
+}
+
+.schedule p.met span.not-met {
+  display: none;
+} 
+
+.schedule p.not-met span.met {
+  display: none;
+} 
+
+span.not-met ion-icon {
+  color: red;
+}
+
+span.met ion-icon {
+  color: green;
 }
 
 .reg-links {
-  animation: registration-wait 6s 1, registration-intro 6s 6s 1 ease-out;
+  animation: registration-wait 15s 1, registration-intro 15s 3s 1 ease-out;
 }
 
 dialog {
@@ -911,6 +932,16 @@ button:hover {
   height: fit-content;
   position: sticky;
   top: 3em;
+}
+
+.filters .credit {
+  margin-top: 2em;
+  font-size: 0.75em;
+  font-style: italic;
+}
+
+.filters .credit a {
+  color: #464646;
 }
 
 .filters button {
@@ -1305,6 +1336,24 @@ nav.nav {
   background: none;
 }
 
+.register-button.inactive {
+  color: grey;
+  cursor: default;
+}
+
+span.pointer {
+  position: absolute;
+  animation: point 1s infinite ease-in-out;  
+  transform: translateX(0);
+  margin-left: 0.25em;
+}
+
+@keyframes point {
+  0% {transform: translateX(0);}
+  66% {transform: translateX(50%);}
+  100% {transform: translateX(0);}
+}
+
 .captcha-check {
   position: relative;
   width: fit-content;
@@ -1338,6 +1387,7 @@ nav.nav {
 #silly-captcha {
   min-width: unset;
   border-radius: 0;
+  margin-block: auto;
 }
 .captcha-header {
   margin: 0.5em;
@@ -1352,9 +1402,20 @@ nav.nav {
   }
 }
 
+.captcha-box {
+  max-width: 446px;
+}
 .captcha-box table {
-  width: 450px;
+  width: calc(100% - 1em);
   margin: 0.5em;
+  display: flex;
+  flex-direction: column;
+  aspect-ratio: 1;
+}
+
+.captcha-box p.credit {
+  margin: 1em;
+  font-style: italic;
 }
 
 .correct .captcha-box table td, .correct .captcha-bottom button {
@@ -1382,20 +1443,27 @@ nav.nav {
   border: 1px solid rgb(212, 212, 212);
   padding: 0;
   text-align: center;
-  width: 150px;
-  height: 150px;
   background-color: #408def;
   box-sizing: border-box;
-  transition-duration: 0.75s;
+  flex-grow: 1;
 }
-.captcha-box table td.selected {
-  padding: 1em;
+.captcha-box table tr {
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+}
+
+.captcha-box table td.selected button {
+  width: calc(100% - 2em);
+  height: calc(100% - 2em);
+  top: 1em;
 }
 .captcha-box table td button {
   border: none;
   background: white;
   
   padding: 1em;
+  top: 0;
   width: 100%;
   height: 100%;
   background-size: cover;
@@ -1403,10 +1471,11 @@ nav.nav {
   font-weight: 600;
   color: #333;
   position: relative;
+  transition-duration: 0.75s;
 }
 
 .captcha-box table td button mark {
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.8);
   color: #333;
   position: absolute;
   top: 50%;
@@ -1425,6 +1494,14 @@ nav.nav {
 }
 
 .captcha-bottom button .wrong, .captcha-bottom button .correct {
+  display: none;
+}
+
+.bold {
+  font-weight: 800;
+}
+
+.bold .hideonbold {
   display: none;
 }
 
@@ -1544,6 +1621,7 @@ nav.nav {
 .finances .section-box {
   position: relative;
   height: fit-content;
+  min-height: 0;
 }
 
 .finances .section-box h2, .finances .section-box a {
@@ -1551,6 +1629,10 @@ nav.nav {
   color: #393939;
   text-decoration: none;
 }
+.finances .section-box h2 {
+  margin: 0.5em;
+}
+
 .finances .section-box a:hover {
   text-decoration: underline;
 }
@@ -1623,8 +1705,9 @@ nav.nav {
     position: relative;
   }
   dialog {
-    max-width: 100%;
+    max-width: calc(100% - 2em);
     min-width: 0;
+    margin-inline: 1em;
   }
   .terrible-spreadsheet-mf {
     flex-direction: column;
