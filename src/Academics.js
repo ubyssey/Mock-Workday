@@ -31,6 +31,9 @@ export function AcademicsIndex() {
     useEffect(() => {
         document.getElementById("academics-nav").classList.add("bold");
         document.getElementById("registration-nav").classList.remove("bold");
+        document.getElementById("useless-searchbar").addEventListener("focus", (e)=> {
+            e.preventDefault();
+        });
     }, []);
     return (
         <div className="section-container">
@@ -354,14 +357,14 @@ function OptionList({layer, selected, setSelected}) {
                         { 'final' in date_layers[layer] ? 
                             <button 
                                 onClick={() => {addSelected(child, "term-button-" + String(index));}}
-                                onTouchEndCapture={() => {addSelected(child, "term-button-" + String(index));}}>
+                                onTouchEnd={() => {addSelected(child, "term-button-" + String(index));}}>
                                 <input defaultChecked={selected.includes(child)} disabled id={"term-button-" + String(index)} type="checkbox" name="child" value="child"></input>
                                 <label for={"term-button-" + String(index)}>{child}</label>
                             </button>
                         :
                             <button 
                                 onClick={() => selectDate(child)}
-                                onTouchEndCapture={() => selectDate(child)}
+                                onTouchEnd={() => selectDate(child)}
                                 >{child}</button>
                         }
                     </li>
@@ -374,7 +377,7 @@ function OptionList({layer, selected, setSelected}) {
         <>
         <button className="options-header" 
             onClick={() => selectDate('root')}
-            onTouchEndCapture={() => selectDate('root')}><ion-icon name="arrow-back-outline"></ion-icon> Error start again!</button>
+            onTouchEnd={() => selectDate('root')}><ion-icon name="arrow-back-outline"></ion-icon> Error start again!</button>
         <p>Sawwy we just added this option for fun 👉👈</p>
         </>
         );
@@ -394,7 +397,7 @@ function StupidModal() {
                         <ul className="selected-list">{selected.map((selection) =>
                             <li>{selection}</li>
                         )}</ul>
-                        <input id="useless-searchbar" type="text" placeholder="Search"></input>
+                        <input id="useless-searchbar" type="text" placeholder="Search" readonly="readonly"></input>
                         <div id="date-options" className="options">
                             <OptionList layer="root" selected={selected} setSelected={select => setSelected(select)}/>
                         </div>
