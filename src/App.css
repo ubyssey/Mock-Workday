@@ -1169,6 +1169,8 @@ button:hover {
 #select-course-modal {
   max-width: 90vw;
   width: 650px;
+  max-height: 80%;
+  overflow: auto;
 }
 
 #select-course-modal .flex {
@@ -1787,5 +1789,21 @@ span.pointer {
   }
   input[type="text"] {
     font-size: 16px;
+  }
+  .annoying-selector .options {
+    display: block;
+  }
+  .annoying-selector {
+    width: 100%;
+    height: 200px;
+  }
+  .annoying-selector input[type="text"] {
+    display: none;
+  }
+  .options {
+    max-height: 200px;
+  }
+  #stupid-fucking-modal {
+    width: 100%;
   }
 }
