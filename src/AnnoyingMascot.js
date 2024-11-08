@@ -61,7 +61,7 @@ function moveAround() {
 }
 
 function iterateQuips() {
-    if (quipping == false) {
+    if (quipping === false) {
         if (priorityQuips.length > 0) {
             funnyQuip(priorityQuips[0], 1);
             priorityQuips.splice(0, 1);
@@ -103,7 +103,7 @@ export function funnyQuip(quip, l) {
             funnyQuip(quip, l);
         } else {
             setTimeout(() => {
-                if (quipping == true) {
+                if (quipping === true) {
                     document.getElementById("speechBubble").innerHTML = "";
                     document.getElementById("mascot").classList.remove("speaking");
                     const timeout = 500;

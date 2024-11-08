@@ -560,7 +560,7 @@ export function PickSubject() {
         </div>
 
         <footer>
-            <img src={'/itdoesntwork.svg'}></img>
+            <img src={'/itdoesntwork.svg'} alt="It doesn't work day"></img>
             <p>Made with hate by <a href="https://ubyssey.ca/authors/samlow/">Sam Low</a> and <a href="https://ubyssey.ca/humour">Ubyssey Humour Contributors</a>. <span className="nowrap">© 2024 Ubyssey</span></p>
         </footer>
     </div>

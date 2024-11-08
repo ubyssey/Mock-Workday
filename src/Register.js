@@ -48,7 +48,7 @@ export default function RegisterSaved() {
 
             </div>
             <footer>
-                <img src={'/itdoesntwork.svg'}></img>
+                <img src={'/itdoesntwork.svg'} alt="It doesn't work day"></img>
                 <p>Made with hate by <a href="https://ubyssey.ca/authors/samlow/">Sam Low</a> and <a href="https://ubyssey.ca/humour">Ubyssey Humour Contributors</a>. <span className="nowrap">© 2024 Ubyssey</span></p>
             </footer>
         </div>
@@ -112,7 +112,7 @@ function CaptchaModal() {
         solution = [];
         let answer = [];
         if (prob < problems.length) {
-            if (problems[prob]['type'] == 'select') {
+            if (problems[prob]['type'] === 'select') {
                 console.log(problems[prob]);
                 for (let r=0; r<problems[prob]['boxes'].length; r++) {
                     for (let c=0; c<problems[prob]['boxes'][r].length; c++) {
@@ -131,7 +131,7 @@ function CaptchaModal() {
 
     let captcha = <></>;
     if (prob < problems.length) {
-        if (problems[prob]['type'] == 'select') {
+        if (problems[prob]['type'] === 'select') {
             captcha = (
                 <>            
                     <div className="captcha-header">
@@ -188,7 +188,7 @@ function CaptchaModal() {
             <div className="captcha-bottom">
                 <p>{prob + 1} / {problems.length}</p>
                 <button onClick={() => {
-                    if(JSON.stringify(answerState) == JSON.stringify(solutionState)) {
+                    if(JSON.stringify(answerState) === JSON.stringify(solutionState)) {
                         document.getElementById('silly-captcha').classList.add('correct');
                         setTimeout(() => {
                             document.getElementById('silly-captcha').classList.remove('correct');

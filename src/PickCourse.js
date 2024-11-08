@@ -1,4 +1,4 @@
-import {Link, Outlet, useLocation} from "react-router-dom";
+import {Link, useLocation} from "react-router-dom";
 import React from "react";
 import ReactDOM from 'react-dom/client';
 
@@ -21,7 +21,7 @@ function throwProjectile(e) {
         for (let i=0; i <boxes.length; i++) {
             let rec = boxes[i].getBoundingClientRect();
             if ((e.pageX >= rec.left && e.pageX <= rec.right) && (e.pageY >= rec.top && e.pageY <= rec.bottom)){
-                if (document.getElementById('modal').childNodes.length == 0) {
+                if (document.getElementById('modal').childNodes.length === 0) {
                     const root = ReactDOM.createRoot(document.getElementById('modal'));
                     root.render(<SelectCourse course={boxes[i].getAttribute('name')} />);
                 }
@@ -60,11 +60,11 @@ function SelectCourse({course}) {
     for (let i=0; i<course.length%5 + 1; i++) {
         var a = {'time': ((course.length % (5+(3*i))) * 1800) + 10*(60*60)};
         a['active'] = 'inactive';
-        if (i%3==0) {
+        if (i%3===0) {
             a['days'] = [0, 2,4];
             a['name'] = 'Monday, Wednesday, Friday';
             a['length'] = (60*60);
-        } else if (i%3==1) {
+        } else if (i%3===1) {
             a['days'] = [1, 3];
             a['name'] = 'Tuesday, Thursday';
             a['length'] = 2* (60*60);
@@ -235,7 +235,7 @@ export default function PickCourse() {
         ],
         'pyschology': [
             'PSYC 100 - Introduction to "whoa those experiments performed during the cold war were not ethical at all"',
-            'PSYC 102 - Introduction to Brains Being Weird',,
+            'PSYC 102 - Introduction to Brains Being Weird',
             'PSYC 305 - I\'m INFP. - wait no. I\'m INTP. Or maybe I\'m actually a \'Shy Extrovert\'!',
             'PSYC 355 - What the heck is wrong with us?',
             'PSYC 312 - Freud was kinda dumb',
@@ -462,7 +462,7 @@ export default function PickCourse() {
             <DuckHunt classes={classes}/>
             
             <footer>
-                <img src={'/itdoesntwork.svg'}></img>
+                <img src={'/itdoesntwork.svg'} alt="It doesn't work day"></img>
                 <p>Made with hate by <a href="https://ubyssey.ca/authors/samlow/">Sam Low</a> and <a href="https://ubyssey.ca/humour">Ubyssey Humour Contributors</a>. <span className="nowrap">© 2024 Ubyssey</span></p>
             </footer>
         </div>

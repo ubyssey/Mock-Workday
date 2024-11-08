@@ -198,6 +198,7 @@ footer p {
   top: 50%;
   transform: translate(-50%, -50%);
   transition-duration: 1s;
+  overflow: visible;
 }
 
 .app-icon svg.grad {
@@ -268,8 +269,18 @@ svg.rocket .fire {
 }
 svg.rocket.explode {
   /*top: -100px;*/
-  animation: spiraling 3s 1s 1 ease-in-out;
+  animation: spiraling 3s 1s 1 ease-in-out, fall 0.75s 7s ease-in;
 }
+
+svg.rocket .star {
+  opacity: 0;
+  width: 0;
+  
+}
+
+svg.rocket.explode .star {
+  animation: combust 1s 8s ease-in-out;
+} 
 
 @keyframes spiraling {
   /*0% {rotate: 180deg}*/
@@ -278,6 +289,17 @@ svg.rocket.explode {
   45% {right: 30%; top:55%; transform-origin: -5px -5px;}
   75% {right: 80%; top:5%; transform-origin: -3px -5px;}
   100% {transform-origin: -2px -5px; rotate: -1980deg;}
+}
+
+@keyframes fall {
+  5% {left: 25%; right: 75%; top:-50%; rotate: 180deg; height: 350px;}
+  100% {left: 25%; right: 75%; top:calc(100% - 100px); rotate: 180deg; height: 350px;}
+}
+
+@keyframes combust {
+  5% {width: 0; opacity: 0;}
+  30% {width: 100%;opacity: 1;}
+  100% {width: 0; opacity: 0;}
 }
 
 .rocket.explode .fire {
@@ -311,6 +333,27 @@ svg.rocket.explode {
   40% {opacity: 1;}
   80% {opacity: 0;}
   100% {opacity: 0;}
+}
+
+.app-icon .coin, .app-icon .wallet-back, .app-icon .wallet-front {
+  transition-duration: 1s;
+}
+
+.app-icon:hover .coin {
+  height: 40%;
+  transform: translateY(-75%);
+}
+
+.app-icon:hover .wallet-back {
+  transform: translateX(2%) rotate(-5deg);
+}
+
+.app-icon:hover .wallet-front {
+  transform: translateY(5%) scaleX(0.9);
+}
+
+.app-icon:hover .link {
+  height: 40%;
 }
 
 .home-section ul h3 {
@@ -1727,5 +1770,21 @@ span.pointer {
   .clock {
     margin-inline: auto;
     height: 200px;
+  }
+  nav.nav .dysfunctionalSearch {
+    background: none;
+    border: none;
+    justify-content: right;
+  }
+  nav.nav .dysfunctionalSearch ion-icon {
+    position: absolute;
+    top: 0.5em;
+  }
+  nav.nav .dysfunctionalSearch input {
+    width: 2em;
+    opacity: 0;
+  }
+  input[type="text"] {
+    font-size: 16px;
   }
 }
