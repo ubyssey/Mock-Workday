@@ -352,12 +352,17 @@ function OptionList({layer, selected, setSelected}) {
                 <ul>{date_layers[layer]['children'].map((child, index) =>
                     <li key={index}>
                         { 'final' in date_layers[layer] ? 
-                            <button onClick={() => {addSelected(child, "term-button-" + String(index));}}>
+                            <button 
+                                onClick={() => {addSelected(child, "term-button-" + String(index));}}
+                                onTouchEndCapture={() => {addSelected(child, "term-button-" + String(index));}}>
                                 <input defaultChecked={selected.includes(child)} disabled id={"term-button-" + String(index)} type="checkbox" name="child" value="child"></input>
                                 <label for={"term-button-" + String(index)}>{child}</label>
                             </button>
                         :
-                            <button onClick={() => selectDate(child)}>{child}</button>
+                            <button 
+                                onClick={() => selectDate(child)}
+                                onTouchEndCapture={() => selectDate(child)}
+                                >{child}</button>
                         }
                     </li>
                 )}
@@ -367,7 +372,9 @@ function OptionList({layer, selected, setSelected}) {
     } else {
         return (
         <>
-        <button className="options-header" onClick={() => selectDate('root')}><ion-icon name="arrow-back-outline"></ion-icon> Error start again!</button>
+        <button className="options-header" 
+            onClick={() => selectDate('root')}
+            onTouchEndCapture={() => selectDate('root')}><ion-icon name="arrow-back-outline"></ion-icon> Error start again!</button>
         <p>Sawwy we just added this option for fun 👉👈</p>
         </>
         );

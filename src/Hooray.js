@@ -82,7 +82,7 @@ export default function Hooray() {
         scene.add( objectCSS );
         objects.push(objectCSS);
 
-        const courses = localStorage.getItem("courses").split(",");
+        const courses = localStorage.getItem("courses").split(";");
         for (let i=0; i<courses.length; i++) {
             const element = document.createElement( 'div' );
             element.className = 'courseCard';
