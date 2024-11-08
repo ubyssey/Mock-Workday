@@ -209,7 +209,7 @@ export default function Hooray() {
         <div className="content-container hooray">
             <div id="confettitwall"></div>
             <div>
-            <div className="pageheader">
+            <div className="pageheader finalheader">
                 <h1><Link to={"/"}><ion-icon name="arrow-back-outline"></ion-icon></Link> On the fifth day of the fourth month, the sky opened up and I saw visions of God.</h1>
             </div>
 
@@ -217,7 +217,7 @@ export default function Hooray() {
 
                 <div className="timetable">
                     <div id="implaying4dtimetable" className="ezekiel"></div>
-                    <p>Share with among your internet prisons! Or friends if you have those...</p>
+                    <p>Share with among your internet prisons!</p>
 
                     <p><a href="https://ubyssey.ca/"><i><b>The Ubyssey</b> "Our website actually works" since 1918</i></a></p>
                 </div>

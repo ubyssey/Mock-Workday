@@ -1434,6 +1434,8 @@ span.pointer {
   min-width: unset;
   border-radius: 0;
   margin-block: auto;
+  max-height: 80%;
+  overflow: auto;
 }
 .captcha-header {
   margin: 0.5em;
@@ -1462,15 +1464,26 @@ span.pointer {
 .captcha-box p.credit {
   margin: 1em;
   font-style: italic;
+  font-size: 0.6em;
+  margin-bottom: 0;
 }
 
 .correct .captcha-box table td, .correct .captcha-bottom button {
   background-color: #38ce64;
 }
 
+.correct .captcha-box table td {
+  border-color: #38ce64;
+}
+
 .wrong .captcha-box table td, .wrong .captcha-bottom button {
   background-color: #ef4040;
 }
+
+.wrong .captcha-box table td {
+  border-color: #ef4040;
+}
+
 
 .wrong .captcha-bottom button {
   transition-duration: 0.1s;
@@ -1536,7 +1549,7 @@ span.pointer {
 
 .captcha-bottom p {
   margin: 0.5em;
-  padding: 1em;
+  padding: 0.5em 1em;
 }
 
 .captcha-bottom button .wrong, .captcha-bottom button .correct {
@@ -1554,7 +1567,7 @@ span.pointer {
 .captcha-bottom button {
   background-color: #408def;
   margin: 0.5em;
-  padding: 0.75em 2em;
+  padding: 0.5em 1em;
   border-radius: 3px;
   border: none;
 
@@ -1564,6 +1577,7 @@ span.pointer {
 
 .timetable {
   width: 1000px;
+  max-width: 100%;
   overflow: clip;
   position: relative;
   height: 500px;
@@ -1574,6 +1588,10 @@ span.pointer {
   display: flex;
   flex-direction: column;
   justify-content: end;
+}
+
+.timetable p {
+  user-select: none;
 }
 
 .courseCard {
@@ -1805,5 +1823,8 @@ span.pointer {
   }
   #stupid-fucking-modal {
     width: 100%;
+  }
+  .finalheader {
+    font-size: 0.75em;
   }
 }
