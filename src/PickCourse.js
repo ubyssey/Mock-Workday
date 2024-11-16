@@ -158,10 +158,10 @@ export default function PickCourse() {
         "math": [
             "MATH 100 - High School Calculus AGAIN", 
             "MATH 101 - My view of humanity is decidedly more negative after suffering those group projects",
-            "MATH 200 - Honours in rRmoving 7 Years From Your Expected Lifespan Through Biweekly Proof Assignments",
+            "MATH 120 - Honours in Removing 7 Years From Your Expected Lifespan Through Biweekly Proof Assignments",
             "MATH 220 - PROVE IT!",
             "MATH 221 - Linear Algebra made intolerable",
-            "MATH 210 - Integrals made worse",
+            "MATH 200 - Integrals made worse",
         ],
         "computer-science": [
             "CPSC 110 - Introduction to Typing on a Computer and Hating Racket",
