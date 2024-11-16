@@ -233,7 +233,7 @@ export default function PickCourse() {
             'LING 451 - Acquisition of Phonology',
             'LING 452 - Acquisition of Syntax'*/
         ],
-        'pyschology': [
+        'psychology': [
             'PSYC 100 - Introduction to "whoa those experiments performed during the cold war were not ethical at all"',
             'PSYC 102 - Introduction to Brains Being Weird',
             'PSYC 305 - I\'m INFP. - wait no. I\'m INTP. Or maybe I\'m actually a \'Shy Extrovert\'!',

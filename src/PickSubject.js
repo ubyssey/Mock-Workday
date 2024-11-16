@@ -526,23 +526,23 @@ export function PickSubject() {
                         'economics',
                     ])}>How concerningly large the gender gap in enrolment is</button>                
                     <button onClick={() => reorderSubjects([
-                        'math',
                         'computer-engineering',
-                        'physics',
-                        'statistics',
-                        'computer-science',
-                        'psychology',
-                        'biology',
                         'civil-engineering',
-                        'astronomy',
                         'english',
+                        'psychology',
+                        'computer-science',
                         'sociology',
-                        'economics',
-                        'political-science',
+                        'math',
+                        'physics',
+                        'cognitive-systems',
                         'linguistics',
+                        'economics',
+                        'astronomy',
+                        'political-science',
                         'philosophy',
                         'geography',
-                        'cognitive-systems',
+                        'statistics',
+                        'biology',
                     ])}>Misery.</button>
                     <h2>Niche reference</h2>
                     <button onClick={() => badApple()}>Play animation</button>

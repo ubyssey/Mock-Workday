@@ -17,7 +17,7 @@ import Finances from './Finances';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
+<>
     <AnnoyingMascot />
     <BrowserRouter>
     <Nav />
@@ -35,7 +35,7 @@ root.render(
       <Route path="hooray" element={<Hooray/>}></Route>
     </Routes>
     </BrowserRouter>
-  </React.StrictMode>
+  </>
 );
 
 // If you want to start measuring performance in your app, pass a function

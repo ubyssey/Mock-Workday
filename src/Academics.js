@@ -68,6 +68,7 @@ export function AcademicsIndex() {
                     <li className="section-box records-third">
                         <h2>Humour</h2>
                         <ul>
+                            <li><a target="_blank" href="https://ubyssey.ca/humour/itdoesntwork-day/">UBC to replace Workday with new system of record ‘Itdoesn’twork day’</a></li>
                             <li><a target="_blank" href="https://ubyssey.ca/humour/ubcs-upgrade-to-workday-shockingly-sparks-negative-backlash/">UBC’s 'upgrade' to Workday shockingly sparks negative backlash</a></li>
                         </ul>
                     </li>
@@ -75,6 +76,7 @@ export function AcademicsIndex() {
                     <li className="section-box records-first">
                         <h2>News</h2>
                         <ul>
+                            <li><a target="_blank" href="https://ubyssey.ca/news/faculty-frustration-workday-student/">Faculty express frustration with transition to Workday Student</a></li>
                             <li><a target="_blank" href="https://ubyssey.ca/news/ubc-transitions-to-workday-student/">UBC transitions to Workday Student, students express frustration</a></li>
                             <li><a target="_blank" href="https://ubyssey.ca/news/revamp-of-ubcs-student-information-system-to-launch-late-summer-2023/">Revamp of UBC's student information system to launch late summer 2023</a></li>
                             <li><a target="_blank" href="https://ubyssey.ca/news/from-the-boardroom-june-24/">From the Boardroom: Governors sign provincial mandate letter, approve Workday Student funding</a></li>

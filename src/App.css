@@ -1620,6 +1620,11 @@ span.pointer {
   bottom: 0;
 }
 
+.surrounding {
+  min-width: 1000px;
+  height: auto;
+}
+
 .confetti {
   width: 50px;
   height: 10px;

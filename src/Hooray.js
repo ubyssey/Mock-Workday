@@ -29,6 +29,36 @@ export default function Hooray() {
         //const cube = new THREE.Mesh( geometry, material ); 
         //scene.add( cube ); 
 
+        var surounding = [
+            'wdcalendar.png',
+            'wdcourses.png',
+            'wdfuture.png',
+            'wdmenu.png',
+            'wdnodata.png',
+            'wdtime.png',
+            'wdworksheets.png',
+            'wdwtf.png',
+            'wdzeros.png',
+        ];
+
+        const surroundingDist = 3000;
+        for (let i=0; i<surounding.length; i++) {
+            var element = document.createElement( 'img' );
+            element.className = 'surrounding';
+            element.src = "/" + surounding[i];
+            var objectCSS = new CSS3DObject( element );
+            var angle = (i/surounding.length) * (2 * Math.PI);
+            objectCSS.position.x = Math.cos(angle) * surroundingDist;
+            objectCSS.position.z = Math.sin(angle) * surroundingDist;
+            objectCSS.position.y =  1000;
+            objectCSS.rotation.x = Math.PI/4;
+            objectCSS.rotation.y = angle + (Math.PI/2);
+            objectCSS.rotation.z = 0;
+            objectCSS.type = "surrounding";
+            scene.add( objectCSS );
+            objects.push(objectCSS);   
+        }
+
         var element = document.createElement( 'img' );
         element.className = 'dancing';
         element.src = "/Phenakistoscope.gif";
@@ -37,6 +67,18 @@ export default function Hooray() {
         objectCSS.position.y =  0;
         objectCSS.position.z = -1500;
         objectCSS.rotation.x = 0;
+        objectCSS.rotation.y = 0;
+        objectCSS.rotation.z = 0;
+        scene.add( objectCSS );
+        objects.push(objectCSS);
+
+        var element = document.createElement( 'img' );
+        element.className = 'dingbat';
+        element.src = "/dingbat.svg";
+        var objectCSS = new CSS3DObject( element );
+        objectCSS.position.x = 0;
+        objectCSS.position.y =  -500;
+        objectCSS.rotation.x = -(Math.PI/2);
         objectCSS.rotation.y = 0;
         objectCSS.rotation.z = 0;
         scene.add( objectCSS );
@@ -140,6 +182,13 @@ export default function Hooray() {
                     objects[i].rotation.y += 3 * speed * proximityModifier;
                     objects[i].rotation.z += 2 * speed * proximityModifier;
                 }
+
+                if (objects[i].type == "surrounding") {
+                    var angle = objects[i].rotation.y - (Math.PI/2) + (Math.PI*0.001);
+                    objects[i].position.x = Math.cos(angle) * surroundingDist;
+                    objects[i].position.z = Math.sin(angle) * surroundingDist;
+                    objects[i].rotation.y = angle + (Math.PI/2);
+                }
             }
             controls.update();
             renderer.render( scene, camera ); 
@@ -217,7 +266,7 @@ export default function Hooray() {
 
                 <div className="timetable">
                     <div id="implaying4dtimetable" className="ezekiel"></div>
-                    <p>Share with among your internet prisons!</p>
+                    <p>Share among your internet prisons!</p>
 
                     <p><a href="https://ubyssey.ca/"><i><b>The Ubyssey</b> "Our website actually works" since 1918</i></a></p>
                 </div>
